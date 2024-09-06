@@ -1,4 +1,4 @@
-# Monitoring the Economy of Burkina Faso
+# Monitoring the Economy of Ethiopia
 
 ## Assignment
 
