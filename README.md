@@ -6,8 +6,10 @@ The East Africa Poverty Team has requested support for using alternative data to
 
 The assignment includes an analysis of urban air quality trends, crop monitoring, and an analysis of sentiment towards recent socio-poltical crises through crowd-sourced survey data and Google search trends. 
 
+## Contents
 
-
+```{tableofcontents}
+```
 
 ## Data
 
@@ -24,30 +26,6 @@ The following datasets are used in this assignmet. Further details about each da
 Restrictions may apply to the data that support the findings of this study. Data received from the private sector through the Development Data Partnership are subject to the terms and conditions of the data license agreement and the “Official Use Only” data classification. These data are available upon request through the [Development Data Partnership](https://datapartnership.org/). Licensing and access information for all other datasets are included in the documentation.
 
 
-## Reusable Data Science Products
-
-The following data products are included in this project:
-
-* Urban Air Quality Monitoring
-
-* Crop Production Monitoring
-
-* Sentiment and Needs Trends
-
-  
-
-
-## Insights and Indicators
-
-These data products can be combined to create new indicators, such as:
-
-* (forthcoming)
-
-* (forthcoming)
-
-  
-
-
 ## License
 
 This projects is licensed under the [**Mozilla Public License**](https://opensource.org/license/mpl-2-0/) - see the [LICENSE](LICENSE) file for details.
@@ -55,4 +33,4 @@ This projects is licensed under the [**Mozilla Public License**](https://opensou
 
 ## Code of Conduct
 
-The <span style="color:#3EACAD">template</span> maintains a [Code of Conduct](docs/CODE_OF_CONDUCT.md) to ensure an inclusive and respectful environment for everyone. Please adhere to it in all interactions within our community.
+The World Bank Data Lab <span style="color:#3EACAD">template</span> used to create this project maintains a [Code of Conduct](docs/CODE_OF_CONDUCT.md) to ensure an inclusive and respectful environment for everyone. Please adhere to it in all interactions within our community.
