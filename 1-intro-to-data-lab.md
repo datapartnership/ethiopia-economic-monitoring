@@ -1,6 +1,6 @@
 # Introduction to the Data Lab
 
-The Data Lab supports World Bank operations -- lending, technical assistance, and economic reporting -- by coordinating ad-hoc teams of data scientists and geographers from across our organization. Through the Lab, teams solve global challenges using best practices in coding and documentation. 
+TEST The Data Lab supports World Bank operations -- lending, technical assistance, and economic reporting -- by coordinating ad-hoc teams of data scientists and geographers from across our organization. Through the Lab, teams solve global challenges using best practices in coding and documentation. 
 
 Unlike a traditional data analysis, which results in a single-use report or visualization, Data Lab products are designed to be customized, reused, and updated, thereby building the capacity of the World Bank and partner organizations to quickly deliver complex data science solutions to pressing global challenges.
 
