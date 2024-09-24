@@ -4,13 +4,13 @@ root: README
 parts:
   - caption: Introduction to the Data Lab
     chapters:
-      - file: docs/1-intro-to-data-goods
+      - file: docs/1-intro-to-data-lab
   - caption: Analytics
     chapters:
-      - file: docs/3-reusable-data-products
+      - file: docs/2-analytics
   - caption: Additional Resources
     chapters:
-      - file: docs/4-sample-insights-and-ind
+      - file: docs/3-add-resources
   - caption: Acknowledgements
     chapters:
-      - file: docs/6-team
+      - file: docs/4-team
