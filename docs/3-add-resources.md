@@ -2,7 +2,7 @@
 
 **Baseline Data**
 
-Each project includes a common set of foundational data that is shared across analytical work, such as administrative boundaries, population, and location of roads and buildings. 
+Each project includes a common set of foundational data that is shared across analytical work, such as administrative boundaries, population, and location of roads and buildings. Following is a summary of baseline data sources for this project. 
 
 | Topic                                    | Data Source | Notes |
 | ---------------------------------------- | ----------- | ----- |
@@ -17,12 +17,12 @@ Official-Use-Only original and derived datasets used in the project analytics ar
 * *Project Data SharePoint Link*
 * *Devleopment Data Hub Link (if applicable)*
 
-**Project Data Visualiztaions **
+**Project Data Visualiztaions**
 
 For some projects, additional static visualizations are created to support presentation and publication. To request access, World Bank staff can write: datalab@worlldbank.org. 
 
-* *Project SharePoint Link*
+* *Project SharePoint Link (if applicable)*
 
 **Other Resources**
 
-Additional links or resources are sometimes provided to supplement analytical work. 
+​	Additional links or resources are sometimes provided to supplement analytical work. 
