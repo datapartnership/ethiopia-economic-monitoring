@@ -4,6 +4,7 @@ The Data Lab would like to express our sincere gratutude and appreciation for th
 
 | **Name**                                                   | **Role**                                       | **Team**           |
 | ---------------------------------------------------------- | ---------------------------------------------- | ------------------ |
-| [Holly Krambeck](mailto:hkrambeck%40worldbank.org)         | Project Lead                                   | WB Data Lab, DECDG |
-| [Andres Chamorro](mailto:achamorroelizond%40worldbank.org) | Geographer - Maritime Anaytics                 | GOST, DECDG        |
-| [Sahiti Sarva](mailto:ssarva%40worldbank.org)              | Data Scientist - ACLED and Aviation Statistics | WB Data Lab, DECDG |
+| [Holly Krambeck](mailto:hkrambeck%40worldbank.org)         | Lab Program Manager                              | WB Data Lab, DECDG |
+| [Dunstan Matekenya](mailto:hkrambeck%40worldbank.org)      | Project Lead; Data Scienist - Air Pollution                            | WB Data Lab, DECDG |
+| [Guarav Bhardwaj](mailto:gbhardwaj1%40worldbank.org)       | Data Scientist - Google Trends Analysis          | DECID        |
+| [Sahiti Sarva](mailto:ssarva%40worldbank.org)              | Data Scientist - Conflict Analytics              | WB Data Lab, DECDG |
