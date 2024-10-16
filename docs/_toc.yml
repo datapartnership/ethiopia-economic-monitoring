@@ -10,7 +10,7 @@ parts:
       - file: docs/2-analytics
   - caption: Additional Resources
     chapters:
-      - file: docs/3-add-resources
+      - file: notebooks/air-pollution/air_pollution.ipynb
   - caption: Acknowledgements
     chapters:
       - file: docs/4-team
