@@ -11,6 +11,7 @@ parts:
   - caption: Additional Resources
     chapters:
       - file: notebooks/air-pollution/air_pollution.ipynb
+      - file: notebooks/surveys/premise.ipynb
   - caption: Acknowledgements
     chapters:
       - file: docs/4-team
