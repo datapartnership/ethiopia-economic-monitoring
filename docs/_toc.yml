@@ -10,7 +10,11 @@ parts:
       - file: docs/2-analytics
   - caption: Additional Resources
     chapters:
-      - file: notebooks/air-pollution/air_pollution.ipynb
+      - file: notebooks/air-pollution/README.md
+        sections:
+        - file: notebooks/air-pollution/air_pollution.ipynb
+        - file: notebooks/air-pollution/air_pollution_roads.ipynb
+      - file: notebooks/surveys/premise.ipynb
   - caption: Acknowledgements
     chapters:
       - file: docs/4-team
