@@ -7,12 +7,14 @@ parts:
       - file: docs/1-intro-to-data-lab
   - caption: Analytics
     chapters:
-      - file: docs/data
       - file: notebooks/basemaps/base-layers.ipynb
-  - caption: Additional Resources
-    chapters:
       - file: notebooks/air-pollution/air_pollution.ipynb
       - file: notebooks/surveys/premise.ipynb
+      - file: notebooks/google-trends/ethiopia_eda.ipynb
+
+  - caption: Additional Resources
+    chapters:
+      - file: docs/3-add-resources
   - caption: Acknowledgements
     chapters:
       - file: docs/4-team

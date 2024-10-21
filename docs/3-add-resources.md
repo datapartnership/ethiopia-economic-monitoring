@@ -3,12 +3,28 @@
 **Baseline Data**
 
 Each project includes a common set of foundational data that is shared across analytical work, such as administrative boundaries, population, and location of roads and buildings. Following is a summary of baseline data sources for this project. 
+```{data-sources}
+:header-rows: 1
+:name: datasets
 
-| Topic                                    | Data Source | Notes |
+* - **Topic**
+  - **Data Source**
+  - **Notes**
+* - Administrative Boundaries 
+  - [UNOCHA/HDX](https://data.humdata.org/dataset/cod-ab-eth)
+  - Data available up to adminlevel 3
+* - Population
+  - [UNOCHA/HDX](https://data.humdata.org/dataset/cod-ab-eth) and [WorldPop](https://hub.worldpop.org/geodata/listing?id=69)
+  - The data from UNOCHA is population density data from Meta while the WorlPop data is population counts both for 2020
+
+
+
+
+<!-- | Topic                                    | Data Source | Notes |
 | ---------------------------------------- | ----------- | ----- |
 | Administrative Boundaries                |             |       |
 | Population                               |             |       |
-| Infrastructure (Roads, Buildings, etc. ) |             |       |
+| Infrastructure (Roads, Buildings, etc. ) |             |       | -->
 
 **Project Data**
 
