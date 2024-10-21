@@ -8,7 +8,10 @@ parts:
   - caption: Analytics
     chapters:
       - file: notebooks/basemaps/base-layers.ipynb
-      - file: notebooks/air-pollution/air_pollution.ipynb
+      - file: notebooks/air-pollution/README.md
+        sections:
+        - file: notebooks/air-pollution/air_pollution.ipynb
+        - file: notebooks/air-pollution/air_pollution_roads.ipynb
       - file: notebooks/surveys/premise.ipynb
       - file: notebooks/google-trends/ethiopia_eda.ipynb
 
