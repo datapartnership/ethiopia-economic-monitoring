@@ -15,7 +15,6 @@ The assignment includes an analysis of urban air quality trends, crop monitoring
 
 The following datasets are used in this assignmet:
 
-
 * [PlumeLabs Pollution](https://air.plumelabs.com/air-quality-in-Addis%20Ababa-1rKb) - This proprietary data is accessed through the [Development Data Partnership](https://datapartnership.org/). The data contains daily updates of key air pollutants such as PM2.5, NO2 and more. 
 * [Premise](https://docs.datapartnership.org/partners/premise/README.html) - A data and analytics platform that generates real-time, actionable information by combining a global network of on-the-ground contributors with data science and machine learning. Prior survey data access can be requested through the [Development Data Partnership](https://datapartnership.org/).
 * [Google Search Trends](https://docs.datapartnership.org/partners/google/README.html). A private Google service for analyzing Google seach trends at a sub-national level. API access can be requested through the [Development Data Partnership](https://datapartnership.org/).
