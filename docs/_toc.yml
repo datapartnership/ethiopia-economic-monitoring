@@ -10,6 +10,7 @@ parts:
       - file: notebooks/basemaps/base-layers.ipynb
       - file: notebooks/air-pollution/README.md
         sections:
+        - file: notebooks/air-pollution/air_pollution_ethiopia.ipynb
         - file: notebooks/air-pollution/air_pollution.ipynb
         - file: notebooks/air-pollution/air_pollution_roads.ipynb
       - file: notebooks/surveys/premise.ipynb
