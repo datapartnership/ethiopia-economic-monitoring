@@ -15,6 +15,7 @@ parts:
         - file: notebooks/air-pollution/air_pollution_roads.ipynb
       - file: notebooks/surveys/premise.ipynb
       - file: notebooks/google-trends/ethiopia_eda.ipynb
+      - file: notebooks/nighttime-lights/nighttime-lights.ipynb
 
   - caption: Additional Resources
     chapters:
