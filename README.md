@@ -2,9 +2,7 @@
 
 ## Assignment
 
-The East Africa Poverty Team has requested support for using alternative data to better understand economic and poverty trends in Ethiopia. 
-
-The assignment includes an analysis of urban air quality trends, crop monitoring, and an analysis of sentiment towards recent socio-poltical crises through crowd-sourced survey data and Google search trends. 
+The East Africa Poverty Team has requested support for using alternative data to better understand economic and poverty trends in Ethiopia. The assignment includes an analysis of urban air quality trends, crop monitoring, and an analysis of sentiment towards recent socio-poltical crises through crowd-sourced survey data and Google search trends. 
 
 ## Contents
 
@@ -18,6 +16,7 @@ The following datasets are used in this assignmet:
 * [PlumeLabs Pollution](https://air.plumelabs.com/air-quality-in-Addis%20Ababa-1rKb) - This proprietary data is accessed through the [Development Data Partnership](https://datapartnership.org/). The data contains daily updates of key air pollutants such as PM2.5, NO2 and more. 
 * [Premise](https://docs.datapartnership.org/partners/premise/README.html) - A data and analytics platform that generates real-time, actionable information by combining a global network of on-the-ground contributors with data science and machine learning. Prior survey data access can be requested through the [Development Data Partnership](https://datapartnership.org/).
 * [Google Search Trends](https://docs.datapartnership.org/partners/google/README.html). A private Google service for analyzing Google seach trends at a sub-national level. API access can be requested through the [Development Data Partnership](https://datapartnership.org/).
+* [NASA BLackMarble](https://blackmarble.gsfc.nasa.gov/). A public dataset with daily, monthly and annual Nighttime Lights from NASA. 
 
 Additional details about each dataset—such as licensing, update frequency, and access instructions—are provided within the respective data products.
 
