@@ -16,6 +16,9 @@ parts:
       - file: notebooks/surveys/premise.ipynb
       - file: notebooks/google-trends/ethiopia_eda.ipynb
       - file: notebooks/nighttime-lights/nighttime-lights.ipynb
+      - file: notebooks/conflict/conflict.md
+        sections:
+        - file: notebooks/conflict/acled.ipynb
 
   - caption: Additional Resources
     chapters:
