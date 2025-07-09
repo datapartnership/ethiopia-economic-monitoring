@@ -1,0 +1,969 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Basemaps for Ethiopia</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=449c5310" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/basemaps/base-layers';</script>
+    <link rel="canonical" href="https://datapartnership.github.io/datapartnership/ethiopia-economic-monitoring/notebooks/basemaps/base-layers.html" />
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Air Pollution in Ethiopia" href="../air-pollution/README.html" />
+    <link rel="prev" title="Introduction to the Data Lab" href="../../docs/1-intro-to-data-lab.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+    <meta name="docbuild:last-update" content="Jul 09, 2025"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt=" - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt=" - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to the Data Lab</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../docs/1-intro-to-data-lab.html">Introduction to the Data Lab</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Analytics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Basemaps for Ethiopia</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../air-pollution/README.html">Air Pollution in Ethiopia</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../air-pollution/air_pollution_ethiopia.html">Air Pollution in Ethiopia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../air-pollution/air_pollution.html">Air Pollution in Addis Ababa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../air-pollution/air_pollution_roads.html">Air Pollution in Addis &amp; Addis-Djibouti Corridor</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../surveys/premise.html">Ethiopian Opinions on Somaliland: Survey from Premise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../google-trends/ethiopia_eda.html">Google Trends - Ethiopia Economic Monitor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nighttime-lights/nighttime-lights.html">Nighttime Lights Trends in Ethiopia</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../conflict/conflict.html">Conflict Location and Trends Monitor</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../conflict/acled.html">ACLED National and Subnational Conflict Trends</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../agriculture/README.html">Crop Productivity and EVI</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../agriculture/crop-productivity.html">Ethiopia Crop Productivity Analysis</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../combined_stats/city_comparison.html">Comparing Addis Ababa and Nairobi</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../combined_stats/conflict_impact.html">Conflict Impact on Economic Activity</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../combined_stats/summary_stats.html">Understanding Impact on Economic Activity</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Additional Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../docs/3-add-resources.html">Additional Resources</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Acknowledgements</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../docs/4-team.html">Project Team and Acknowedgements</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/datapartnership/ethiopia-economic-monitoring" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/datapartnership/ethiopia-economic-monitoring/edit/main/notebooks/basemaps/base-layers.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/datapartnership/ethiopia-economic-monitoring/issues/new?title=Issue%20on%20page%20%2Fnotebooks/basemaps/base-layers.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/basemaps/base-layers.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Basemaps for Ethiopia</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-data-sources">Summary of Data Sources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#administrative-boundaries">1. Administrative boundaries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#population">2. Population</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#world-pop-gridded-population-counts">World Pop gridded population counts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#meta-population-density-estimates">Meta population density estimates</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#points-of-interest-pois">3. Points of Interest (POIs)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-osm-places-and-pois-data">3.1 Summary of OSM places and POIs data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#osm-places">3.1.1 OSM Places</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#osm-pois">3.1.2 OSM POIs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-overture-places-and-pois-data">3.2 Summary of Overture places and POIs data</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="basemaps-for-ethiopia">
+<h1>Basemaps for Ethiopia<a class="headerlink" href="#basemaps-for-ethiopia" title="Link to this heading">#</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>This notebook aims to download, preprocess, and display various base layers, or basemaps, for Ethiopia. The following layers will be included:</p>
+<ol class="arabic simple">
+<li><p>Administrative boundaries</p></li>
+<li><p>Population</p></li>
+<li><p>Places and Points of Interest (POIs)</p></li>
+<li><p>Buildings</p></li>
+<li><p>Roads</p></li>
+</ol>
+<p>These basemaps have two main functions. First, they provide essential contextual information, such as demographic and infrastructure details. Second, they serve as crucial inputs for further advanced analysis in the project.</p>
+</section>
+<section id="summary-of-data-sources">
+<h2>Summary of Data Sources<a class="headerlink" href="#summary-of-data-sources" title="Link to this heading">#</a></h2>
+<p>The section below provides a summary of key information about the data sources for the basemaps.</p>
+<ol class="arabic simple">
+<li><p><strong>Ethiopia administrative boundaries.</strong> The administrative boundaries are available up to level 3 and the data was downloaded from <strong>UNOCHA</strong> or populary known as HDX</p></li>
+<li><p><strong>Population.</strong> THere two sources for population data: for populatoin density, we use Meta while for population counts we use WorldPop gridded population data.</p></li>
+<li><p><strong>Places and Points of Interest (POIs)</strong>.</p></li>
+<li><p><strong>Buildings</strong>. The buildings footprints are downloaded from Overturemaps</p></li>
+<li><p><strong>Roads</strong>. The road network data is downloaded from <strong>UNOCHA</strong></p></li>
+</ol>
+</section>
+<section id="administrative-boundaries">
+<h2>1. Administrative boundaries<a class="headerlink" href="#administrative-boundaries" title="Link to this heading">#</a></h2>
+<p>Administrative boundaries were downloaded from <a class="reference external" href="https://data.humdata.org/dataset/cod-ab-eth">HDX</a>. The dataset provides administrative boundaries up to level 3. According to the metadata on this page, the data originates from the <strong>Central Statistics Agency (CSA)</strong> and the <strong>Regional Bureau of Finance and Economic Development (BoFED)</strong>.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>==============================
+  Ethiopia Admin-1-Regions
+==============================
+
+There are 13 regions in the HDX dataset
+----------------------------------------
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
+</pre></div>
+</div>
+<img alt="../../_images/b45923062ca2ba6e0ed41d7ebdeb6eeb2b609e98b308755d6ae42e89da2ec065.png" src="../../_images/b45923062ca2ba6e0ed41d7ebdeb6eeb2b609e98b308755d6ae42e89da2ec065.png" />
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>==============================
+  Ethiopia Admin-2-Zones
+==============================
+
+There are 92 zones in the HDX dataset
+----------------------------------------
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
+</pre></div>
+</div>
+<img alt="../../_images/a44d8332fff0933dd57df45789a336b71a23a25788c2b058c3769b7a57874685.png" src="../../_images/a44d8332fff0933dd57df45789a336b71a23a25788c2b058c3769b7a57874685.png" />
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>========================================
+  Ethiopia Admin-3-Districts/Woredas
+========================================
+
+ There are 1082 districts in the HDX dataset
+---------------------------------------------
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
+</pre></div>
+</div>
+<img alt="../../_images/0a10404d5c238a5e266b079c64cc6c287acc8b98491f7cdf55900d9532fbaa7a.png" src="../../_images/0a10404d5c238a5e266b079c64cc6c287acc8b98491f7cdf55900d9532fbaa7a.png" />
+</div>
+</div>
+</section>
+<section id="population">
+<h2>2. Population<a class="headerlink" href="#population" title="Link to this heading">#</a></h2>
+<p>Two sources are used for population, one providing population density and the other population counts as follows.</p>
+<section id="world-pop-gridded-population-counts">
+<h3>World Pop gridded population counts<a class="headerlink" href="#world-pop-gridded-population-counts" title="Link to this heading">#</a></h3>
+<p><strong>Data source.</strong>(<a class="reference external" href="https://hub.worldpop.org/geodata/summary?id=26183">https://hub.worldpop.org/geodata/summary?id=26183</a>).</p>
+<p>This data provides estimated number of people per grid cell with resolution 100m. This is 2020 population.</p>
+</section>
+<section id="meta-population-density-estimates">
+<h3>Meta population density estimates<a class="headerlink" href="#meta-population-density-estimates" title="Link to this heading">#</a></h3>
+<p><strong>Data source.</strong>. The data was downloaded from <a class="reference external" href="https://data.humdata.org/dataset/ethiopia-high-resolution-population-density-maps-demographic-estimates">HDX website.</a></p>
+<p>In partnership with the Center for International Earth Science Information Network (CIESIN) at Columbia University, Meta uses state-of-the-art computer vision techniques to identify buildings from publicly accessible mapping services to create these population datasets. These maps are available at 30-meter resolution. These maps aren’t built using Facebook data and instead rely on applying machine vision AI to satellite imagery and census information. This data is publicly accessible on their <a class="reference external" href="https://registry.opendata.aws/dataforgood-fb-hrsl/">AWS Server</a> and detailed documentation can be found <a class="reference external" href="https://dataforgood.facebook.com/dfg/docs/methodology-high-resolution-population-density-maps">here</a>.</p>
+<p>The Population Data is demographically disaggregated into the following categories</p>
+<ul class="simple">
+<li><p>Men</p></li>
+<li><p>Women</p></li>
+<li><p>Children under 5</p></li>
+<li><p>Elderly</p></li>
+<li><p>Women of Reproductive Age (15-49)</p></li>
+<li><p>Youth (15-24)</p></li>
+<li><p>Senior</p></li>
+</ul>
+<p>This data is available at administrative level 3.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../_images/45a0884b28c9377f5f11b5922aa9b1ad11b39f14e9af638cc44807f062b1d54d.png" src="../../_images/45a0884b28c9377f5f11b5922aa9b1ad11b39f14e9af638cc44807f062b1d54d.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="points-of-interest-pois">
+<h2>3. Points of Interest (POIs)<a class="headerlink" href="#points-of-interest-pois" title="Link to this heading">#</a></h2>
+<p>These are also called places. We are considering two sources for this data.</p>
+<p><strong>OSM places</strong>. OSM places refer to geographical entities such as cities, towns, villages, neighborhoods, or other types of settlements. They represent populated or named areas on the map.The two main attributes available in this dataset are <em>category</em>, for example town, city, village and <em>place name</em>.</p>
+<p><strong>OSM POIs</strong>.Refer to specific, identifiable locations that offer a service, facility, or a specific function. They represent individual objects or amenities that people might visit or interact with.</p>
+</section>
+<section id="summary-of-osm-places-and-pois-data">
+<h2>3.1 Summary of OSM places and POIs data<a class="headerlink" href="#summary-of-osm-places-and-pois-data" title="Link to this heading">#</a></h2>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of places for Ethiopia in OSM dataset: 24,420
+Number of POIs for Ethiopia in OSM dataset: 13,205
+</pre></div>
+</div>
+</div>
+</div>
+<section id="osm-places">
+<h3>3.1.1 OSM Places<a class="headerlink" href="#osm-places" title="Link to this heading">#</a></h3>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>==================================================
+              OSM Places Categories               
+==================================================
+</pre></div>
+</div>
+<div class="output text_html"><style type="text/css">
+</style>
+<table id="T_e9e3e">
+  <thead>
+    <tr>
+      <th id="T_e9e3e_level0_col0" class="col_heading level0 col0" >Category</th>
+      <th id="T_e9e3e_level0_col1" class="col_heading level0 col1" >Count</th>
+      <th id="T_e9e3e_level0_col2" class="col_heading level0 col2" >Percent</th>
+      <th id="T_e9e3e_level0_col3" class="col_heading level0 col3" >Cum. Percent</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td id="T_e9e3e_row0_col0" class="data row0 col0" >locality</td>
+      <td id="T_e9e3e_row0_col1" class="data row0 col1" >14,442</td>
+      <td id="T_e9e3e_row0_col2" class="data row0 col2" >59.14%</td>
+      <td id="T_e9e3e_row0_col3" class="data row0 col3" >59.14%</td>
+    </tr>
+    <tr>
+      <td id="T_e9e3e_row1_col0" class="data row1 col0" >hamlet</td>
+      <td id="T_e9e3e_row1_col1" class="data row1 col1" >5,413</td>
+      <td id="T_e9e3e_row1_col2" class="data row1 col2" >22.17%</td>
+      <td id="T_e9e3e_row1_col3" class="data row1 col3" >81.31%</td>
+    </tr>
+    <tr>
+      <td id="T_e9e3e_row2_col0" class="data row2 col0" >village</td>
+      <td id="T_e9e3e_row2_col1" class="data row2 col1" >3,590</td>
+      <td id="T_e9e3e_row2_col2" class="data row2 col2" >14.70%</td>
+      <td id="T_e9e3e_row2_col3" class="data row2 col3" >96.01%</td>
+    </tr>
+    <tr>
+      <td id="T_e9e3e_row3_col0" class="data row3 col0" >town</td>
+      <td id="T_e9e3e_row3_col1" class="data row3 col1" >781</td>
+      <td id="T_e9e3e_row3_col2" class="data row3 col2" >3.20%</td>
+      <td id="T_e9e3e_row3_col3" class="data row3 col3" >99.21%</td>
+    </tr>
+    <tr>
+      <td id="T_e9e3e_row4_col0" class="data row4 col0" >suburb</td>
+      <td id="T_e9e3e_row4_col1" class="data row4 col1" >131</td>
+      <td id="T_e9e3e_row4_col2" class="data row4 col2" >0.54%</td>
+      <td id="T_e9e3e_row4_col3" class="data row4 col3" >99.74%</td>
+    </tr>
+    <tr>
+      <td id="T_e9e3e_row5_col0" class="data row5 col0" >city</td>
+      <td id="T_e9e3e_row5_col1" class="data row5 col1" >49</td>
+      <td id="T_e9e3e_row5_col2" class="data row5 col2" >0.20%</td>
+      <td id="T_e9e3e_row5_col3" class="data row5 col3" >99.94%</td>
+    </tr>
+    <tr>
+      <td id="T_e9e3e_row6_col0" class="data row6 col0" >region</td>
+      <td id="T_e9e3e_row6_col1" class="data row6 col1" >6</td>
+      <td id="T_e9e3e_row6_col2" class="data row6 col2" >0.02%</td>
+      <td id="T_e9e3e_row6_col3" class="data row6 col3" >99.97%</td>
+    </tr>
+    <tr>
+      <td id="T_e9e3e_row7_col0" class="data row7 col0" >farm</td>
+      <td id="T_e9e3e_row7_col1" class="data row7 col1" >3</td>
+      <td id="T_e9e3e_row7_col2" class="data row7 col2" >0.01%</td>
+      <td id="T_e9e3e_row7_col3" class="data row7 col3" >99.98%</td>
+    </tr>
+    <tr>
+      <td id="T_e9e3e_row8_col0" class="data row8 col0" >county</td>
+      <td id="T_e9e3e_row8_col1" class="data row8 col1" >2</td>
+      <td id="T_e9e3e_row8_col2" class="data row8 col2" >0.01%</td>
+      <td id="T_e9e3e_row8_col3" class="data row8 col3" >99.99%</td>
+    </tr>
+    <tr>
+      <td id="T_e9e3e_row9_col0" class="data row9 col0" >island</td>
+      <td id="T_e9e3e_row9_col1" class="data row9 col1" >2</td>
+      <td id="T_e9e3e_row9_col2" class="data row9 col2" >0.01%</td>
+      <td id="T_e9e3e_row9_col3" class="data row9 col3" >100.00%</td>
+    </tr>
+    <tr>
+      <td id="T_e9e3e_row10_col0" class="data row10 col0" >national_capital</td>
+      <td id="T_e9e3e_row10_col1" class="data row10 col1" >1</td>
+      <td id="T_e9e3e_row10_col2" class="data row10 col2" >0.00%</td>
+      <td id="T_e9e3e_row10_col3" class="data row10 col3" >100.00%</td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--------------------------------------------------
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../_images/756729300c8304d99e53b818c90692bafaae2fc0b7161876f9e29c50ca07f1cf.png" src="../../_images/756729300c8304d99e53b818c90692bafaae2fc0b7161876f9e29c50ca07f1cf.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="osm-pois">
+<h2>3.1.2 OSM POIs<a class="headerlink" href="#osm-pois" title="Link to this heading">#</a></h2>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>==================================================
+        Top-20 Categories in OSM POIs Data        
+==================================================
+</pre></div>
+</div>
+<div class="output text_html"><style type="text/css">
+</style>
+<table id="T_fbd8a">
+  <thead>
+    <tr>
+      <th id="T_fbd8a_level0_col0" class="col_heading level0 col0" >Category</th>
+      <th id="T_fbd8a_level0_col1" class="col_heading level0 col1" >Count</th>
+      <th id="T_fbd8a_level0_col2" class="col_heading level0 col2" >Percent</th>
+      <th id="T_fbd8a_level0_col3" class="col_heading level0 col3" >Cum. Percent</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td id="T_fbd8a_row0_col0" class="data row0 col0" >bank</td>
+      <td id="T_fbd8a_row0_col1" class="data row0 col1" >1,551</td>
+      <td id="T_fbd8a_row0_col2" class="data row0 col2" >11.75%</td>
+      <td id="T_fbd8a_row0_col3" class="data row0 col3" >11.75%</td>
+    </tr>
+    <tr>
+      <td id="T_fbd8a_row1_col0" class="data row1 col0" >hotel</td>
+      <td id="T_fbd8a_row1_col1" class="data row1 col1" >1,244</td>
+      <td id="T_fbd8a_row1_col2" class="data row1 col2" >9.42%</td>
+      <td id="T_fbd8a_row1_col3" class="data row1 col3" >21.17%</td>
+    </tr>
+    <tr>
+      <td id="T_fbd8a_row2_col0" class="data row2 col0" >restaurant</td>
+      <td id="T_fbd8a_row2_col1" class="data row2 col1" >1,010</td>
+      <td id="T_fbd8a_row2_col2" class="data row2 col2" >7.65%</td>
+      <td id="T_fbd8a_row2_col3" class="data row2 col3" >28.81%</td>
+    </tr>
+    <tr>
+      <td id="T_fbd8a_row3_col0" class="data row3 col0" >school</td>
+      <td id="T_fbd8a_row3_col1" class="data row3 col1" >753</td>
+      <td id="T_fbd8a_row3_col2" class="data row3 col2" >5.70%</td>
+      <td id="T_fbd8a_row3_col3" class="data row3 col3" >34.52%</td>
+    </tr>
+    <tr>
+      <td id="T_fbd8a_row4_col0" class="data row4 col0" >cafe</td>
+      <td id="T_fbd8a_row4_col1" class="data row4 col1" >710</td>
+      <td id="T_fbd8a_row4_col2" class="data row4 col2" >5.38%</td>
+      <td id="T_fbd8a_row4_col3" class="data row4 col3" >39.89%</td>
+    </tr>
+    <tr>
+      <td id="T_fbd8a_row5_col0" class="data row5 col0" >viewpoint</td>
+      <td id="T_fbd8a_row5_col1" class="data row5 col1" >597</td>
+      <td id="T_fbd8a_row5_col2" class="data row5 col2" >4.52%</td>
+      <td id="T_fbd8a_row5_col3" class="data row5 col3" >44.41%</td>
+    </tr>
+    <tr>
+      <td id="T_fbd8a_row6_col0" class="data row6 col0" >toilet</td>
+      <td id="T_fbd8a_row6_col1" class="data row6 col1" >486</td>
+      <td id="T_fbd8a_row6_col2" class="data row6 col2" >3.68%</td>
+      <td id="T_fbd8a_row6_col3" class="data row6 col3" >48.10%</td>
+    </tr>
+    <tr>
+      <td id="T_fbd8a_row7_col0" class="data row7 col0" >attraction</td>
+      <td id="T_fbd8a_row7_col1" class="data row7 col1" >405</td>
+      <td id="T_fbd8a_row7_col2" class="data row7 col2" >3.07%</td>
+      <td id="T_fbd8a_row7_col3" class="data row7 col3" >51.16%</td>
+    </tr>
+    <tr>
+      <td id="T_fbd8a_row8_col0" class="data row8 col0" >comms_tower</td>
+      <td id="T_fbd8a_row8_col1" class="data row8 col1" >397</td>
+      <td id="T_fbd8a_row8_col2" class="data row8 col2" >3.01%</td>
+      <td id="T_fbd8a_row8_col3" class="data row8 col3" >54.17%</td>
+    </tr>
+    <tr>
+      <td id="T_fbd8a_row9_col0" class="data row9 col0" >clinic</td>
+      <td id="T_fbd8a_row9_col1" class="data row9 col1" >317</td>
+      <td id="T_fbd8a_row9_col2" class="data row9 col2" >2.40%</td>
+      <td id="T_fbd8a_row9_col3" class="data row9 col3" >56.57%</td>
+    </tr>
+    <tr>
+      <td id="T_fbd8a_row10_col0" class="data row10 col0" >guesthouse</td>
+      <td id="T_fbd8a_row10_col1" class="data row10 col1" >317</td>
+      <td id="T_fbd8a_row10_col2" class="data row10 col2" >2.40%</td>
+      <td id="T_fbd8a_row10_col3" class="data row10 col3" >58.97%</td>
+    </tr>
+    <tr>
+      <td id="T_fbd8a_row11_col0" class="data row11 col0" >pharmacy</td>
+      <td id="T_fbd8a_row11_col1" class="data row11 col1" >290</td>
+      <td id="T_fbd8a_row11_col2" class="data row11 col2" >2.20%</td>
+      <td id="T_fbd8a_row11_col3" class="data row11 col3" >61.17%</td>
+    </tr>
+    <tr>
+      <td id="T_fbd8a_row12_col0" class="data row12 col0" >bar</td>
+      <td id="T_fbd8a_row12_col1" class="data row12 col1" >288</td>
+      <td id="T_fbd8a_row12_col2" class="data row12 col2" >2.18%</td>
+      <td id="T_fbd8a_row12_col3" class="data row12 col3" >63.35%</td>
+    </tr>
+    <tr>
+      <td id="T_fbd8a_row13_col0" class="data row13 col0" >supermarket</td>
+      <td id="T_fbd8a_row13_col1" class="data row13 col1" >250</td>
+      <td id="T_fbd8a_row13_col2" class="data row13 col2" >1.89%</td>
+      <td id="T_fbd8a_row13_col3" class="data row13 col3" >65.24%</td>
+    </tr>
+    <tr>
+      <td id="T_fbd8a_row14_col0" class="data row14 col0" >community_centre</td>
+      <td id="T_fbd8a_row14_col1" class="data row14 col1" >248</td>
+      <td id="T_fbd8a_row14_col2" class="data row14 col2" >1.88%</td>
+      <td id="T_fbd8a_row14_col3" class="data row14 col3" >67.12%</td>
+    </tr>
+    <tr>
+      <td id="T_fbd8a_row15_col0" class="data row15 col0" >bakery</td>
+      <td id="T_fbd8a_row15_col1" class="data row15 col1" >240</td>
+      <td id="T_fbd8a_row15_col2" class="data row15 col2" >1.82%</td>
+      <td id="T_fbd8a_row15_col3" class="data row15 col3" >68.94%</td>
+    </tr>
+    <tr>
+      <td id="T_fbd8a_row16_col0" class="data row16 col0" >atm</td>
+      <td id="T_fbd8a_row16_col1" class="data row16 col1" >212</td>
+      <td id="T_fbd8a_row16_col2" class="data row16 col2" >1.61%</td>
+      <td id="T_fbd8a_row16_col3" class="data row16 col3" >70.54%</td>
+    </tr>
+    <tr>
+      <td id="T_fbd8a_row17_col0" class="data row17 col0" >tower</td>
+      <td id="T_fbd8a_row17_col1" class="data row17 col1" >162</td>
+      <td id="T_fbd8a_row17_col2" class="data row17 col2" >1.23%</td>
+      <td id="T_fbd8a_row17_col3" class="data row17 col3" >71.77%</td>
+    </tr>
+    <tr>
+      <td id="T_fbd8a_row18_col0" class="data row18 col0" >water_well</td>
+      <td id="T_fbd8a_row18_col1" class="data row18 col1" >145</td>
+      <td id="T_fbd8a_row18_col2" class="data row18 col2" >1.10%</td>
+      <td id="T_fbd8a_row18_col3" class="data row18 col3" >72.87%</td>
+    </tr>
+    <tr>
+      <td id="T_fbd8a_row19_col0" class="data row19 col0" >bench</td>
+      <td id="T_fbd8a_row19_col1" class="data row19 col1" >138</td>
+      <td id="T_fbd8a_row19_col2" class="data row19 col2" >1.05%</td>
+      <td id="T_fbd8a_row19_col3" class="data row19 col3" >73.91%</td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--------------------------------------------------
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="summary-of-overture-places-and-pois-data">
+<h2>3.2 Summary of Overture places and POIs data<a class="headerlink" href="#summary-of-overture-places-and-pois-data" title="Link to this heading">#</a></h2>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks/basemaps"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../../docs/1-intro-to-data-lab.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Introduction to the Data Lab</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../air-pollution/README.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Air Pollution in Ethiopia</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-data-sources">Summary of Data Sources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#administrative-boundaries">1. Administrative boundaries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#population">2. Population</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#world-pop-gridded-population-counts">World Pop gridded population counts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#meta-population-density-estimates">Meta population density estimates</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#points-of-interest-pois">3. Points of Interest (POIs)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-osm-places-and-pois-data">3.1 Summary of OSM places and POIs data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#osm-places">3.1.1 OSM Places</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#osm-pois">3.1.2 OSM POIs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-overture-places-and-pois-data">3.2 Summary of Overture places and POIs data</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Development Data Group
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  Last updated on Jul 09, 2025.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <div>
+ Country borders or names do not necessarily reflect the World Bank Group’s official position. All maps are for illustrative purposes and do not imply the expression of any opinion on the part of the World Bank, concerning the legal status of any country or territory or concerning the delimitation of frontiers or boundaries
+</div>
+<div>
+    <b>All content (unless otherwise specified) is subject to the <a href="https://www.mozilla.org/en-US/MPL">Mozilla Public License.</a></b>
+</div>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

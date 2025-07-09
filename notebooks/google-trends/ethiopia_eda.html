@@ -1,0 +1,1202 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Google Trends - Ethiopia Economic Monitor</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=449c5310" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/google-trends/ethiopia_eda';</script>
+    <link rel="canonical" href="https://datapartnership.github.io/datapartnership/ethiopia-economic-monitoring/notebooks/google-trends/ethiopia_eda.html" />
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Nighttime Lights Trends in Ethiopia" href="../nighttime-lights/nighttime-lights.html" />
+    <link rel="prev" title="Ethiopian Opinions on Somaliland: Survey from Premise" href="../surveys/premise.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+    <meta name="docbuild:last-update" content="Jul 09, 2025"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt=" - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt=" - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to the Data Lab</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../docs/1-intro-to-data-lab.html">Introduction to the Data Lab</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Analytics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../basemaps/base-layers.html">Basemaps for Ethiopia</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../air-pollution/README.html">Air Pollution in Ethiopia</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../air-pollution/air_pollution_ethiopia.html">Air Pollution in Ethiopia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../air-pollution/air_pollution.html">Air Pollution in Addis Ababa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../air-pollution/air_pollution_roads.html">Air Pollution in Addis &amp; Addis-Djibouti Corridor</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../surveys/premise.html">Ethiopian Opinions on Somaliland: Survey from Premise</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Google Trends - Ethiopia Economic Monitor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nighttime-lights/nighttime-lights.html">Nighttime Lights Trends in Ethiopia</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../conflict/conflict.html">Conflict Location and Trends Monitor</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../conflict/acled.html">ACLED National and Subnational Conflict Trends</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../agriculture/README.html">Crop Productivity and EVI</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../agriculture/crop-productivity.html">Ethiopia Crop Productivity Analysis</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../combined_stats/city_comparison.html">Comparing Addis Ababa and Nairobi</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../combined_stats/conflict_impact.html">Conflict Impact on Economic Activity</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../combined_stats/summary_stats.html">Understanding Impact on Economic Activity</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Additional Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../docs/3-add-resources.html">Additional Resources</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Acknowledgements</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../docs/4-team.html">Project Team and Acknowedgements</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/datapartnership/ethiopia-economic-monitoring" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/datapartnership/ethiopia-economic-monitoring/edit/main/notebooks/google-trends/ethiopia_eda.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/datapartnership/ethiopia-economic-monitoring/issues/new?title=Issue%20on%20page%20%2Fnotebooks/google-trends/ethiopia_eda.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/google-trends/ethiopia_eda.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Google Trends - Ethiopia Economic Monitor</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#topic-based-search">Topic based search</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#word-association">Word association</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trends-from-other-countries">Trends from other countries</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#word-association-for-country-data">Word association for country data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subanational-coverage">Subanational Coverage</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="google-trends-ethiopia-economic-monitor">
+<h1>Google Trends - Ethiopia Economic Monitor<a class="headerlink" href="#google-trends-ethiopia-economic-monitor" title="Link to this heading">#</a></h1>
+<p>The Google trends analysis presetnted here is to support analytical activities to monitor impacts of economic reforms rolled out in 2024.</p>
+<p>The cornerstone of these economic reforms was the introduction of FX market liberalization at the end of July 2024 which led to a <u> substantial devaluation of the Ethiopian Birr</u>. While these measures are expected to boost productive capacity of households in the medium to long term, prices, employment, and incomes may be hit in the short-term transition period.</p>
+<p>To better understand the impact on population, we’ve gathered data from Google’s searches to see how the interest in particular search terms have been changing over time.</p>
+<p><b> Google Trends </b> provides access to a largely unfiltered sample of actual search requests made to Google. It’s anonymized (no one is personally identified), categorized (determining the topic for a search query) and aggregated (grouped together). This allows us to display interest in a particular topic from around the globe or down to city-level geography.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span><span class="o">,</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">networkx</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nx</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span> <span class="k">as</span> <span class="n">dt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">geopandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gpd</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">googleapiclient.discovery</span><span class="w"> </span><span class="kn">import</span> <span class="n">build</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">googleapiclient.http</span><span class="w"> </span><span class="kn">import</span> <span class="n">HttpError</span>
+
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C:\Users\WB542830\OneDrive - WBG\DEC\Cross-Support\DDP\EthiopiaEconomicMonitor&quot;</span><span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">credentials</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_key</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">font_manager</span> <span class="k">as</span> <span class="n">fm</span>
+<span class="n">fm</span><span class="o">.</span><span class="n">fontManager</span><span class="o">.</span><span class="n">addfont</span><span class="p">(</span><span class="s2">&quot;../../data/google_trends/Noto_Serif_Ethiopic/NotoSerifEthiopic-VariableFont_wdth,wght.ttf&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.family&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Noto Serif Ethiopic&#39;</span><span class="p">]</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Google</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Wrapper class for handling authentication and requests (GET) to Google API</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    token : str</span>
+<span class="sd">        Google API token</span>
+<span class="sd">        </span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    For more information, please see https://developers.google.com/apis-explorer</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">token</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">TOKEN</span> <span class="o">=</span> <span class="n">token</span> <span class="k">if</span> <span class="n">token</span> <span class="k">else</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;GOOGLE_TOKEN&quot;</span><span class="p">)</span>
+        
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">service</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Authenticate and instantiate Google API service&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">build</span><span class="p">(</span><span class="s1">&#39;trends&#39;</span><span class="p">,</span> <span class="s1">&#39;v1beta&#39;</span><span class="p">,</span> <span class="n">static_discovery</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">developerKey</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">TOKEN</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get result from Google API method&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">service</span><span class="p">,</span> <span class="n">method</span><span class="p">)(</span><span class="o">**</span><span class="n">params</span><span class="p">)</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
+    
+    
+    <span class="k">def</span><span class="w"> </span><span class="nf">download</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Download result from Google API method&quot;&quot;&quot;</span>
+        
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">method</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;getGraph&quot;</span><span class="p">,</span> <span class="s2">&quot;getTimelinesForHealth&quot;</span><span class="p">]:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Method not supported.&quot;</span><span class="p">)</span>
+        
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
+        
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">json_normalize</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;lines&quot;</span><span class="p">],</span> <span class="n">meta</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;term&quot;</span><span class="p">],</span> <span class="n">record_path</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;points&quot;</span><span class="p">])</span> 
+        
+        <span class="n">params</span> <span class="o">=</span> <span class="s2">&quot;+&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">=</span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">params</span><span class="o">.</span><span class="n">items</span><span class="p">()])</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2">+</span><span class="si">{</span><span class="n">params</span><span class="si">}</span><span class="s2">.csv&quot;</span>
+
+        <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">google</span> <span class="o">=</span> <span class="n">Google</span><span class="p">(</span><span class="n">get_key</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For the purpose of this analysis, we’ve broken down search terms into six major categories. These categories broadly caputre people’s interest over time and provides high level insights into their behavior. These categories include:</p>
+<ul class="simple">
+<li><p>Exchange Rate</p></li>
+<li><p>Devaluation</p></li>
+<li><p>Prices</p></li>
+<li><p>Natural Disasters</p></li>
+<li><p>Conflicts</p></li>
+<li><p>Other relevant terms</p></li>
+</ul>
+<p>These terms have been collected from Google’s related terms and topics search, as well as brainstorming with the team.</p>
+<section id="topic-based-search">
+<h2>Topic based search<a class="headerlink" href="#topic-based-search" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">forex_terms</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Exchange Rate&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;ethiopian immigration&quot;</span><span class="p">,</span> <span class="s1">&#39;ethiopian birr&#39;</span><span class="p">,</span> <span class="s2">&quot;ethiopia black market&quot;</span><span class="p">,</span> <span class="s2">&quot;National Bank of Ethiopia&quot;</span><span class="p">,</span> 
+               <span class="s2">&quot;Central Bank of Ethiopia&quot;</span><span class="p">,</span> <span class="s2">&quot;Awash Bank exchange rate&quot;</span><span class="p">,</span> 
+            <span class="s2">&quot;Dashen Bank exchange rate&quot;</span><span class="p">,</span> <span class="s2">&quot;national bank of ethiopia exchange rate&quot;</span><span class="p">,</span> <span class="s2">&quot;gold price in ethiopia&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;የአሜሪካ ዶላር&quot;</span><span class="p">,</span> <span class="s2">&quot;ኢትዮጵያ ንግድ ባንክ የዶላር ዋጋ&quot;</span><span class="p">,</span> <span class="s2">&quot;የምንዛሪ ተመን&quot;</span><span class="p">]}</span>
+
+<span class="n">deval_terms</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Devaluation&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;devaluation&quot;</span><span class="p">,</span> <span class="s2">&quot;birr devaluation&quot;</span><span class="p">,</span> <span class="s2">&quot;የብር ውድቀት&quot;</span><span class="p">,</span> <span class="s2">&quot;የዋጋ ግሽበት&quot;</span><span class="p">,</span> <span class="s2">&quot;የኢትዮጵያን የዋጋ ንረት&quot;</span><span class="p">,</span> 
+                                <span class="s2">&quot;Currency depreciation&quot;</span><span class="p">,</span>
+               <span class="s2">&quot;ethiopian birr devaluation&quot;</span><span class="p">,</span> <span class="s2">&quot;devaluation of ethiopian birr&quot;</span><span class="p">,</span> <span class="s2">&quot;money devaluation&quot;</span><span class="p">]}</span>
+
+<span class="n">price_terms</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Prices&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;fuel price in ethiopia&quot;</span><span class="p">,</span> <span class="s2">&quot;fuel price&quot;</span><span class="p">,</span> <span class="s2">&quot;gasoline price&quot;</span><span class="p">,</span> <span class="s2">&quot;gold price&quot;</span><span class="p">,</span> <span class="s2">&quot;gold price in ethiopia&quot;</span><span class="p">,</span>
+               <span class="s2">&quot;silver price in ethiopia&quot;</span><span class="p">]}</span>
+
+<span class="n">disaster_terms</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Natural Disasters&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;earthquake&quot;</span><span class="p">,</span> <span class="s2">&quot;landslides&quot;</span><span class="p">,</span> <span class="s2">&quot;floods&quot;</span><span class="p">]}</span>
+
+<span class="n">conflict_terms</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Conflict&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;somaliland&quot;</span><span class="p">,</span> <span class="s2">&quot;tigray conflict&quot;</span><span class="p">,</span> <span class="s2">&quot;civil war&quot;</span><span class="p">,</span> <span class="s2">&quot;tigray war&quot;</span><span class="p">,</span> <span class="s2">&quot;tplf&quot;</span><span class="p">]}</span>
+
+<span class="n">other_terms</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Corrdior Development Project&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;piassa&quot;</span><span class="p">]}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">dicts</span> <span class="ow">in</span> <span class="p">[</span><span class="n">forex_terms</span><span class="p">,</span> <span class="n">deval_terms</span><span class="p">,</span> <span class="n">price_terms</span><span class="p">,</span> <span class="n">disaster_terms</span><span class="p">,</span> <span class="n">conflict_terms</span><span class="p">,</span> <span class="n">other_terms</span><span class="p">]:</span>
+    
+    <span class="k">for</span> <span class="n">topic</span><span class="p">,</span> <span class="n">lis</span> <span class="ow">in</span> <span class="n">dicts</span><span class="o">.</span><span class="n">items</span><span class="p">():</span> 
+        <span class="k">for</span> <span class="n">term</span> <span class="ow">in</span> <span class="n">lis</span><span class="p">:</span>
+            <span class="n">filters</span> <span class="o">=</span> <span class="p">{</span>
+                        <span class="s1">&#39;terms&#39;</span><span class="p">:</span> <span class="n">term</span><span class="p">,</span>
+                        <span class="s1">&#39;restrictions_geo&#39;</span><span class="p">:</span> <span class="s2">&quot;ET&quot;</span><span class="p">,</span> <span class="c1">## contrained to Ethiopia</span>
+                        <span class="s1">&#39;restrictions_startDate&#39;</span><span class="p">:</span> <span class="s2">&quot;2024-01&quot;</span><span class="p">,</span> <span class="c1">## start date for the data</span>
+                        <span class="s1">&#39;restrictions_endDate&#39;</span> <span class="p">:</span> <span class="s2">&quot;2024-10&quot;</span> <span class="c1">## end date for the data (optional)</span>
+                    <span class="p">}</span>
+            
+            <span class="n">r</span> <span class="o">=</span> <span class="n">google</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;getGraph&#39;</span><span class="p">,</span> <span class="n">filters</span><span class="p">)</span>
+
+            <span class="n">df_</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="s1">&#39;lines&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;points&#39;</span><span class="p">])</span>
+            <span class="n">df_</span><span class="p">[</span><span class="s1">&#39;term&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">term</span>
+            <span class="n">df_</span><span class="p">[</span><span class="s1">&#39;topic&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">topic</span>
+
+            <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">,</span> <span class="n">df_</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#df.to_csv(&quot;../../data/google_trends/topic_searchterms.csv&quot;, index = False)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#df.groupby([&#39;topic&#39;, &#39;date&#39;])[&#39;value&#39;].mean().reset_index().pivot(index = &#39;date&#39;, columns = &#39;topic&#39;, values = &#39;value&#39;).plot(figsize = [20, 8])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_topic_charts</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">topic</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;&quot;</span>
+<span class="sd">    Function to create plots for a selected topic</span>
+
+<span class="sd">    Inputs:</span>
+<span class="sd">    df : pandas dataframe with Google&#39;s data from API</span>
+<span class="sd">    tpoic : topic to plot data for</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">dftemp</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;topic == &#39;</span><span class="si">{</span><span class="n">topic</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+    <span class="n">dftemp</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="n">dftemp</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">)</span>
+    <span class="n">dftemp</span> <span class="o">=</span> <span class="n">dftemp</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="s1">&#39;term&#39;</span><span class="p">,</span> <span class="n">values</span> <span class="o">=</span> <span class="s1">&#39;value&#39;</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">cols</span> <span class="ow">in</span> <span class="n">dftemp</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">dftemp</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">del</span> <span class="n">dftemp</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span>
+
+
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">dftemp</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">topic</span> <span class="o">==</span> <span class="s2">&quot;Conflict&quot;</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;2024-01-01&#39;</span><span class="p">),</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;-.&#39;</span><span class="p">,</span> <span class="n">lw</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Somaliland news&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">topic</span> <span class="o">==</span> <span class="s2">&quot;Natural Disasters&quot;</span><span class="p">:</span>
+        <span class="k">pass</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;2024-07-28&#39;</span><span class="p">),</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;-.&#39;</span><span class="p">,</span> <span class="n">lw</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Devaluation date&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Normalized search score&quot;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">10</span><span class="p">);</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Relative Google Search Trends for </span><span class="si">{</span><span class="n">topic</span><span class="si">}</span><span class="s2"> related terms&quot;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This section uses the data gatehred from Google’s API and creates charts to see the trends for each of the search terms. In cases where its relevant, the benchmarking lines are shown for when FX market liberalization was annnounced and when <a class="reference external" href="https://www.crisisgroup.org/africa/horn-africa/ethiopia-somaliland/stakes-ethiopia-somaliland-deal">Somaliland agreed to lease land to Ethiopia to build a naval facility</a>.</p>
+<p>For the topics Exchange rate, Devaluation and Prices - we can see sharp increase in the search for July 28th 2024, which was the date when market liberalization news first came out. People were inersted in knowing the more about devaluation and what it meant for the ecnonomy. Search terms like <code class="docutils literal notranslate"><span class="pre">Ethiopian</span> <span class="pre">birr</span></code>, <code class="docutils literal notranslate"><span class="pre">Awash</span> <span class="pre">bank</span> <span class="pre">exchange</span> <span class="pre">rate</span></code>, <code class="docutils literal notranslate"><span class="pre">National</span> <span class="pre">bank</span> <span class="pre">exchange</span> <span class="pre">rate</span></code> all started trending.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">get_topic_charts</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s2">&quot;Exchange Rate&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/c06381022437ecf97b2ce17feb0f7ec201be43092baf3e9c0c80945cb2d75eab.png" src="../../_images/c06381022437ecf97b2ce17feb0f7ec201be43092baf3e9c0c80945cb2d75eab.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">get_topic_charts</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s2">&quot;Devaluation&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/78cbe4d41287e8ad74797666ea715cb58e685a2384ddcab6b1b1d54b5986be91.png" src="../../_images/78cbe4d41287e8ad74797666ea715cb58e685a2384ddcab6b1b1d54b5986be91.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">get_topic_charts</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s2">&quot;Prices&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/78b195cc8de478480f4b8f451e67d4e8bb7ed8cc139f71c0bafd78c1a6cf2625.png" src="../../_images/78b195cc8de478480f4b8f451e67d4e8bb7ed8cc139f71c0bafd78c1a6cf2625.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">get_topic_charts</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s2">&quot;Conflict&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/bfecfd1e18e6d5b552e15c939f43c01654b51a78f14d6603d2e37173a5e0d8a6.png" src="../../_images/bfecfd1e18e6d5b552e15c939f43c01654b51a78f14d6603d2e37173a5e0d8a6.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">get_topic_charts</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s2">&quot;Natural Disasters&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/1d348b3fd7f913dfbcbae2eddf25a5e7e3970bbbaea3245ccbe0e2b035c9e3e7.png" src="../../_images/1d348b3fd7f913dfbcbae2eddf25a5e7e3970bbbaea3245ccbe0e2b035c9e3e7.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">get_topic_charts</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s2">&quot;Corrdior Development Project&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/97c204b4f189c381ea6370c46c7887e929a76cc770d896f2137e4ade12bbcb41.png" src="../../_images/97c204b4f189c381ea6370c46c7887e929a76cc770d896f2137e4ade12bbcb41.png" />
+</div>
+</div>
+<section id="word-association">
+<h3>Word association<a class="headerlink" href="#word-association" title="Link to this heading">#</a></h3>
+<p>To show the search terms are linked to a Topic and to each other, we created a network chart to better understand the association between search terms and their topics.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tdf</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="n">tdf</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Undirected&quot;</span>
+<span class="n">tdf</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.09</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">from_pandas_edgelist</span><span class="p">(</span><span class="n">tdf</span><span class="p">,</span> 
+                            <span class="n">source</span><span class="o">=</span><span class="s1">&#39;topic&#39;</span><span class="p">,</span> 
+                            <span class="n">target</span><span class="o">=</span><span class="s1">&#39;term&#39;</span><span class="p">,</span> 
+                            <span class="n">edge_attr</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No of unique characters:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No of connections:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>No of unique characters: 41
+No of connections: 36
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">topics</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">tdf</span><span class="o">.</span><span class="n">topic</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+<span class="n">node_lis</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">)</span>
+
+<span class="n">node_size</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1000</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">topics</span> <span class="k">else</span> <span class="mi">200</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">node_lis</span><span class="p">]</span>
+<span class="n">node_col</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;orange&#39;</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">topics</span> <span class="k">else</span> <span class="s1">&#39;grey&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">node_lis</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">8</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span> 
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">node_size</span> <span class="o">=</span> <span class="n">node_size</span><span class="p">,</span> <span class="n">node_color</span> <span class="o">=</span> <span class="n">node_col</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.6</span><span class="p">,</span>
+                                          <span class="n">font_family</span> <span class="o">=</span> <span class="s2">&quot;Noto Serif Ethiopic&quot;</span><span class="p">,</span> <span class="n">font_size</span> <span class="o">=</span> <span class="mi">9</span><span class="p">,</span> <span class="n">with_labels</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                                          <span class="n">font_weight</span> <span class="o">=</span> <span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Topic - Search terms association from Google Trends data&quot;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">);</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/d8424a1b21cc2c39a6a59b865492ca60cc1a8f7c1fe2a063e2649bc754221e34.png" src="../../_images/d8424a1b21cc2c39a6a59b865492ca60cc1a8f7c1fe2a063e2649bc754221e34.png" />
+</div>
+</div>
+<p>The team was also interested in knowing what was the global impact of Birr devaluation and the ongoing conflicts in the country. For this, we picked some search terms specific to Ethiopia and searched for them in other countries that have substantial Ethiopian presence i.e. United States, United Arab Emirates and South Africa. Unsurpisingly, there were sharp ticks in these search terms around the date of market liberalization announcement.</p>
+</section>
+</section>
+<section id="trends-from-other-countries">
+<h2>Trends from other countries<a class="headerlink" href="#trends-from-other-countries" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">us_terms</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ethiopian birr&#39;</span><span class="p">,</span> <span class="s2">&quot;ethiopia black market&quot;</span><span class="p">,</span> <span class="s1">&#39;&quot;usd to birr&quot; + &quot;birr to usd&quot;&#39;</span><span class="p">,</span> <span class="s2">&quot;National Bank of Ethiopia&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Central Bank of Ethiopia&quot;</span><span class="p">,</span> <span class="s2">&quot;Awash Bank exchange rate&quot;</span><span class="p">,</span> <span class="s2">&quot;ethiopia economic crisis&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Dashen Bank exchange rate&quot;</span><span class="p">,</span> <span class="s2">&quot;national bank of ethiopia exchange rate&quot;</span><span class="p">,</span> <span class="s2">&quot;gold price in ethiopia&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;የአሜሪካ ዶላር&quot;</span><span class="p">,</span> <span class="s2">&quot;ኢትዮጵያ ንግድ ባንክ የዶላር ዋጋ&quot;</span><span class="p">,</span> <span class="s2">&quot;የምንዛሪ ተመን&quot;</span><span class="p">]</span>
+
+<span class="n">uae_terms</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ethiopian birr&#39;</span><span class="p">,</span> <span class="s2">&quot;ethiopia black market&quot;</span><span class="p">,</span> <span class="s1">&#39;&quot;dirham to birr&quot; + &quot;birr to dirham&quot;&#39;</span><span class="p">,</span> <span class="s2">&quot;National Bank of Ethiopia&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;Central Bank of Ethiopia&quot;</span><span class="p">,</span> <span class="s2">&quot;Awash Bank exchange rate&quot;</span><span class="p">,</span> 
+            <span class="s2">&quot;Dashen Bank exchange rate&quot;</span><span class="p">,</span> <span class="s2">&quot;national bank of ethiopia exchange rate&quot;</span><span class="p">,</span> <span class="s2">&quot;gold price in ethiopia&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;የአሜሪካ ዶላር&quot;</span><span class="p">,</span> <span class="s2">&quot;ኢትዮጵያ ንግድ ባንክ የዶላር ዋጋ&quot;</span><span class="p">,</span> <span class="s2">&quot;የምንዛሪ ተመን&quot;</span><span class="p">]</span>
+
+<span class="n">sa_terms</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;ethiopian immigration&quot;</span><span class="p">,</span> <span class="s1">&#39;ethiopian birr&#39;</span><span class="p">,</span> <span class="s2">&quot;ethiopia black market&quot;</span><span class="p">,</span> <span class="s1">&#39;&quot;rand to birr&quot; + &quot;birr to rand&quot;&#39;</span><span class="p">,</span> 
+            <span class="s2">&quot;National Bank of Ethiopia&quot;</span><span class="p">,</span> <span class="s2">&quot;Central Bank of Ethiopia&quot;</span><span class="p">,</span> <span class="s2">&quot;Awash Bank exchange rate&quot;</span><span class="p">,</span> 
+            <span class="s2">&quot;Dashen Bank exchange rate&quot;</span><span class="p">,</span> <span class="s2">&quot;national bank of ethiopia exchange rate&quot;</span><span class="p">,</span> <span class="s2">&quot;gold price in ethiopia&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;የአሜሪካ ዶላር&quot;</span><span class="p">,</span> <span class="s2">&quot;ኢትዮጵያ ንግድ ባንክ የዶላር ዋጋ&quot;</span><span class="p">,</span> <span class="s2">&quot;የምንዛሪ ተመን&quot;</span><span class="p">]</span>
+
+<span class="c1">#eth_terms = [&quot;ethiopian immigration&quot;, &quot;black market&quot;, &quot;income tax rate&quot;, &quot;ethiopia economic reform&quot;, </span>
+<span class="c1">#             &quot;ethiopia exchange rate in ethiopia &quot;, &quot;commercial bank of ethiopia exchange rate&quot;,</span>
+<span class="c1">#             &quot;national bank of ethiopia&quot;, &quot;gold price in ethiopia&quot;, ]</span>
+
+<span class="n">terms</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;US&quot;</span> <span class="p">:</span> <span class="n">us_terms</span><span class="p">,</span> <span class="s2">&quot;AE&quot;</span> <span class="p">:</span> <span class="n">uae_terms</span><span class="p">,</span> <span class="s2">&quot;ZA&quot;</span> <span class="p">:</span> <span class="n">sa_terms</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">country</span><span class="p">,</span> <span class="n">term_list</span> <span class="ow">in</span> <span class="n">terms</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    
+    <span class="k">for</span> <span class="n">term</span> <span class="ow">in</span> <span class="n">term_list</span><span class="p">:</span>
+        <span class="n">filters</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s1">&#39;terms&#39;</span><span class="p">:</span> <span class="n">term</span><span class="p">,</span>
+                    <span class="s1">&#39;restrictions_geo&#39;</span><span class="p">:</span> <span class="n">country</span><span class="p">,</span>
+                    <span class="s1">&#39;restrictions_startDate&#39;</span><span class="p">:</span> <span class="s2">&quot;2024-01&quot;</span><span class="p">,</span>
+                    <span class="s1">&#39;restrictions_endDate&#39;</span> <span class="p">:</span> <span class="s2">&quot;2024-10&quot;</span>
+                <span class="p">}</span>
+        
+        <span class="n">r</span> <span class="o">=</span> <span class="n">google</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;getGraph&#39;</span><span class="p">,</span> <span class="n">filters</span><span class="p">)</span>
+
+        <span class="n">df_</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="s1">&#39;lines&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;points&#39;</span><span class="p">])</span>
+        <span class="n">df_</span><span class="p">[</span><span class="s1">&#39;term&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">term</span>
+        <span class="n">df_</span><span class="p">[</span><span class="s1">&#39;country&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">country</span>
+
+        <span class="n">con_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">con_df</span><span class="p">,</span> <span class="n">df_</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#con_df.to_csv(&quot;../../data/google_trends/country_searchterms.csv&quot;, index = False)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_country_charts</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">country</span><span class="p">):</span>
+
+    <span class="n">con_map</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;US&quot;</span> <span class="p">:</span> <span class="s2">&quot;United States&quot;</span><span class="p">,</span> <span class="s2">&quot;ZA&quot;</span> <span class="p">:</span> <span class="s2">&quot;South Africa&quot;</span><span class="p">,</span> <span class="s2">&quot;AE&quot;</span> <span class="p">:</span> <span class="s2">&quot;UAE&quot;</span><span class="p">}</span>
+
+    <span class="n">us_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;country == &#39;</span><span class="si">{</span><span class="n">country</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+    <span class="n">us_df</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="n">us_df</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">)</span>
+    <span class="n">us_df</span> <span class="o">=</span> <span class="n">us_df</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="s1">&#39;term&#39;</span><span class="p">,</span> <span class="n">values</span> <span class="o">=</span> <span class="s1">&#39;value&#39;</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">cols</span> <span class="ow">in</span> <span class="n">us_df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">us_df</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">del</span> <span class="n">us_df</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span>
+
+
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">us_df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;2024-07-28&#39;</span><span class="p">),</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;-.&#39;</span><span class="p">,</span> <span class="n">lw</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Devaluation date&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Normalized search score&quot;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">10</span><span class="p">);</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Relative Google Search Trends for exchange rate related terms from </span><span class="si">{</span><span class="n">con_map</span><span class="p">[</span><span class="n">country</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">get_country_charts</span><span class="p">(</span><span class="n">con_df</span><span class="p">,</span> <span class="s1">&#39;US&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/56e9da349928123e4476a5a325fa6dfc660cc69495074dc90673690062411a49.png" src="../../_images/56e9da349928123e4476a5a325fa6dfc660cc69495074dc90673690062411a49.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">get_country_charts</span><span class="p">(</span><span class="n">con_df</span><span class="p">,</span> <span class="s1">&#39;AE&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/f92ad5bfc98c89c75cbb271d10380237ce9b17e8b7f0207b19dffe52763fbfba.png" src="../../_images/f92ad5bfc98c89c75cbb271d10380237ce9b17e8b7f0207b19dffe52763fbfba.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">get_country_charts</span><span class="p">(</span><span class="n">con_df</span><span class="p">,</span> <span class="s1">&#39;ZA&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/0e5fbefba0d1787d765dcefd12742be5ffc124200213158e78c44d296e8e7be6.png" src="../../_images/0e5fbefba0d1787d765dcefd12742be5ffc124200213158e78c44d296e8e7be6.png" />
+</div>
+</div>
+<section id="word-association-for-country-data">
+<h3>Word association for country data<a class="headerlink" href="#word-association-for-country-data" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cons</span> <span class="o">=</span> <span class="n">con_df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="n">cons</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Undirected&quot;</span>
+<span class="n">cons</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">12</span>
+
+<span class="n">Gc</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">from_pandas_edgelist</span><span class="p">(</span><span class="n">cons</span><span class="p">,</span> 
+                            <span class="n">source</span><span class="o">=</span><span class="s1">&#39;country&#39;</span><span class="p">,</span> 
+                            <span class="n">target</span><span class="o">=</span><span class="s1">&#39;term&#39;</span><span class="p">,</span> 
+                            <span class="n">edge_attr</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No of unique characters:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">Gc</span><span class="o">.</span><span class="n">nodes</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No of connections:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">Gc</span><span class="o">.</span><span class="n">edges</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>No of unique characters: 19
+No of connections: 38
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">countries</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">cons</span><span class="o">.</span><span class="n">country</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+<span class="n">con_node_lis</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">Gc</span><span class="o">.</span><span class="n">nodes</span><span class="p">)</span>
+
+<span class="n">con_node_size</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1000</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">countries</span> <span class="k">else</span> <span class="mi">200</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">con_node_lis</span><span class="p">]</span>
+<span class="n">con_node_col</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;orange&#39;</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">countries</span> <span class="k">else</span> <span class="s1">&#39;grey&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">con_node_lis</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">8</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span> 
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_shell</span><span class="p">(</span><span class="n">Gc</span><span class="p">,</span> <span class="n">node_size</span> <span class="o">=</span> <span class="n">con_node_size</span><span class="p">,</span> <span class="n">node_color</span> <span class="o">=</span> <span class="n">con_node_col</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.6</span><span class="p">,</span>
+                                          <span class="n">font_family</span> <span class="o">=</span> <span class="s2">&quot;Noto Serif Ethiopic&quot;</span><span class="p">,</span> <span class="n">font_size</span> <span class="o">=</span> <span class="mi">9</span><span class="p">,</span> <span class="n">with_labels</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                                          <span class="n">font_weight</span> <span class="o">=</span> <span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Country - Search terms association from Google Trends data&quot;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">);</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/11f046314d6357cbb1b1d70bf2e1058e6743744542921d601318d17a30382b62.png" src="../../_images/11f046314d6357cbb1b1d70bf2e1058e6743744542921d601318d17a30382b62.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="subanational-coverage">
+<h2>Subanational Coverage<a class="headerlink" href="#subanational-coverage" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sub_dirs</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;ET-AA&#39;</span> <span class="p">:</span> <span class="s1">&#39;Addis Ababa&#39;</span><span class="p">},</span>
+<span class="p">{</span><span class="s1">&#39;ET-AF&#39;</span> <span class="p">:</span> <span class="s1">&#39;Afar&#39;</span><span class="p">},</span>
+<span class="p">{</span><span class="s1">&#39;ET-AM&#39;</span> <span class="p">:</span> <span class="s1">&#39;Amara&#39;</span><span class="p">},</span>
+<span class="p">{</span><span class="s1">&#39;ET-BE&#39;</span> <span class="p">:</span> <span class="s1">&#39;Benshangul-Gumaz&#39;</span><span class="p">},</span>
+<span class="p">{</span><span class="s1">&#39;ET-DD&#39;</span> <span class="p">:</span> <span class="s1">&#39;Dire Dawa&#39;</span><span class="p">},</span>
+<span class="p">{</span><span class="s1">&#39;ET-GA&#39;</span> <span class="p">:</span> <span class="s1">&#39;Gambela Peoples&#39;</span><span class="p">},</span>
+<span class="p">{</span><span class="s1">&#39;ET-HA&#39;</span> <span class="p">:</span> <span class="s1">&#39;Harari People&#39;</span><span class="p">},</span>
+<span class="p">{</span><span class="s1">&#39;ET-OR&#39;</span> <span class="p">:</span> <span class="s1">&#39;Oromia&#39;</span><span class="p">},</span>
+<span class="p">{</span><span class="s1">&#39;ET-SI&#39;</span> <span class="p">:</span> <span class="s1">&#39;Sidama&#39;</span><span class="p">},</span>
+<span class="p">{</span><span class="s1">&#39;ET-SN&#39;</span> <span class="p">:</span> <span class="s1">&#39;Southern Nations, Nationalities and Peoples&#39;</span><span class="p">},</span>
+<span class="p">{</span><span class="s1">&#39;ET-SO&#39;</span> <span class="p">:</span> <span class="s1">&#39;Somali&#39;</span><span class="p">},</span>
+<span class="p">{</span><span class="s1">&#39;ET-SW&#39;</span> <span class="p">:</span> <span class="s1">&#39;Southwest Ethiopia Peoples&#39;</span><span class="p">},</span>
+<span class="p">{</span><span class="s1">&#39;ET-TI&#39;</span> <span class="p">:</span> <span class="s1">&#39;Tigrai&#39;</span><span class="p">}]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">geo</span> <span class="ow">in</span> <span class="n">sub_dirs</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">dicts</span> <span class="ow">in</span> <span class="p">[</span><span class="n">forex_terms</span><span class="p">,</span> <span class="n">deval_terms</span><span class="p">,</span> <span class="n">price_terms</span><span class="p">,</span> <span class="n">disaster_terms</span><span class="p">,</span> <span class="n">conflict_terms</span><span class="p">,</span> <span class="n">other_terms</span><span class="p">]:</span>
+        
+        <span class="k">for</span> <span class="n">topic</span><span class="p">,</span> <span class="n">lis</span> <span class="ow">in</span> <span class="n">dicts</span><span class="o">.</span><span class="n">items</span><span class="p">():</span> 
+            <span class="k">for</span> <span class="n">term</span> <span class="ow">in</span> <span class="n">lis</span><span class="p">:</span>
+                <span class="n">filters</span> <span class="o">=</span> <span class="p">{</span>
+                            <span class="s1">&#39;terms&#39;</span><span class="p">:</span> <span class="n">term</span><span class="p">,</span>
+                            <span class="s1">&#39;geoRestriction_region&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">geo</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">],</span>
+                            <span class="s1">&#39;time_startDate&#39;</span><span class="p">:</span> <span class="s2">&quot;2024-01-01&quot;</span><span class="p">,</span>
+                            <span class="c1">#&#39;time_endDate&#39; : &quot;2024-10-&quot;,</span>
+                            <span class="s2">&quot;timelineResolution&quot;</span> <span class="p">:</span> <span class="s2">&quot;week&quot;</span>
+                        <span class="p">}</span>
+                <span class="k">try</span><span class="p">:</span>
+                    
+                    <span class="n">r</span> <span class="o">=</span> <span class="n">google</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;getTimelinesForHealth&#39;</span><span class="p">,</span> <span class="n">filters</span><span class="p">)</span>
+
+                    <span class="n">df_</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="s1">&#39;lines&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;points&#39;</span><span class="p">])</span>
+                    <span class="n">df_</span><span class="p">[</span><span class="s1">&#39;term&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">term</span>
+                    <span class="n">df_</span><span class="p">[</span><span class="s1">&#39;topic&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">topic</span>
+                    <span class="n">df_</span><span class="p">[</span><span class="s1">&#39;geo&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">geo</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
+
+                    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">,</span> <span class="n">df_</span><span class="p">])</span>
+
+                <span class="k">except</span> <span class="n">HttpError</span><span class="p">:</span>
+                    <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shps</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;../../WB_Boundaries_2022WB_GAD_ADM1.shp&quot;</span><span class="p">)</span>
+
+<span class="n">shps</span> <span class="o">=</span> <span class="n">shps</span><span class="p">[</span><span class="n">shps</span><span class="o">.</span><span class="n">ISO_A3</span> <span class="o">==</span> <span class="s1">&#39;ETH&#39;</span><span class="p">]</span>
+
+<span class="n">con_map</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;Addis Ababa&#39;</span> <span class="p">:</span> <span class="s2">&quot;ET-AA&quot;</span><span class="p">,</span> 
+    <span class="s1">&#39;Afar&#39;</span> <span class="p">:</span> <span class="s2">&quot;ET-AF&quot;</span><span class="p">,</span> 
+    <span class="s1">&#39;Amhara&#39;</span> <span class="p">:</span> <span class="s1">&#39;ET-AM&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;Benishangul Gumz&#39;</span> <span class="p">:</span> <span class="s1">&#39;ET-BE&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;Dire Dawa&#39;</span> <span class="p">:</span> <span class="s1">&#39;ET-DD&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Gambela&#39;</span> <span class="p">:</span> <span class="s1">&#39;ET-GA&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;Harari&#39;</span> <span class="p">:</span> <span class="s1">&#39;ET-HA&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;Oromia&#39;</span> <span class="p">:</span> <span class="s1">&#39;ET-OR&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;Sidama&#39;</span> <span class="p">:</span> <span class="s1">&#39;ET-SI&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;SNNP&#39;</span> <span class="p">:</span> <span class="s1">&#39;ET-SN&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;Somali&#39;</span> <span class="p">:</span> <span class="s1">&#39;ET-SO&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Tigray&#39;</span> <span class="p">:</span> <span class="s1">&#39;ET-TI&#39;</span>
+<span class="p">}</span>
+
+<span class="n">shps</span><span class="p">[</span><span class="s1">&#39;ISO_S1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">shps</span><span class="o">.</span><span class="n">NAM_1</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">con_map</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">count_temp</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">value</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;topic&#39;</span><span class="p">,</span> <span class="s1">&#39;term&#39;</span><span class="p">,</span> <span class="s1">&#39;geo&#39;</span><span class="p">])[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#term = &quot;ethiopia black market&quot;</span>
+
+<span class="k">for</span> <span class="n">term</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;ethiopian birr&quot;</span><span class="p">,</span> <span class="s2">&quot;ethiopia black market&quot;</span><span class="p">,</span> <span class="s2">&quot;somaliland&quot;</span><span class="p">,</span> <span class="s2">&quot;ethiopian immigration&quot;</span><span class="p">]:</span>
+
+    <span class="n">sub_temp</span> <span class="o">=</span> <span class="n">count_temp</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;term == &#39;</span><span class="si">{</span><span class="n">term</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+
+    <span class="n">sub_temp</span> <span class="o">=</span> <span class="n">sub_temp</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">shps</span><span class="p">,</span> <span class="n">left_on</span> <span class="o">=</span> <span class="s1">&#39;geo&#39;</span><span class="p">,</span> <span class="n">right_on</span> <span class="o">=</span> <span class="s1">&#39;ISO_S1&#39;</span><span class="p">)</span>
+
+    <span class="c1">#sub_temp.loc[sub_temp[pd.isna(sub_temp.value)].index, &#39;value&#39;] = 0.1</span>
+
+    <span class="n">sub_temp</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">sub_temp</span><span class="p">)</span>
+
+    <span class="n">sub_temp</span><span class="p">[</span><span class="s1">&#39;coords&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sub_temp</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">representative_point</span><span class="p">()</span><span class="o">.</span><span class="n">coords</span><span class="p">[:])</span>
+    <span class="n">sub_temp</span><span class="p">[</span><span class="s1">&#39;coords&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">coords</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">coords</span> <span class="ow">in</span> <span class="n">sub_temp</span><span class="p">[</span><span class="s1">&#39;coords&#39;</span><span class="p">]]</span>
+
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">sub_temp</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">column</span> <span class="o">=</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s1">&#39;GnBu&#39;</span><span class="p">,</span> <span class="n">legend</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mf">0.7</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+    
+    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">sub_temp</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">row</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;NAM_1&#39;</span><span class="p">],</span> 
+                <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+        <span class="c1">#bbox={&#39;facecolor&#39;: &#39;white&#39;, &#39;alpha&#39;:0.8, &#39;pad&#39;: 1, &#39;edgecolor&#39;:&#39;none&#39;}</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of weeks with valid data for the term - </span><span class="si">{</span><span class="n">term</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/7ec7159bf0b206a611c4d1b667c5e3e7078f786a301f815487d60c7bc30bdeea.png" src="../../_images/7ec7159bf0b206a611c4d1b667c5e3e7078f786a301f815487d60c7bc30bdeea.png" />
+<img alt="../../_images/e362bf317ba9dd6ddb81bacad296434982799e8869e2c8537d5dedc3046b1368.png" src="../../_images/e362bf317ba9dd6ddb81bacad296434982799e8869e2c8537d5dedc3046b1368.png" />
+<img alt="../../_images/88daf1f5e94846d479f71049aa12b96c636b2d1f992039ed3b738943b6da49a8.png" src="../../_images/88daf1f5e94846d479f71049aa12b96c636b2d1f992039ed3b738943b6da49a8.png" />
+<img alt="../../_images/3acedfcf917b87bf38872ff0e3d1094a74f2046b4c89bcf5a2090d524a21b559.png" src="../../_images/3acedfcf917b87bf38872ff0e3d1094a74f2046b4c89bcf5a2090d524a21b559.png" />
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks/google-trends"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../surveys/premise.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Ethiopian Opinions on Somaliland: Survey from Premise</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../nighttime-lights/nighttime-lights.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Nighttime Lights Trends in Ethiopia</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#topic-based-search">Topic based search</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#word-association">Word association</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trends-from-other-countries">Trends from other countries</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#word-association-for-country-data">Word association for country data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subanational-coverage">Subanational Coverage</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Development Data Group
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  Last updated on Jul 09, 2025.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <div>
+ Country borders or names do not necessarily reflect the World Bank Group’s official position. All maps are for illustrative purposes and do not imply the expression of any opinion on the part of the World Bank, concerning the legal status of any country or territory or concerning the delimitation of frontiers or boundaries
+</div>
+<div>
+    <b>All content (unless otherwise specified) is subject to the <a href="https://www.mozilla.org/en-US/MPL">Mozilla Public License.</a></b>
+</div>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1692 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Ethiopia Crop Productivity Analysis</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=449c5310" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/agriculture/crop-productivity';</script>
+    <link rel="canonical" href="https://datapartnership.github.io/datapartnership/ethiopia-economic-monitoring/notebooks/agriculture/crop-productivity.html" />
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Comparing Addis Ababa and Nairobi" href="../combined_stats/city_comparison.html" />
+    <link rel="prev" title="Crop Productivity and EVI" href="README.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+    <meta name="docbuild:last-update" content="Jul 09, 2025"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt=" - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt=" - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to the Data Lab</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../docs/1-intro-to-data-lab.html">Introduction to the Data Lab</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Analytics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../basemaps/base-layers.html">Basemaps for Ethiopia</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../air-pollution/README.html">Air Pollution in Ethiopia</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../air-pollution/air_pollution_ethiopia.html">Air Pollution in Ethiopia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../air-pollution/air_pollution.html">Air Pollution in Addis Ababa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../air-pollution/air_pollution_roads.html">Air Pollution in Addis &amp; Addis-Djibouti Corridor</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../surveys/premise.html">Ethiopian Opinions on Somaliland: Survey from Premise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../google-trends/ethiopia_eda.html">Google Trends - Ethiopia Economic Monitor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nighttime-lights/nighttime-lights.html">Nighttime Lights Trends in Ethiopia</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../conflict/conflict.html">Conflict Location and Trends Monitor</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../conflict/acled.html">ACLED National and Subnational Conflict Trends</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">Crop Productivity and EVI</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Ethiopia Crop Productivity Analysis</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../combined_stats/city_comparison.html">Comparing Addis Ababa and Nairobi</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../combined_stats/conflict_impact.html">Conflict Impact on Economic Activity</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../combined_stats/summary_stats.html">Understanding Impact on Economic Activity</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Additional Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../docs/3-add-resources.html">Additional Resources</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Acknowledgements</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../docs/4-team.html">Project Team and Acknowedgements</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/datapartnership/ethiopia-economic-monitoring" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/datapartnership/ethiopia-economic-monitoring/edit/main/notebooks/agriculture/crop-productivity.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/datapartnership/ethiopia-economic-monitoring/issues/new?title=Issue%20on%20page%20%2Fnotebooks/agriculture/crop-productivity.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/agriculture/crop-productivity.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Ethiopia Crop Productivity Analysis</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methodology-summary">Methodology Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#findings">Findings</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#croparea-statistics">Croparea Statistics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crop-seasonality">Crop Seasonality</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#anomalies-in-evi">Anomalies in EVI</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trends-in-median-evi">Trends in Median EVI</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="ethiopia-crop-productivity-analysis">
+<h1>Ethiopia Crop Productivity Analysis<a class="headerlink" href="#ethiopia-crop-productivity-analysis" title="Link to this heading">#</a></h1>
+<p>This notebook uses Enhanced Vegetation Index (EVI) from MODIS as a proxy for crop yield. EVI measures canopy greeness by analyzing spectral data through satellite imagery. EVI serves as a proxy for crop yield because it measures photosynthetic activity and green biomass, which strongly correlate with a crop’s potential productivity and final harvest output.</p>
+<section id="methodology-summary">
+<h2>Methodology Summary<a class="headerlink" href="#methodology-summary" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Download imagery from MODIS for Ethiopia from 2012-2024.</p></li>
+<li><p>Get Crop Mask data for Ethiopia from Digital Earth Africa</p></li>
+<li><p>Estimate area of crop land in each admin region</p></li>
+<li><p>Use 2021-2023 data as a baseline to identify growing season in Ethiopia</p></li>
+<li><p>Use the growing season to track difference in EVI in 2024 compared to a 10 year average (2012-2022)</p></li>
+<li><p>Plot trends in EVI over the last decade</p></li>
+</ol>
+<p><strong>MODIS</strong></p>
+<p>We utilize Google Earth Engine to access the Enhanced Vegetation Index (EVI) band from the <a class="reference external" href="https://modis.gsfc.nasa.gov/about/">MODIS satellite</a>. By combining data from <a class="reference external" href="https://lpdaac.usgs.gov/products/mod13q1v061/">Terra</a> and <a class="reference external" href="https://lpdaac.usgs.gov/products/myd13q1v061/">Aqua</a>, we obtain a map of EVI at 250 meters resolution every 16-days from 2012 to 2024.</p>
+<p>The enhanced vegetation index (EVI) is an ‘optimized’ vegetation index designed to enhance the vegetation signal with improved vegetation monitoring through a de-coupling of the canopy background signal and a reduction in atmosphere influences.</p>
+<p>We apply the necessary data masking steps:</p>
+<ol class="arabic simple">
+<li><p>Mask out bad quality data (shadows/clouds)</p></li>
+<li><p>Mask out non-crop areas using the DEA crop layer.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">gcs_bucket</span> <span class="o">=</span> <span class="s2">&quot;datapartnership-agriculture&quot;</span>
+<span class="n">output_folder</span> <span class="o">=</span> <span class="s2">&quot;MODIS_EVI_Ethiopia&quot;</span>
+<span class="n">scale</span> <span class="o">=</span> <span class="mi">250</span>  
+<span class="n">crs</span> <span class="o">=</span> <span class="s2">&quot;EPSG:4326&quot;</span>  
+
+<span class="c1"># Fixed date handling function</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_date_string</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get formatted date string from Earth Engine image&quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># Get date from system:time_start</span>
+        <span class="n">date_millis</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;system:time_start&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">getInfo</span><span class="p">()</span>
+        <span class="c1"># Convert milliseconds to seconds and create datetime object</span>
+        <span class="n">date_obj</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="n">date_millis</span> <span class="o">/</span> <span class="mf">1000.0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">date_obj</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y_%m_</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error getting date: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="c1"># Fallback to system index if date fails</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;unknown_</span><span class="si">{</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1">_%H%M%S&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="c1"># Function to export individual images to GCS</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">export_image_to_gcs</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">date_str</span><span class="p">,</span> <span class="n">description</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Export a single MODIS EVI image to Google Cloud Storage as GeoTIFF</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">task</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">batch</span><span class="o">.</span><span class="n">Export</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">toCloudStorage</span><span class="p">(</span>
+        <span class="n">image</span><span class="o">=</span><span class="n">image</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="n">description</span><span class="p">,</span>
+        <span class="n">bucket</span><span class="o">=</span><span class="n">gcs_bucket</span><span class="p">,</span>
+        <span class="n">fileNamePrefix</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">output_folder</span><span class="si">}</span><span class="s2">/EVI_</span><span class="si">{</span><span class="n">date_str</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">,</span>
+        <span class="n">region</span><span class="o">=</span><span class="n">eth_geometry</span><span class="p">,</span>
+        <span class="n">crs</span><span class="o">=</span><span class="n">crs</span><span class="p">,</span>
+        <span class="n">maxPixels</span><span class="o">=</span><span class="mf">1e9</span><span class="p">,</span>
+        <span class="n">fileFormat</span><span class="o">=</span><span class="s1">&#39;GeoTIFF&#39;</span><span class="p">,</span>
+        <span class="n">formatOptions</span><span class="o">=</span><span class="p">{</span>
+            <span class="s1">&#39;cloudOptimized&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>  <span class="c1"># Create cloud-optimized GeoTIFF</span>
+            <span class="s1">&#39;noData&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">9999</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
+    <span class="n">task</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Started export task: </span><span class="si">{</span><span class="n">description</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">task</span>
+
+<span class="c1"># Get the size of the collection first</span>
+<span class="n">collection_size</span> <span class="o">=</span> <span class="n">mxd13q1</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">getInfo</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total number of images to export: </span><span class="si">{</span><span class="n">collection_size</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Convert collection to list for iteration</span>
+<span class="n">image_list</span> <span class="o">=</span> <span class="n">mxd13q1</span><span class="o">.</span><span class="n">toList</span><span class="p">(</span><span class="n">collection_size</span><span class="p">)</span>
+
+<span class="c1"># Export each image</span>
+<span class="n">export_tasks</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">collection_size</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># Get the image from the list</span>
+        <span class="n">img</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">image_list</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+        
+        <span class="c1"># Get formatted date string</span>
+        <span class="n">date_str</span> <span class="o">=</span> <span class="n">get_date_string</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+        
+        <span class="c1"># Create description</span>
+        <span class="n">description</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;MODIS_EVI_Ethiopia_</span><span class="si">{</span><span class="n">date_str</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">:</span><span class="s2">03d</span><span class="si">}</span><span class="s2">&quot;</span>
+        
+        <span class="c1"># Export the image</span>
+        <span class="n">task</span> <span class="o">=</span> <span class="n">export_image_to_gcs</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">date_str</span><span class="p">,</span> <span class="n">description</span><span class="p">)</span>
+        <span class="n">export_tasks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
+        
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Queued export </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">collection_size</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">date_str</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error processing image </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">continue</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">All </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">export_tasks</span><span class="p">)</span><span class="si">}</span><span class="s2"> export tasks have been started!&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Files will be saved to: gs://</span><span class="si">{</span><span class="n">gcs_bucket</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">output_folder</span><span class="si">}</span><span class="s2">/&quot;</span><span class="p">)</span>
+
+<span class="c1"># Function to check task status</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">check_task_status</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Check the status of all export tasks</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Checking task status...&quot;</span><span class="p">)</span>
+    <span class="n">completed</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">failed</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">running</span> <span class="o">=</span> <span class="mi">0</span>
+    
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">task</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">export_tasks</span><span class="p">):</span>
+        <span class="n">status</span> <span class="o">=</span> <span class="n">task</span><span class="o">.</span><span class="n">status</span><span class="p">()</span>
+        <span class="n">state</span> <span class="o">=</span> <span class="n">status</span><span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">]</span>
+        
+        <span class="k">if</span> <span class="n">state</span> <span class="o">==</span> <span class="s1">&#39;COMPLETED&#39;</span><span class="p">:</span>
+            <span class="n">completed</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">state</span> <span class="o">==</span> <span class="s1">&#39;FAILED&#39;</span><span class="p">:</span>
+            <span class="n">failed</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Task </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2"> FAILED: </span><span class="si">{</span><span class="n">status</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;error_message&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Unknown error&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">state</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;RUNNING&#39;</span><span class="p">,</span> <span class="s1">&#39;READY&#39;</span><span class="p">]:</span>
+            <span class="n">running</span> <span class="o">+=</span> <span class="mi">1</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Status Summary:&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Completed: </span><span class="si">{</span><span class="n">completed</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Running: </span><span class="si">{</span><span class="n">running</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Failed: </span><span class="si">{</span><span class="n">failed</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Total: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">export_tasks</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">completed</span><span class="p">,</span> <span class="n">running</span><span class="p">,</span> <span class="n">failed</span>
+
+<span class="c1"># Check initial status</span>
+<span class="n">check_task_status</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">To monitor progress, run: check_task_status()&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;To cancel all tasks, run: [task.cancel() for task in export_tasks]&quot;</span><span class="p">)</span>
+
+<span class="c1"># Optional: Function to export a subset of images (e.g., for testing)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">export_subset</span><span class="p">(</span><span class="n">start_index</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">end_index</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Export only a subset of images for testing</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Exporting subset: images </span><span class="si">{</span><span class="n">start_index</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">end_index</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+    <span class="n">subset_tasks</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">start_index</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">end_index</span><span class="p">,</span> <span class="n">collection_size</span><span class="p">)):</span>
+        <span class="n">img</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">image_list</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+        
+        <span class="n">date_millis</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;system:time_start&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">getInfo</span><span class="p">()</span>
+        <span class="n">date_obj</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="n">date_millis</span> <span class="o">/</span> <span class="mf">1000.0</span><span class="p">)</span>
+        <span class="n">date_str</span> <span class="o">=</span> <span class="n">date_obj</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y_%m_</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+        <span class="n">description</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;MODIS_EVI_Ethiopia_SUBSET_</span><span class="si">{</span><span class="n">date_str</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">:</span><span class="s2">03d</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">task</span> <span class="o">=</span> <span class="n">export_image_to_gcs</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">date_str</span><span class="p">,</span> <span class="n">description</span><span class="p">)</span>
+        <span class="n">subset_tasks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
+        
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Queued subset export </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">date_str</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">subset_tasks</span>
+
+<span class="c1"># Alternative: More efficient batch export function</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">export_batch_efficient</span><span class="p">(</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Export images in batches to avoid memory issues with large collections</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Exporting </span><span class="si">{</span><span class="n">collection_size</span><span class="si">}</span><span class="s2"> images in batches of </span><span class="si">{</span><span class="n">batch_size</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+    <span class="n">all_tasks</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">batch_start</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">collection_size</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">):</span>
+        <span class="n">batch_end</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">batch_start</span> <span class="o">+</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">collection_size</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Processing batch: </span><span class="si">{</span><span class="n">batch_start</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">batch_end</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">batch_start</span><span class="p">,</span> <span class="n">batch_end</span><span class="p">):</span>
+            <span class="n">img</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">image_list</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+            
+            <span class="c1"># Get date</span>
+            <span class="n">date_millis</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;system:time_start&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">getInfo</span><span class="p">()</span>
+            <span class="n">date_obj</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="n">date_millis</span> <span class="o">/</span> <span class="mf">1000.0</span><span class="p">)</span>
+            <span class="n">date_str</span> <span class="o">=</span> <span class="n">date_obj</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y_%m_</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
+            
+            <span class="c1"># Export</span>
+            <span class="n">description</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;MODIS_EVI_Ethiopia_BATCH_</span><span class="si">{</span><span class="n">date_str</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">:</span><span class="s2">03d</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="n">task</span> <span class="o">=</span> <span class="n">export_image_to_gcs</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">date_str</span><span class="p">,</span> <span class="n">description</span><span class="p">)</span>
+            <span class="n">all_tasks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
+            
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Queued: </span><span class="si">{</span><span class="n">date_str</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">all_tasks</span>
+
+<span class="n">test_tasks</span> <span class="o">=</span> <span class="n">export_subset</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total number of images to export: 92
+Error getting date: unsupported operand type(s) for /: &#39;NoneType&#39; and &#39;float&#39;
+Started export task: MODIS_EVI_Ethiopia_unknown_20250616_143148_001
+Queued export 1/92: unknown_20250616_143148
+Error getting date: unsupported operand type(s) for /: &#39;NoneType&#39; and &#39;float&#39;
+Started export task: MODIS_EVI_Ethiopia_unknown_20250616_143151_002
+Queued export 2/92: unknown_20250616_143151
+Error getting date: unsupported operand type(s) for /: &#39;NoneType&#39; and &#39;float&#39;
+Started export task: MODIS_EVI_Ethiopia_unknown_20250616_143156_003
+Queued export 3/92: unknown_20250616_143156
+Error getting date: unsupported operand type(s) for /: &#39;NoneType&#39; and &#39;float&#39;
+Started export task: MODIS_EVI_Ethiopia_unknown_20250616_143200_004
+Queued export 4/92: unknown_20250616_143200
+Error getting date: unsupported operand type(s) for /: &#39;NoneType&#39; and &#39;float&#39;
+Started export task: MODIS_EVI_Ethiopia_unknown_20250616_143204_005
+Queued export 5/92: unknown_20250616_143204
+Error getting date: unsupported operand type(s) for /: &#39;NoneType&#39; and &#39;float&#39;
+Started export task: MODIS_EVI_Ethiopia_unknown_20250616_143209_006
+Queued export 6/92: unknown_20250616_143209
+Error getting date: unsupported operand type(s) for /: &#39;NoneType&#39; and &#39;float&#39;
+Started export task: MODIS_EVI_Ethiopia_unknown_20250616_143213_007
+Queued export 7/92: unknown_20250616_143213
+Error getting date: unsupported operand type(s) for /: &#39;NoneType&#39; and &#39;float&#39;
+Started export task: MODIS_EVI_Ethiopia_unknown_20250616_143216_008
+Queued export 8/92: unknown_20250616_143216
+Error getting date: unsupported operand type(s) for /: &#39;NoneType&#39; and &#39;float&#39;
+Started export task: MODIS_EVI_Ethiopia_unknown_20250616_143221_009
+Queued export 9/92: unknown_20250616_143221
+Error getting date: unsupported operand type(s) for /: &#39;NoneType&#39; and &#39;float&#39;
+Started export task: MODIS_EVI_Ethiopia_unknown_20250616_143224_010
+Queued export 10/92: unknown_20250616_143224
+Error getting date: unsupported operand type(s) for /: &#39;NoneType&#39; and &#39;float&#39;
+Started export task: MODIS_EVI_Ethiopia_unknown_20250616_143228_011
+Queued export 11/92: unknown_20250616_143228
+Error getting date: unsupported operand type(s) for /: &#39;NoneType&#39; and &#39;float&#39;
+Started export task: MODIS_EVI_Ethiopia_unknown_20250616_143233_012
+Queued export 12/92: unknown_20250616_143233
+Error getting date: unsupported operand type(s) for /: &#39;NoneType&#39; and &#39;float&#39;
+Started export task: MODIS_EVI_Ethiopia_unknown_20250616_143236_013
+Queued export 13/92: unknown_20250616_143236
+Error getting date: unsupported operand type(s) for /: &#39;NoneType&#39; and &#39;float&#39;
+Started export task: MODIS_EVI_Ethiopia_unknown_20250616_143241_014
+Queued export 14/92: unknown_20250616_143241
+Error getting date: unsupported operand type(s) for /: &#39;NoneType&#39; and &#39;float&#39;
+Started export task: MODIS_EVI_Ethiopia_unknown_20250616_143246_015
+Queued export 15/92: unknown_20250616_143246
+Error getting date: unsupported operand type(s) for /: &#39;NoneType&#39; and &#39;float&#39;
+Started export task: MODIS_EVI_Ethiopia_unknown_20250616_143251_016
+Queued export 16/92: unknown_20250616_143251
+Error getting date: unsupported operand type(s) for /: &#39;NoneType&#39; and &#39;float&#39;
+Started export task: MODIS_EVI_Ethiopia_unknown_20250616_143255_017
+Queued export 17/92: unknown_20250616_143255
+Error getting date: unsupported operand type(s) for /: &#39;NoneType&#39; and &#39;float&#39;
+Started export task: MODIS_EVI_Ethiopia_unknown_20250616_143300_018
+Queued export 18/92: unknown_20250616_143300
+Error getting date: unsupported operand type(s) for /: &#39;NoneType&#39; and &#39;float&#39;
+Started export task: MODIS_EVI_Ethiopia_unknown_20250616_143305_019
+Queued export 19/92: unknown_20250616_143305
+Error getting date: unsupported operand type(s) for /: &#39;NoneType&#39; and &#39;float&#39;
+Started export task: MODIS_EVI_Ethiopia_unknown_20250616_143308_020
+Queued export 20/92: unknown_20250616_143308
+Error getting date: unsupported operand type(s) for /: &#39;NoneType&#39; and &#39;float&#39;
+Started export task: MODIS_EVI_Ethiopia_unknown_20250616_143311_021
+Queued export 21/92: unknown_20250616_143311
+Error getting date: unsupported operand type(s) for /: &#39;NoneType&#39; and &#39;float&#39;
+Started export task: MODIS_EVI_Ethiopia_unknown_20250616_143315_022
+Queued export 22/92: unknown_20250616_143315
+Error getting date: unsupported operand type(s) for /: &#39;NoneType&#39; and &#39;float&#39;
+Started export task: MODIS_EVI_Ethiopia_unknown_20250616_143317_023
+Queued export 23/92: unknown_20250616_143317
+Error getting date: unsupported operand type(s) for /: &#39;NoneType&#39; and &#39;float&#39;
+Started export task: MODIS_EVI_Ethiopia_unknown_20250616_143320_024
+Queued export 24/92: unknown_20250616_143320
+Error getting date: unsupported operand type(s) for /: &#39;NoneType&#39; and &#39;float&#39;
+Started export task: MODIS_EVI_Ethiopia_unknown_20250616_143325_025
+Queued export 25/92: unknown_20250616_143325
+Error getting date: unsupported operand type(s) for /: &#39;NoneType&#39; and &#39;float&#39;
+Started export task: MODIS_EVI_Ethiopia_unknown_20250616_143327_026
+Queued export 26/92: unknown_20250616_143327
+Error getting date: unsupported operand type(s) for /: &#39;NoneType&#39; and &#39;float&#39;
+Started export task: MODIS_EVI_Ethiopia_unknown_20250616_143332_027
+Queued export 27/92: unknown_20250616_143332
+Error getting date: unsupported operand type(s) for /: &#39;NoneType&#39; and &#39;float&#39;
+Started export task: MODIS_EVI_Ethiopia_unknown_20250616_143336_028
+Queued export 28/92: unknown_20250616_143336
+Error getting date: unsupported operand type(s) for /: &#39;NoneType&#39; and &#39;float&#39;
+Started export task: MODIS_EVI_Ethiopia_unknown_20250616_143341_029
+Queued export 29/92: unknown_20250616_143341
+Error getting date: unsupported operand type(s) for /: &#39;NoneType&#39; and &#39;float&#39;
+Started export task: MODIS_EVI_Ethiopia_unknown_20250616_143345_030
+Queued export 30/92: unknown_20250616_143345
+Error getting date: unsupported operand type(s) for /: &#39;NoneType&#39; and &#39;float&#39;
+Started export task: MODIS_EVI_Ethiopia_unknown_20250616_143349_031
+Queued export 31/92: unknown_20250616_143349
+Error getting date: unsupported operand type(s) for /: &#39;NoneType&#39; and &#39;float&#39;
+Started export task: MODIS_EVI_Ethiopia_unknown_20250616_143352_032
+Queued export 32/92: unknown_20250616_143352
+Error getting date: unsupported operand type(s) for /: &#39;NoneType&#39; and &#39;float&#39;
+Started export task: MODIS_EVI_Ethiopia_unknown_20250616_143357_033
+Queued export 33/92: unknown_20250616_143357
+Error getting date: unsupported operand type(s) for /: &#39;NoneType&#39; and &#39;float&#39;
+Started export task: MODIS_EVI_Ethiopia_unknown_20250616_143402_034
+Queued export 34/92: unknown_20250616_143402
+Error getting date: unsupported operand type(s) for /: &#39;NoneType&#39; and &#39;float&#39;
+Started export task: MODIS_EVI_Ethiopia_unknown_20250616_143407_035
+Queued export 35/92: unknown_20250616_143407
+Error getting date: unsupported operand type(s) for /: &#39;NoneType&#39; and &#39;float&#39;
+Started export task: MODIS_EVI_Ethiopia_unknown_20250616_143411_036
+Queued export 36/92: unknown_20250616_143411
+Error getting date: unsupported operand type(s) for /: &#39;NoneType&#39; and &#39;float&#39;
+Started export task: MODIS_EVI_Ethiopia_unknown_20250616_143416_037
+Queued export 37/92: unknown_20250616_143416
+Error getting date: unsupported operand type(s) for /: &#39;NoneType&#39; and &#39;float&#39;
+Started export task: MODIS_EVI_Ethiopia_unknown_20250616_143420_038
+Queued export 38/92: unknown_20250616_143420
+Error getting date: unsupported operand type(s) for /: &#39;NoneType&#39; and &#39;float&#39;
+Started export task: MODIS_EVI_Ethiopia_unknown_20250616_143425_039
+Queued export 39/92: unknown_20250616_143425
+Error getting date: unsupported operand type(s) for /: &#39;NoneType&#39; and &#39;float&#39;
+Started export task: MODIS_EVI_Ethiopia_unknown_20250616_143428_040
+Queued export 40/92: unknown_20250616_143428
+Error getting date: unsupported operand type(s) for /: &#39;NoneType&#39; and &#39;float&#39;
+Started export task: MODIS_EVI_Ethiopia_unknown_20250616_143431_041
+Queued export 41/92: unknown_20250616_143431
+Error getting date: unsupported operand type(s) for /: &#39;NoneType&#39; and &#39;float&#39;
+Started export task: MODIS_EVI_Ethiopia_unknown_20250616_143435_042
+Queued export 42/92: unknown_20250616_143435
+Error getting date: unsupported operand type(s) for /: &#39;NoneType&#39; and &#39;float&#39;
+Started export task: MODIS_EVI_Ethiopia_unknown_20250616_143438_043
+Queued export 43/92: unknown_20250616_143438
+Error getting date: unsupported operand type(s) for /: &#39;NoneType&#39; and &#39;float&#39;
+Started export task: MODIS_EVI_Ethiopia_unknown_20250616_143441_044
+Queued export 44/92: unknown_20250616_143441
+Error getting date: unsupported operand type(s) for /: &#39;NoneType&#39; and &#39;float&#39;
+Started export task: MODIS_EVI_Ethiopia_unknown_20250616_143445_045
+Queued export 45/92: unknown_20250616_143445
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">19</span><span class="p">],</span> <span class="n">line</span> <span class="mi">62</span>
+<span class="g g-Whitespace">     </span><span class="mi">59</span> <span class="n">img</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">image_list</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+<span class="g g-Whitespace">     </span><span class="mi">61</span> <span class="c1"># Get formatted date string</span>
+<span class="ne">---&gt; </span><span class="mi">62</span> <span class="n">date_str</span> <span class="o">=</span> <span class="n">get_date_string</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">64</span> <span class="c1"># Create description</span>
+<span class="g g-Whitespace">     </span><span class="mi">65</span> <span class="n">description</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;MODIS_EVI_Ethiopia_</span><span class="si">{</span><span class="n">date_str</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">:</span><span class="s2">03d</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="nn">Cell In[19], line 13,</span> in <span class="ni">get_date_string</span><span class="nt">(img)</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Get formatted date string from Earth Engine image&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span>     <span class="c1"># Get date from system:time_start</span>
+<span class="ne">---&gt; </span><span class="mi">13</span>     <span class="n">date_millis</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;system:time_start&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">getInfo</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span>     <span class="c1"># Convert milliseconds to seconds and create datetime object</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span>     <span class="n">date_obj</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="n">date_millis</span> <span class="o">/</span> <span class="mf">1000.0</span><span class="p">)</span>
+
+<span class="nn">File c:\WBG\Anaconda3\envs\acled\Lib\site-packages\ee\computedobject.py:107,</span> in <span class="ni">ComputedObject.getInfo</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">101</span> <span class="k">def</span><span class="w"> </span><span class="nf">getInfo</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]:</span>
+<span class="g g-Whitespace">    </span><span class="mi">102</span><span class="w">   </span><span class="sd">&quot;&quot;&quot;Fetch and return information about this object.</span>
+<span class="g g-Whitespace">    </span><span class="mi">103</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">104</span><span class="sd">   Returns:</span>
+<span class="g g-Whitespace">    </span><span class="mi">105</span><span class="sd">     The object can evaluate to anything.</span>
+<span class="g g-Whitespace">    </span><span class="mi">106</span><span class="sd">   &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">107</span>   <span class="k">return</span> <span class="n">data</span><span class="o">.</span><span class="n">computeValue</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+<span class="nn">File c:\WBG\Anaconda3\envs\acled\Lib\site-packages\ee\data.py:1128,</span> in <span class="ni">computeValue</span><span class="nt">(obj)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1125</span> <span class="n">body</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;expression&#39;</span><span class="p">:</span> <span class="n">serializer</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">for_cloud_api</span><span class="o">=</span><span class="kc">True</span><span class="p">)}</span>
+<span class="g g-Whitespace">   </span><span class="mi">1126</span> <span class="n">_maybe_populate_workload_tag</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1128</span> <span class="k">return</span> <span class="n">_execute_cloud_call</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1129</span>     <span class="n">_get_cloud_projects</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1130</span>     <span class="o">.</span><span class="n">value</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1131</span>     <span class="o">.</span><span class="n">compute</span><span class="p">(</span><span class="n">body</span><span class="o">=</span><span class="n">body</span><span class="p">,</span> <span class="n">project</span><span class="o">=</span><span class="n">_get_projects_path</span><span class="p">(),</span> <span class="n">prettyPrint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1132</span> <span class="p">)[</span><span class="s1">&#39;result&#39;</span><span class="p">]</span>
+
+<span class="nn">File c:\WBG\Anaconda3\envs\acled\Lib\site-packages\ee\data.py:408,</span> in <span class="ni">_execute_cloud_call</span><span class="nt">(call, num_retries)</span>
+<span class="g g-Whitespace">    </span><span class="mi">406</span> <span class="n">num_retries</span> <span class="o">=</span> <span class="n">_max_retries</span> <span class="k">if</span> <span class="n">num_retries</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">num_retries</span>
+<span class="g g-Whitespace">    </span><span class="mi">407</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">408</span>   <span class="k">return</span> <span class="n">call</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">num_retries</span><span class="o">=</span><span class="n">num_retries</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">409</span> <span class="k">except</span> <span class="n">googleapiclient</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">HttpError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">410</span>   <span class="k">raise</span> <span class="n">_translate_cloud_exception</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+
+<span class="nn">File c:\WBG\Anaconda3\envs\acled\Lib\site-packages\googleapiclient\_helpers.py:130,</span> in <span class="ni">positional.&lt;locals&gt;.positional_decorator.&lt;locals&gt;.positional_wrapper</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">128</span>     <span class="k">elif</span> <span class="n">positional_parameters_enforcement</span> <span class="o">==</span> <span class="n">POSITIONAL_WARNING</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">129</span>         <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">130</span> <span class="k">return</span> <span class="n">wrapped</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File c:\WBG\Anaconda3\envs\acled\Lib\site-packages\googleapiclient\http.py:923,</span> in <span class="ni">HttpRequest.execute</span><span class="nt">(self, http, num_retries)</span>
+<span class="g g-Whitespace">    </span><span class="mi">920</span>     <span class="bp">self</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s2">&quot;content-length&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">body</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">922</span> <span class="c1"># Handle retries for server-side errors.</span>
+<span class="ne">--&gt; </span><span class="mi">923</span> <span class="n">resp</span><span class="p">,</span> <span class="n">content</span> <span class="o">=</span> <span class="n">_retry_request</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">924</span>     <span class="n">http</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">925</span>     <span class="n">num_retries</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">926</span>     <span class="s2">&quot;request&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">927</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_sleep</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">928</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_rand</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">929</span>     <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">uri</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">930</span>     <span class="n">method</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">method</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">931</span>     <span class="n">body</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">body</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">932</span>     <span class="n">headers</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">headers</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">933</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">935</span> <span class="k">for</span> <span class="n">callback</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">response_callbacks</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">936</span>     <span class="n">callback</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span>
+
+<span class="nn">File c:\WBG\Anaconda3\envs\acled\Lib\site-packages\googleapiclient\http.py:191,</span> in <span class="ni">_retry_request</span><span class="nt">(http, num_retries, req_type, sleep, rand, uri, method, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">189</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">190</span>     <span class="n">exception</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="ne">--&gt; </span><span class="mi">191</span>     <span class="n">resp</span><span class="p">,</span> <span class="n">content</span> <span class="o">=</span> <span class="n">http</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">192</span> <span class="c1"># Retry on SSL errors and socket timeout errors.</span>
+<span class="g g-Whitespace">    </span><span class="mi">193</span> <span class="k">except</span> <span class="n">_ssl_SSLError</span> <span class="k">as</span> <span class="n">ssl_error</span><span class="p">:</span>
+
+<span class="nn">File c:\WBG\Anaconda3\envs\acled\Lib\site-packages\google_auth_httplib2.py:218,</span> in <span class="ni">AuthorizedHttp.request</span><span class="nt">(self, uri, method, body, headers, redirections, connection_type, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">215</span>     <span class="n">body_stream_position</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">tell</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">217</span> <span class="c1"># Make the request.</span>
+<span class="ne">--&gt; </span><span class="mi">218</span> <span class="n">response</span><span class="p">,</span> <span class="n">content</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">request</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">219</span>     <span class="n">uri</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">220</span>     <span class="n">method</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">221</span>     <span class="n">body</span><span class="o">=</span><span class="n">body</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">222</span>     <span class="n">headers</span><span class="o">=</span><span class="n">request_headers</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">223</span>     <span class="n">redirections</span><span class="o">=</span><span class="n">redirections</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">224</span>     <span class="n">connection_type</span><span class="o">=</span><span class="n">connection_type</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">225</span>     <span class="o">**</span><span class="n">kwargs</span>
+<span class="g g-Whitespace">    </span><span class="mi">226</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">228</span> <span class="c1"># If the response indicated that the credentials needed to be</span>
+<span class="g g-Whitespace">    </span><span class="mi">229</span> <span class="c1"># refreshed, then refresh the credentials and re-attempt the</span>
+<span class="g g-Whitespace">    </span><span class="mi">230</span> <span class="c1"># request.</span>
+<span class="g g-Whitespace">    </span><span class="mi">231</span> <span class="c1"># A stored token may expire between the time it is retrieved and</span>
+<span class="g g-Whitespace">    </span><span class="mi">232</span> <span class="c1"># the time the request is made, so we may need to try twice.</span>
+<span class="g g-Whitespace">    </span><span class="mi">233</span> <span class="k">if</span> <span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">234</span>     <span class="n">response</span><span class="o">.</span><span class="n">status</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_refresh_status_codes</span>
+<span class="g g-Whitespace">    </span><span class="mi">235</span>     <span class="ow">and</span> <span class="n">_credential_refresh_attempt</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_max_refresh_attempts</span>
+<span class="g g-Whitespace">    </span><span class="mi">236</span> <span class="p">):</span>
+
+<span class="nn">File c:\WBG\Anaconda3\envs\acled\Lib\site-packages\ee\_cloud_api_utils.py:70,</span> in <span class="ni">_Http.request</span><span class="nt">(***failed resolving arguments***)</span>
+<span class="g g-Whitespace">     </span><span class="mi">63</span> <span class="k">del</span> <span class="n">redirections</span>  <span class="c1"># Ignored</span>
+<span class="g g-Whitespace">     </span><span class="mi">65</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">66</span>   <span class="c1"># googleapiclient is expecting an httplib2 object, and doesn&#39;t include</span>
+<span class="g g-Whitespace">     </span><span class="mi">67</span>   <span class="c1"># requests error in the list of transient errors. Therefore, transient</span>
+<span class="g g-Whitespace">     </span><span class="mi">68</span>   <span class="c1"># requests errors should be converted to kinds that googleapiclient</span>
+<span class="g g-Whitespace">     </span><span class="mi">69</span>   <span class="c1"># consider transient.</span>
+<span class="ne">---&gt; </span><span class="mi">70</span>   <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">request</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">71</span>       <span class="n">method</span><span class="p">,</span> <span class="n">uri</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">body</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_timeout</span>
+<span class="g g-Whitespace">     </span><span class="mi">72</span>   <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">73</span> <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">ConnectionError</span> <span class="k">as</span> <span class="n">connection_error</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">74</span>   <span class="k">raise</span> <span class="ne">ConnectionError</span><span class="p">(</span><span class="n">connection_error</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">connection_error</span>
+
+<span class="nn">File c:\WBG\Anaconda3\envs\acled\Lib\site-packages\requests\sessions.py:589,</span> in <span class="ni">Session.request</span><span class="nt">(self, method, url, params, data, headers, cookies, files, auth, timeout, allow_redirects, proxies, hooks, stream, verify, cert, json)</span>
+<span class="g g-Whitespace">    </span><span class="mi">584</span> <span class="n">send_kwargs</span> <span class="o">=</span> <span class="p">{</span>
+<span class="g g-Whitespace">    </span><span class="mi">585</span>     <span class="s2">&quot;timeout&quot;</span><span class="p">:</span> <span class="n">timeout</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">586</span>     <span class="s2">&quot;allow_redirects&quot;</span><span class="p">:</span> <span class="n">allow_redirects</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">587</span> <span class="p">}</span>
+<span class="g g-Whitespace">    </span><span class="mi">588</span> <span class="n">send_kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">589</span> <span class="n">resp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">prep</span><span class="p">,</span> <span class="o">**</span><span class="n">send_kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">591</span> <span class="k">return</span> <span class="n">resp</span>
+
+<span class="nn">File c:\WBG\Anaconda3\envs\acled\Lib\site-packages\requests\sessions.py:703,</span> in <span class="ni">Session.send</span><span class="nt">(self, request, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">700</span> <span class="n">start</span> <span class="o">=</span> <span class="n">preferred_clock</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">702</span> <span class="c1"># Send the request</span>
+<span class="ne">--&gt; </span><span class="mi">703</span> <span class="n">r</span> <span class="o">=</span> <span class="n">adapter</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">705</span> <span class="c1"># Total elapsed time of the request (approximately)</span>
+<span class="g g-Whitespace">    </span><span class="mi">706</span> <span class="n">elapsed</span> <span class="o">=</span> <span class="n">preferred_clock</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
+
+<span class="nn">File c:\WBG\Anaconda3\envs\acled\Lib\site-packages\requests\adapters.py:667,</span> in <span class="ni">HTTPAdapter.send</span><span class="nt">(self, request, stream, timeout, verify, cert, proxies)</span>
+<span class="g g-Whitespace">    </span><span class="mi">664</span>     <span class="n">timeout</span> <span class="o">=</span> <span class="n">TimeoutSauce</span><span class="p">(</span><span class="n">connect</span><span class="o">=</span><span class="n">timeout</span><span class="p">,</span> <span class="n">read</span><span class="o">=</span><span class="n">timeout</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">666</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">667</span>     <span class="n">resp</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">668</span>         <span class="n">method</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">method</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">669</span>         <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">670</span>         <span class="n">body</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">body</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">671</span>         <span class="n">headers</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">headers</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">672</span>         <span class="n">redirect</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">673</span>         <span class="n">assert_same_host</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">674</span>         <span class="n">preload_content</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">675</span>         <span class="n">decode_content</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">676</span>         <span class="n">retries</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">max_retries</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">677</span>         <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">678</span>         <span class="n">chunked</span><span class="o">=</span><span class="n">chunked</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">679</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">681</span> <span class="k">except</span> <span class="p">(</span><span class="n">ProtocolError</span><span class="p">,</span> <span class="ne">OSError</span><span class="p">)</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">682</span>     <span class="k">raise</span> <span class="ne">ConnectionError</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">request</span><span class="o">=</span><span class="n">request</span><span class="p">)</span>
+
+<span class="nn">File c:\WBG\Anaconda3\envs\acled\Lib\site-packages\urllib3\connectionpool.py:787,</span> in <span class="ni">HTTPConnectionPool.urlopen</span><span class="nt">(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, preload_content, decode_content, **response_kw)</span>
+<span class="g g-Whitespace">    </span><span class="mi">784</span> <span class="n">response_conn</span> <span class="o">=</span> <span class="n">conn</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">release_conn</span> <span class="k">else</span> <span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">786</span> <span class="c1"># Make the request on the HTTPConnection object</span>
+<span class="ne">--&gt; </span><span class="mi">787</span> <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_request</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">788</span>     <span class="n">conn</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">789</span>     <span class="n">method</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">790</span>     <span class="n">url</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">791</span>     <span class="n">timeout</span><span class="o">=</span><span class="n">timeout_obj</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">792</span>     <span class="n">body</span><span class="o">=</span><span class="n">body</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">793</span>     <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">794</span>     <span class="n">chunked</span><span class="o">=</span><span class="n">chunked</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">795</span>     <span class="n">retries</span><span class="o">=</span><span class="n">retries</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">796</span>     <span class="n">response_conn</span><span class="o">=</span><span class="n">response_conn</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">797</span>     <span class="n">preload_content</span><span class="o">=</span><span class="n">preload_content</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">798</span>     <span class="n">decode_content</span><span class="o">=</span><span class="n">decode_content</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">799</span>     <span class="o">**</span><span class="n">response_kw</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">800</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">802</span> <span class="c1"># Everything went great!</span>
+<span class="g g-Whitespace">    </span><span class="mi">803</span> <span class="n">clean_exit</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="nn">File c:\WBG\Anaconda3\envs\acled\Lib\site-packages\urllib3\connectionpool.py:534,</span> in <span class="ni">HTTPConnectionPool._make_request</span><span class="nt">(self, conn, method, url, body, headers, retries, timeout, chunked, response_conn, preload_content, decode_content, enforce_content_length)</span>
+<span class="g g-Whitespace">    </span><span class="mi">532</span> <span class="c1"># Receive the response from the server</span>
+<span class="g g-Whitespace">    </span><span class="mi">533</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">534</span>     <span class="n">response</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">getresponse</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">535</span> <span class="k">except</span> <span class="p">(</span><span class="n">BaseSSLError</span><span class="p">,</span> <span class="ne">OSError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">536</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_raise_timeout</span><span class="p">(</span><span class="n">err</span><span class="o">=</span><span class="n">e</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">timeout_value</span><span class="o">=</span><span class="n">read_timeout</span><span class="p">)</span>
+
+<span class="nn">File c:\WBG\Anaconda3\envs\acled\Lib\site-packages\urllib3\connection.py:516,</span> in <span class="ni">HTTPConnection.getresponse</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">513</span> <span class="n">_shutdown</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sock</span><span class="p">,</span> <span class="s2">&quot;shutdown&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">515</span> <span class="c1"># Get the response from http.client.HTTPConnection</span>
+<span class="ne">--&gt; </span><span class="mi">516</span> <span class="n">httplib_response</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">getresponse</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">518</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">519</span>     <span class="n">assert_header_parsing</span><span class="p">(</span><span class="n">httplib_response</span><span class="o">.</span><span class="n">msg</span><span class="p">)</span>
+
+<span class="nn">File c:\WBG\Anaconda3\envs\acled\Lib\http\client.py:1395,</span> in <span class="ni">HTTPConnection.getresponse</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1393</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1394</span>     <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1395</span>         <span class="n">response</span><span class="o">.</span><span class="n">begin</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1396</span>     <span class="k">except</span> <span class="ne">ConnectionError</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1397</span>         <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="nn">File c:\WBG\Anaconda3\envs\acled\Lib\http\client.py:325,</span> in <span class="ni">HTTPResponse.begin</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">323</span> <span class="c1"># read until we get a non-100 response</span>
+<span class="g g-Whitespace">    </span><span class="mi">324</span> <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">325</span>     <span class="n">version</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">reason</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read_status</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">326</span>     <span class="k">if</span> <span class="n">status</span> <span class="o">!=</span> <span class="n">CONTINUE</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">327</span>         <span class="k">break</span>
+
+<span class="nn">File c:\WBG\Anaconda3\envs\acled\Lib\http\client.py:286,</span> in <span class="ni">HTTPResponse._read_status</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">285</span> <span class="k">def</span><span class="w"> </span><span class="nf">_read_status</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">286</span>     <span class="n">line</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">readline</span><span class="p">(</span><span class="n">_MAXLINE</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;iso-8859-1&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">287</span>     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">_MAXLINE</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">288</span>         <span class="k">raise</span> <span class="n">LineTooLong</span><span class="p">(</span><span class="s2">&quot;status line&quot;</span><span class="p">)</span>
+
+<span class="nn">File c:\WBG\Anaconda3\envs\acled\Lib\socket.py:718,</span> in <span class="ni">SocketIO.readinto</span><span class="nt">(self, b)</span>
+<span class="g g-Whitespace">    </span><span class="mi">716</span> <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">717</span>     <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">718</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sock</span><span class="o">.</span><span class="n">recv_into</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">719</span>     <span class="k">except</span> <span class="n">timeout</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">720</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_timeout_occurred</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="nn">File c:\WBG\Anaconda3\envs\acled\Lib\ssl.py:1314,</span> in <span class="ni">SSLSocket.recv_into</span><span class="nt">(self, buffer, nbytes, flags)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1310</span>     <span class="k">if</span> <span class="n">flags</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1311</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1312</span>           <span class="s2">&quot;non-zero flags not allowed in calls to recv_into() on </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span>
+<span class="g g-Whitespace">   </span><span class="mi">1313</span>           <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1314</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">nbytes</span><span class="p">,</span> <span class="n">buffer</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1315</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1316</span>     <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">recv_into</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">nbytes</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span>
+
+<span class="nn">File c:\WBG\Anaconda3\envs\acled\Lib\ssl.py:1166,</span> in <span class="ni">SSLSocket.read</span><span class="nt">(self, len, buffer)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1164</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1165</span>     <span class="k">if</span> <span class="n">buffer</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1166</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sslobj</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="nb">len</span><span class="p">,</span> <span class="n">buffer</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1167</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1168</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sslobj</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="nb">len</span><span class="p">)</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="findings">
+<h2>Findings<a class="headerlink" href="#findings" title="Link to this heading">#</a></h2>
+<section id="croparea-statistics">
+<h3>Croparea Statistics<a class="headerlink" href="#croparea-statistics" title="Link to this heading">#</a></h3>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div><div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Region</th>
+      <th>Crop Area ha.</th>
+      <th>Crop Area Share (% of Country)</th>
+      <th>Crop Area Share (% of Region)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Oromia</td>
+      <td>10,090,333</td>
+      <td>42.00%</td>
+      <td>36.55%</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Amhara</td>
+      <td>6,429,973</td>
+      <td>26.76%</td>
+      <td>48.91%</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>SNNP</td>
+      <td>2,298,187</td>
+      <td>9.57%</td>
+      <td>41.02%</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Tigray</td>
+      <td>2,092,136</td>
+      <td>8.71%</td>
+      <td>44.66%</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>South West Ethiopia</td>
+      <td>1,343,857</td>
+      <td>5.59%</td>
+      <td>41.75%</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Benishangul Gumz</td>
+      <td>918,617</td>
+      <td>3.82%</td>
+      <td>18.78%</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Sidama</td>
+      <td>349,321</td>
+      <td>1.45%</td>
+      <td>53.70%</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Gambela</td>
+      <td>191,895</td>
+      <td>0.80%</td>
+      <td>7.19%</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Somali</td>
+      <td>175,187</td>
+      <td>0.73%</td>
+      <td>0.58%</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Afar</td>
+      <td>106,551</td>
+      <td>0.44%</td>
+      <td>1.18%</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Addis Ababa</td>
+      <td>15,120</td>
+      <td>0.06%</td>
+      <td>27.57%</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Harari</td>
+      <td>6,646</td>
+      <td>0.03%</td>
+      <td>18.34%</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Dire Dawa</td>
+      <td>6,416</td>
+      <td>0.03%</td>
+      <td>6.19%</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="crop-seasonality">
+<h3>Crop Seasonality<a class="headerlink" href="#crop-seasonality" title="Link to this heading">#</a></h3>
+<p>Using this time series dataset of EVI images, we apply several pre-processing steps to extract critical phenological parameters: start of season (SOS), middle of season (MOS), end of season (EOS), length of season (LOS), etc. This workflow is heavily inspired by the <a class="reference external" href="https://web.nateko.lu.se/timesat/timesat.asp">TIMESAT</a> software, although in this implementation we use the <a class="reference external" href="https://github.com/frontiersi/phenolopy/tree/main">Phenolopy</a> open-source package.</p>
+<p><strong>Pre-processing steps</strong></p>
+<ol class="arabic simple">
+<li><p>Remove outliers from dataset on per-pixel basis using median method: outlier if median from a moving window &lt; or &gt; standard deviation of time-series times 2.</p></li>
+<li><p>Interpolate missing values linearly</p></li>
+<li><p>Smooth data on per-pixel basis (using Savitsky Golay filter, window length of 3, and polyorder of 1)</p></li>
+</ol>
+<p><strong>Phenology Process</strong><br />
+We then extract crop seasonality metrics using the seasonal amplitude method from the phenolopy package.</p>
+<p>The chart below shows the result of this process for a single crop pixel. The green dots represent the raw EVI values, the black line represents the processed EVI values, and the red dotted lines represent season parameters extracted for that pixel: start of season, peak of season, and end of season.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div><img alt="../../_images/d5576fc99c78df88c05332f24b32961ed5e0eec8f4eb5623c25e1c5520504521.png" src="../../_images/d5576fc99c78df88c05332f24b32961ed5e0eec8f4eb5623c25e1c5520504521.png" />
+</div>
+</div>
+<p><strong>Based on the phenology process, we identified the seasonality to start in April/May and end in December with the peak being in September.</strong> This can vary with geographic region and crop type as well, however, that has not been taken into consideration in this version.</p>
+</section>
+<section id="anomalies-in-evi">
+<h3>Anomalies in EVI<a class="headerlink" href="#anomalies-in-evi" title="Link to this heading">#</a></h3>
+<p>Anomalies are calculated using z score values.</p>
+<div class="math notranslate nohighlight">
+\[z = \frac{x - \mu}{\sigma}\]</div>
+<p>Where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(z\)</span> is the z-score (standard score)</p></li>
+<li><p><span class="math notranslate nohighlight">\(x\)</span> is the individual median EVI value</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mu\)</span> is the mean of the median EVI values</p></li>
+<li><p><span class="math notranslate nohighlight">\(\sigma\)</span> is the standard deviation of the median EVI values</p></li>
+</ul>
+<p>The higher the variation the greater the anomaly i.e., if the value is -1 then the EVI for that time period is far lesser than the normal and vice versa.</p>
+<p>The Z scores are calculated for 2023 and 2024 compared to a historic 10 year average. They are then displayed as a histogram, a map and an aggregated map.</p>
+<p><strong>2024 had fewer anomalies in agrcultural yield than 2023.</strong> The baseline used for this is from 2012-2022.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Statistical Summary:
+--------------------------------------------------------------------------------
+File                                           Mean     Median        Std     -1.96%     +1.96%
+--------------------------------------------------------------------------------
+2023                                          0.246      0.228      0.323        0.0        0.0
+2024                                          0.156      0.118      0.370        0.0        0.1
+--------------------------------------------------------------------------------
+</pre></div>
+</div>
+<img alt="../../_images/a35cf19000b4a15c48199989060168b80b8a6ab8671bcdff08e5fe688795e59d.png" src="../../_images/a35cf19000b4a15c48199989060168b80b8a6ab8671bcdff08e5fe688795e59d.png" />
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Statistical Summary:
+--------------------------------------------------------------------------------
+File                                           Mean     Median        Std     -1.96%     +1.96%
+--------------------------------------------------------------------------------
+2023                                          0.236      0.210      0.366        0.0        0.1
+2024                                          0.143      0.096      0.432        0.0        0.2
+--------------------------------------------------------------------------------
+</pre></div>
+</div>
+<img alt="../../_images/6a66fc4f27f779122f3e30795b92945c124403dd000f05febd9c11dfba6e9e61.png" src="../../_images/6a66fc4f27f779122f3e30795b92945c124403dd000f05febd9c11dfba6e9e61.png" />
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div><img alt="../../_images/de02f1ee0b2909d8977a3d23aa7fe61c1a8b0bc87dc34dc37223f52ee90e0bcd.png" src="../../_images/de02f1ee0b2909d8977a3d23aa7fe61c1a8b0bc87dc34dc37223f52ee90e0bcd.png" />
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div></div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loaded data for years: [2019, 2020, 2021, 2022, 2023, 2024]
+</pre></div>
+</div>
+<img alt="../../_images/ce4e57d3b972af5c63919211f874f4846f5fd790e8db410dd4b4959a9c038df0.png" src="../../_images/ce4e57d3b972af5c63919211f874f4846f5fd790e8db410dd4b4959a9c038df0.png" />
+</div>
+</div>
+</section>
+<section id="trends-in-median-evi">
+<h3>Trends in Median EVI<a class="headerlink" href="#trends-in-median-evi" title="Link to this heading">#</a></h3>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div><img alt="../../_images/32b66bf03da687562b0b6f95920d952ad69a6496b6f22a3d919467994c652213.png" src="../../_images/32b66bf03da687562b0b6f95920d952ad69a6496b6f22a3d919467994c652213.png" />
+</div>
+</div>
+<p><strong>There is an increasing trend in EVI in Ethiopia since 2012.</strong> However, the dip during the Tigray war and now during the Amhara war is evident.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div><img alt="../../_images/bd0806e34261f597f027472e1b1897ff5703f1a599a56d4ac8c45d71bda86965.png" src="../../_images/bd0806e34261f597f027472e1b1897ff5703f1a599a56d4ac8c45d71bda86965.png" />
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\wb588851\AppData\Local\Temp\ipykernel_29712\962424553.py:24: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option(&#39;future.no_silent_downcasting&#39;, True)`
+  ).fillna(0)
+</pre></div>
+</div>
+<img alt="../../_images/1a45b76c1c79479aa8cfa199bed94761170bd07e87d665c3ff67e3c247a5f93c.png" src="../../_images/1a45b76c1c79479aa8cfa199bed94761170bd07e87d665c3ff67e3c247a5f93c.png" />
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div><img alt="../../_images/3734e38cddf123d2dee7e94322b372b94a852c85063c8826d468da4dcba99adf.png" src="../../_images/3734e38cddf123d2dee7e94322b372b94a852c85063c8826d468da4dcba99adf.png" />
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div><img alt="../../_images/59d9882cd58fea15f193aa2dc8348ac71d6663856d80216b4388ab8388338f49.png" src="../../_images/59d9882cd58fea15f193aa2dc8348ac71d6663856d80216b4388ab8388338f49.png" />
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div><img alt="../../_images/5f27d27c9036c241cc6eff335e833ac91cf72f7ae0d717978f99635e93710d4b.png" src="../../_images/5f27d27c9036c241cc6eff335e833ac91cf72f7ae0d717978f99635e93710d4b.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks/agriculture"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="README.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Crop Productivity and EVI</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../combined_stats/city_comparison.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Comparing Addis Ababa and Nairobi</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methodology-summary">Methodology Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#findings">Findings</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#croparea-statistics">Croparea Statistics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crop-seasonality">Crop Seasonality</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#anomalies-in-evi">Anomalies in EVI</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trends-in-median-evi">Trends in Median EVI</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Development Data Group
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  Last updated on Jul 09, 2025.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <div>
+ Country borders or names do not necessarily reflect the World Bank Group’s official position. All maps are for illustrative purposes and do not imply the expression of any opinion on the part of the World Bank, concerning the legal status of any country or territory or concerning the delimitation of frontiers or boundaries
+</div>
+<div>
+    <b>All content (unless otherwise specified) is subject to the <a href="https://www.mozilla.org/en-US/MPL">Mozilla Public License.</a></b>
+</div>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

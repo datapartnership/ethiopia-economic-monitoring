@@ -1,0 +1,689 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Understanding Impact on Economic Activity</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=449c5310" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/combined_stats/summary_stats';</script>
+    <link rel="canonical" href="https://datapartnership.github.io/datapartnership/ethiopia-economic-monitoring/notebooks/combined_stats/summary_stats.html" />
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Additional Resources" href="../../docs/3-add-resources.html" />
+    <link rel="prev" title="Conflict Impact on Economic Activity" href="conflict_impact.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+    <meta name="docbuild:last-update" content="Jul 09, 2025"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt=" - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt=" - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to the Data Lab</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../docs/1-intro-to-data-lab.html">Introduction to the Data Lab</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Analytics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../basemaps/base-layers.html">Basemaps for Ethiopia</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../air-pollution/README.html">Air Pollution in Ethiopia</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../air-pollution/air_pollution_ethiopia.html">Air Pollution in Ethiopia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../air-pollution/air_pollution.html">Air Pollution in Addis Ababa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../air-pollution/air_pollution_roads.html">Air Pollution in Addis &amp; Addis-Djibouti Corridor</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../surveys/premise.html">Ethiopian Opinions on Somaliland: Survey from Premise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../google-trends/ethiopia_eda.html">Google Trends - Ethiopia Economic Monitor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nighttime-lights/nighttime-lights.html">Nighttime Lights Trends in Ethiopia</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../conflict/conflict.html">Conflict Location and Trends Monitor</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../conflict/acled.html">ACLED National and Subnational Conflict Trends</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../agriculture/README.html">Crop Productivity and EVI</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../agriculture/crop-productivity.html">Ethiopia Crop Productivity Analysis</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="city_comparison.html">Comparing Addis Ababa and Nairobi</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="conflict_impact.html">Conflict Impact on Economic Activity</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Understanding Impact on Economic Activity</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Additional Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../docs/3-add-resources.html">Additional Resources</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Acknowledgements</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../docs/4-team.html">Project Team and Acknowedgements</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/datapartnership/ethiopia-economic-monitoring" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/datapartnership/ethiopia-economic-monitoring/edit/main/notebooks/combined_stats/summary_stats.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/datapartnership/ethiopia-economic-monitoring/issues/new?title=Issue%20on%20page%20%2Fnotebooks/combined_stats/summary_stats.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/combined_stats/summary_stats.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Understanding Impact on Economic Activity</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annual-national-trends-of-evi-no2-conflict-and-nightlights">Annual National Trends of EVI, NO2, Conflict and Nightlights</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annual-national-trends-of-evi-no2-conflict-and-nightlights-with-gdp">Annual National Trends of EVI, NO2, Conflict and Nightlights with GDP</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annual-regional-trends-in-conflict-and-evi">Annual Regional Trends in Conflict and EVI</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annual-regional-trends-between-conflict-and-no2">Annual Regional Trends between Conflict and NO2</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conflict-vs-no2-in-amhara">Conflict vs NO2 in Amhara</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perason-correlation-at-admin-2-level">Perason Correlation at Admin 2 Level</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="understanding-impact-on-economic-activity">
+<h1>Understanding Impact on Economic Activity<a class="headerlink" href="#understanding-impact-on-economic-activity" title="Link to this heading">#</a></h1>
+<section id="annual-national-trends-of-evi-no2-conflict-and-nightlights">
+<h2>Annual National Trends of EVI, NO2, Conflict and Nightlights<a class="headerlink" href="#annual-national-trends-of-evi-no2-conflict-and-nightlights" title="Link to this heading">#</a></h2>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../_images/0a28417befed2b67d4881b61d883f6e19782297d566c90f3d46f0f7b45485f1c.png" src="../../_images/0a28417befed2b67d4881b61d883f6e19782297d566c90f3d46f0f7b45485f1c.png" />
+</div>
+</div>
+<p><strong>2024 was a reduction in Nightlights, EVI and Air Pollution, while there was an increase in conflict</strong></p>
+<p><strong>Conflict and Agriculture</strong>
+Existing literature showing that the Tigray war from 2020-2022 cause a loss in food security in the Amhara region (<a class="reference external" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11789359/">Muhyie, J. H., et. al., 2025</a>). The fall in EVI in these years could be indicative of that, exacerbated by drought. From 19 May to 21 June 2025, the International Red Cross delieverd seed and fertilizer to the people in Amhara to account for <a class="reference external" href="https://www.icrc.org/en/news-release/ethiopia-thousands-receive-seeds-and-fertilizers-conflict-affected-regions#:~:text=The%20armed%20conflicts%20in%20Ethiopia's%20two%20most,to%20widespread%20food%20insecurity%20among%20rural%20communities.">supply chain disruptions</a> to resources for these farmers.</p>
+<p>Forecasts and rpedictions suggested that there would be a <a class="reference external" href="https://www.fsinplatform.org/sites/default/files/resources/files/GRFC2024-full.pdf#page=71">conflict and drought-driven loss in agricultural productivity</a>. Although the rain predictions are better than expected, the EVI has fallen which could indicate that conflict has a part to play.</p>
+<p><strong>NO2, Manufacturing Activity and Movement</strong>
+NO2 was seen to reduce in Dire Dawa, a manufacturing hub in Ethiopia. It also reduced across the entire country. This could be both because of reduced movement of vehicles and reduction in industrial production.</p>
+<p>According to the <a class="reference external" href="https://ess.gov.et/wp-content/uploads/2025/03/external-merchandise-trade-statistics-fourth-quarter-2024.pdf">Ethiopia Statistical Service</a>, the number of imports were higher in 2024 compared to 2023, while the exports increased marginally from August-December 2024.</p>
+</section>
+<section id="annual-national-trends-of-evi-no2-conflict-and-nightlights-with-gdp">
+<h2>Annual National Trends of EVI, NO2, Conflict and Nightlights with GDP<a class="headerlink" href="#annual-national-trends-of-evi-no2-conflict-and-nightlights-with-gdp" title="Link to this heading">#</a></h2>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../_images/0899038a7cb97a15152a723711488b2275be41b3d2bc34a27321e33b90822e6d.png" src="../../_images/0899038a7cb97a15152a723711488b2275be41b3d2bc34a27321e33b90822e6d.png" />
+</div>
+</div>
+</section>
+<section id="annual-regional-trends-in-conflict-and-evi">
+<h2>Annual Regional Trends in Conflict and EVI<a class="headerlink" href="#annual-regional-trends-in-conflict-and-evi" title="Link to this heading">#</a></h2>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../_images/a38c5487637574bbdff72532e3382baca8d795b038904d5f5e728bc649a1fb22.png" src="../../_images/a38c5487637574bbdff72532e3382baca8d795b038904d5f5e728bc649a1fb22.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">merged_adm2_annual</span><span class="p">[</span><span class="n">merged_adm2_annual</span><span class="p">[</span><span class="s1">&#39;ADM1_EN&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Amhara&#39;</span><span class="p">]</span>
+<span class="n">plot_dual_variables</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;conflict_index&#39;</span><span class="p">,</span> <span class="s1">&#39;evi_median&#39;</span><span class="p">,</span> 
+                   <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Conflict vs EVI in Amhara Region&#39;</span><span class="p">,</span> 
+                   <span class="n">subtitle</span><span class="o">=</span><span class="s1">&#39;Source: Sentinel-2 and MODIS&#39;</span><span class="p">,</span> <span class="n">group_col</span><span class="o">=</span><span class="s1">&#39;ADM2_EN&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/b0e76fe0d822132a89cac74373625f4f3c505091ed4bd6d05aeb0ccdcac62519.png" src="../../_images/b0e76fe0d822132a89cac74373625f4f3c505091ed4bd6d05aeb0ccdcac62519.png" />
+</div>
+</div>
+<p><strong>Oromia, Awi and West Gondar did not see a reduction in EVI. Could it be because of a different type of conflict in that region?</strong></p>
+<div class="cell tag_remove-input docutils container">
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../_images/a9f602a43d840179c050ac491b2f14254f50ae69930eddca920a558820224231.png" src="../../_images/a9f602a43d840179c050ac491b2f14254f50ae69930eddca920a558820224231.png" />
+</div>
+</div>
+<p>Oromia and West Gondar had lower battle conflict intensity comparatively. However, this doesn’t explain why Awi shows no reduction in EVI.</p>
+</section>
+<section id="annual-regional-trends-between-conflict-and-no2">
+<h2>Annual Regional Trends between Conflict and NO2<a class="headerlink" href="#annual-regional-trends-between-conflict-and-no2" title="Link to this heading">#</a></h2>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../_images/874b4dae7df1d8dbe4cf6b740b7432fa3a87991943332384256b2f6c89255b02.png" src="../../_images/874b4dae7df1d8dbe4cf6b740b7432fa3a87991943332384256b2f6c89255b02.png" />
+</div>
+</div>
+<section id="conflict-vs-no2-in-amhara">
+<h3>Conflict vs NO2 in Amhara<a class="headerlink" href="#conflict-vs-no2-in-amhara" title="Link to this heading">#</a></h3>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../_images/55e8f08cf8a185295a98e052ee9604b040c02d1638dc9d96f30959789b121faa.png" src="../../_images/55e8f08cf8a185295a98e052ee9604b040c02d1638dc9d96f30959789b121faa.png" />
+</div>
+</div>
+</section>
+<section id="perason-correlation-at-admin-2-level">
+<h3>Perason Correlation at Admin 2 Level<a class="headerlink" href="#perason-correlation-at-admin-2-level" title="Link to this heading">#</a></h3>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sample size: 1953 observations
+</pre></div>
+</div>
+<img alt="../../_images/5cf48bd6fd9584edf079ac259c19d05c7d0ff21e66a9849dfb3b8a3cee8fb23e.png" src="../../_images/5cf48bd6fd9584edf079ac259c19d05c7d0ff21e66a9849dfb3b8a3cee8fb23e.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SIGNIFICANT CORRELATIONS SUMMARY:
+==================================================
+Significant correlations (p &lt; 0.05):
+  evi_median ↔ NO2: r = -0.307, p = 0.0000 ***
+
+KEY FINDING - CONFLICT vs EVI:
+==================================================
+Correlation: 0.0224
+P-value: 0.322158
+Direction: POSITIVE - Higher conflict associated with higher EVI (contradicts hypothesis)
+Significance: NOT STATISTICALLY SIGNIFICANT
+
+LEGEND:
+==================================================
+Correlation values:
+  +1.0 = Perfect positive correlation
+  +0.5 = Moderate positive correlation
+   0.0 = No correlation
+  -0.5 = Moderate negative correlation
+  -1.0 = Perfect negative correlation
+
+P-value significance:
+  *** = p &lt; 0.001 (highly significant)
+  **  = p &lt; 0.01  (very significant)
+  *   = p &lt; 0.05  (significant)
+  (no stars) = p ≥ 0.05 (not significant)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks/combined_stats"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="conflict_impact.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Conflict Impact on Economic Activity</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../docs/3-add-resources.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Additional Resources</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annual-national-trends-of-evi-no2-conflict-and-nightlights">Annual National Trends of EVI, NO2, Conflict and Nightlights</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annual-national-trends-of-evi-no2-conflict-and-nightlights-with-gdp">Annual National Trends of EVI, NO2, Conflict and Nightlights with GDP</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annual-regional-trends-in-conflict-and-evi">Annual Regional Trends in Conflict and EVI</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annual-regional-trends-between-conflict-and-no2">Annual Regional Trends between Conflict and NO2</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conflict-vs-no2-in-amhara">Conflict vs NO2 in Amhara</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perason-correlation-at-admin-2-level">Perason Correlation at Admin 2 Level</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Development Data Group
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  Last updated on Jul 09, 2025.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <div>
+ Country borders or names do not necessarily reflect the World Bank Group’s official position. All maps are for illustrative purposes and do not imply the expression of any opinion on the part of the World Bank, concerning the legal status of any country or territory or concerning the delimitation of frontiers or boundaries
+</div>
+<div>
+    <b>All content (unless otherwise specified) is subject to the <a href="https://www.mozilla.org/en-US/MPL">Mozilla Public License.</a></b>
+</div>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
