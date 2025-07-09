@@ -1,4 +1,4 @@
-# Conflict Impact on Agriculture and Air Quality
+# Conflict Impact on Economic Activity
 
 ## Conflict Impact on Agriculture
 
@@ -10,7 +10,7 @@ On another study, Deininger et al. (2023) examined the impact of conflict on Ukr
 
 In Ethiopia, Hishe et al. (2024) utilized Normalized Difference Vegetation Index (MNDVI), Optimized Soil Adjusted Vegetation Index (OSAVI), and Moisture Adjusted Vegetation Index (MAVI) to assess spatio-temporal changes in vegetation cover. Before the armed conflict broke out in the region, vegetation cover in the Tigray was increased by 179 km2 (2%) from 2000-2020 due to conservation practices. However, during the conflict period from 2020 to 2022, vegetation cover decreased by 5.3% and accompanied by decrease in vegetation density. This rapid decline largely reversed the gains made over the preceding 20 years.
 
-To conclude, the impacts of armed conflict on agriculture are profound, with significant reductions in crop yields and changes in agricultural practices.
+These papers that study the relationship between armed conflict and agriculture show correlations with significant changes in crop yields and agricultural practices.
 
 ## Conflict Impact on NO2
 
