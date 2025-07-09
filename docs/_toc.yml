@@ -21,7 +21,9 @@ parts:
         - file: notebooks/conflict/acled.ipynb
       - file: notebooks/agriculture/crop-productivity.ipynb
       - file: notebooks/combined_stats/city_comparison.ipynb
-      - file: notebooks/combined_stats/summary_stats.ipynb
+      - file: notebooks/combined_stats/conflict_impact.md
+        sections:
+        - file: notebooks/combined_stats/summary_stats.ipynb
 
   - caption: Additional Resources
     chapters:
