@@ -6,8 +6,7 @@ Each project includes a common set of foundational data that is shared across an
 
 | **Topic** | **Data Source** | **Notes** |
 | --------- | --------------- | --------- |
-| Administrative Boundaries | [UNOCHA/HDX](https://data.humdata.org/dataset/cod-ab-eth) | Data available up to admin level 3 |
-| Population | [UNOCHA/HDX](https://data.humdata.org/dataset/cod-ab-eth) and [WorldPop](https://hub.worldpop.org/geodata/listing?id=69) | The data from UNOCHA is population density data from Meta while the WorldPop data is population counts both for 2020 |
+| Administrative Boundaries | [HDX](https://data.humdata.org/dataset/cod-ab-eth) and [GADM](https://gadm.org/) | Data available up to admin level 3 |
 
 **Project Data**
 
