@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=449c5310" />
@@ -64,10 +64,10 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Conflict Location and Trends Monitor" href="../conflict/conflict.html" />
-    <link rel="prev" title="Google Trends - Ethiopia Economic Monitor" href="../google-trends/ethiopia_eda.html" />
+    <link rel="prev" title="Nighttime Lights Trends" href="README.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-    <meta name="docbuild:last-update" content="Jul 09, 2025"/>
+    <meta name="docbuild:last-update" content="Jul 21, 2025"/>
   </head>
   
   
@@ -190,7 +190,10 @@
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../surveys/premise.html">Ethiopian Opinions on Somaliland: Survey from Premise</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../google-trends/ethiopia_eda.html">Google Trends - Ethiopia Economic Monitor</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Nighttime Lights Trends in Ethiopia</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">Nighttime Lights Trends</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Nighttime Lights Trends in Ethiopia</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../conflict/conflict.html">Conflict Location and Trends Monitor</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../conflict/acled.html">ACLED National and Subnational Conflict Trends</a></li>
 </ul>
@@ -211,7 +214,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Acknowledgements</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../docs/4-team.html">Project Team and Acknowedgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/4-team.html">Project Team and Acknowledgements</a></li>
 </ul>
 
     </div>
@@ -424,10 +427,6 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nasa-black-marble">NASA Black Marble</a></li>
-</ul>
-</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methodology">Methodology</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#insights">Insights</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#national-trends-of-nighttime-lights">National Trends of Nighttime Lights</a></li>
@@ -452,34 +451,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="nighttime-lights-trends-in-ethiopia">
 <h1>Nighttime Lights Trends in Ethiopia<a class="headerlink" href="#nighttime-lights-trends-in-ethiopia" title="Link to this heading">#</a></h1>
-<p>In a world marked by diverse forms of conflict, from armed confrontations to civil unrest, <a class="reference external" href="https://blackmarble.gsfc.nasa.gov">NASA’s Black Marble Nighttime Lights</a> dataset offers an unconventional yet powerful tool for understanding the ripple effects of these conflicts on human settlements and infrastructure. By tracking nighttime light variations and disruptions, we can unearth insights into population displacement, economic destabilization, and the societal impacts of conflict. This analysis explores the potential of a nighttime lights dataset to not only detect areas affected by conflict but also to quantify the extent of its influence on livelihoods and on the economy, providing a valuable perspective on the multifaceted consequences of conflict.</p>
-<section id="data">
-<h2>Data<a class="headerlink" href="#data" title="Link to this heading">#</a></h2>
-<p>This analysis used Nighttime Lights data from NASA BlackMarble and shapefiles from GADM (which is slightly different from the shapefiles used in the analysis for Air Pollution). In the next version of the analysis, the shapefiles will be changed so the analysis can become more comparable.</p>
-<section id="nasa-black-marble">
-<h3>NASA Black Marble<a class="headerlink" href="#nasa-black-marble" title="Link to this heading">#</a></h3>
-<p><a class="reference external" href="https://blackmarble.gsfc.nasa.gov">NASA’s Black Marble</a> product suite represents a remarkable advancement in our ability to monitor and understand nocturnal light emissions on a global scale. By utilizing cutting-edge satellite technology and image processing techniques, the Black Marble VIIRS dataset offers a comprehensive and high-resolution view of the Earth’s nighttime illumination patterns. To obtain the raster data conveniently and calculate zonal statistics, we use the <a class="reference external" href="https://worldbank.github.io/blackmarblepy/README.html">BlackMarblePy</a> <span id="id1">[]</span> package developed by the World Bank.</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>The <a class="reference external" href="https://blackmarble.gsfc.nasa.gov/VNP46A2.html">VNP46A2 Daily Moonlight-adjusted Nighttime Lights (NTL) Product</a> is <a class="reference internal" href="#datahttps://ladsweb.modaps.eosdis.nasa.gov/missions-and-measurements/products/VNP46A2/#data-availability"><span class="xref myst">available daily</span></a>. However, due data quality, cloud cover or other factors, the data may not be available always at a specific location.</p>
-</div>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ethiopia_adm1</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;../../data/boundaries/eth_admbnda_adm1_csa_bofedb_2021.shp&#39;</span><span class="p">)</span>
-<span class="n">ethiopia_adm2</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;../../data/boundaries/eth_admbnda_adm2_csa_bofedb_2021.shp&#39;</span><span class="p">)</span>
-<span class="c1">#ethiopia.explore()</span>
-</pre></div>
-</div>
-</div>
-</details>
-</div>
-</section>
-</section>
+<p>This notebook provides an analysis on the temporal and spatial patterns of nighttime lights trends in Ethiopia from 2012 to 2024. The analysis includes visualizations of nighttime lights trends at national and regional levels.</p>
 <section id="methodology">
 <h2>Methodology<a class="headerlink" href="#methodology" title="Link to this heading">#</a></h2>
 <p>We created a time series of weekly radiance using NASA’s Black Marble data which involves several steps, including data acquisition, pre-processing, zonal statistics calculation, and time series generation. The zonal statistics of the aggregated sum of nighttime lights is used to make inferences.</p>
@@ -1636,12 +1608,12 @@ function(Bokeh) {
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../google-trends/ethiopia_eda.html"
+       href="README.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Google Trends - Ethiopia Economic Monitor</p>
+        <p class="prev-next-title">Nighttime Lights Trends</p>
       </div>
     </a>
     <a class="right-next"
@@ -1669,10 +1641,6 @@ function(Bokeh) {
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nasa-black-marble">NASA Black Marble</a></li>
-</ul>
-</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methodology">Methodology</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#insights">Insights</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#national-trends-of-nighttime-lights">National Trends of Nighttime Lights</a></li>
@@ -1710,7 +1678,7 @@ By Development Data Group
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jul 09, 2025.
+  Last updated on Jul 21, 2025.
   <br/>
 </p>
   </div>

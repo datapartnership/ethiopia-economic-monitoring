@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=449c5310" />
@@ -67,7 +67,7 @@
     <link rel="prev" title="Air Pollution in Ethiopia" href="README.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-    <meta name="docbuild:last-update" content="Jul 09, 2025"/>
+    <meta name="docbuild:last-update" content="Jul 21, 2025"/>
   </head>
   
   
@@ -190,7 +190,10 @@
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../surveys/premise.html">Ethiopian Opinions on Somaliland: Survey from Premise</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../google-trends/ethiopia_eda.html">Google Trends - Ethiopia Economic Monitor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../nighttime-lights/nighttime-lights.html">Nighttime Lights Trends in Ethiopia</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../nighttime-lights/README.html">Nighttime Lights Trends</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../nighttime-lights/nighttime-lights.html">Nighttime Lights Trends in Ethiopia</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../conflict/conflict.html">Conflict Location and Trends Monitor</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../conflict/acled.html">ACLED National and Subnational Conflict Trends</a></li>
 </ul>
@@ -211,7 +214,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Acknowledgements</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../docs/4-team.html">Project Team and Acknowedgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/4-team.html">Project Team and Acknowledgements</a></li>
 </ul>
 
     </div>
@@ -424,6 +427,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methodology">Methodology</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#temporal-pollution-trends">Temporal Pollution Trends</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#national-trends">National Trends</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regional-trends">Regional Trends</a></li>
@@ -449,6 +453,16 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="air-pollution-in-ethiopia">
 <h1>Air Pollution in Ethiopia<a class="headerlink" href="#air-pollution-in-ethiopia" title="Link to this heading">#</a></h1>
+<p>This notebook provides an analysis of air pollution in Ethiopia, focusing on its temporal and spatial patterns from 2019 to 2024. The analysis includes visualizations of air pollution trends at national and regional levels, as well as in manufacturing zones.</p>
+<section id="methodology">
+<h2>Methodology<a class="headerlink" href="#methodology" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Extract Air Pollution data from Google Earth Engine for Ethiopia</p></li>
+<li><p>Plot the temporal trends of air pollution on national and regional levels from 2019-2024</p></li>
+<li><p>Plot the spatial distribution of air pollution on regional and zonal levels from 2019-2024</p></li>
+<li><p>Analyze the temporal and spatial patterns of air pollution in manufacturing zones from 2019-2024</p></li>
+</ul>
+</section>
 <section id="temporal-pollution-trends">
 <h2>Temporal Pollution Trends<a class="headerlink" href="#temporal-pollution-trends" title="Link to this heading">#</a></h2>
 <p>First we look at the temporal trends nationally and regionally at annual and monthly levels.</p>
@@ -2347,6 +2361,7 @@ function(Bokeh) {
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methodology">Methodology</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#temporal-pollution-trends">Temporal Pollution Trends</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#national-trends">National Trends</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regional-trends">Regional Trends</a></li>
@@ -2385,7 +2400,7 @@ By Development Data Group
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jul 09, 2025.
+  Last updated on Jul 21, 2025.
   <br/>
 </p>
   </div>
