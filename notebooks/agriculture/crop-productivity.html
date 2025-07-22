@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Ethiopia Crop Productivity Analysis</title>
+    <title>Ethiopia Crop Yield Analysis</title>
   
   
   
@@ -69,7 +69,7 @@
     <link rel="prev" title="Crop Productivity and EVI" href="README.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-    <meta name="docbuild:last-update" content="Jul 21, 2025"/>
+    <meta name="docbuild:last-update" content="Jul 22, 2025"/>
   </head>
   
   
@@ -201,7 +201,7 @@
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">Crop Productivity and EVI</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Ethiopia Crop Productivity Analysis</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Ethiopia Crop Yield Analysis</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../combined_stats/city_comparison.html">Comparing Addis Ababa and Nairobi</a></li>
@@ -419,7 +419,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Ethiopia Crop Productivity Analysis</h1>
+    <h1>Ethiopia Crop Yield Analysis</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -435,6 +435,8 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crop-seasonality">Crop Seasonality</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#anomalies-in-evi">Anomalies in EVI</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trends-in-median-evi">Trends in Median EVI</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#admin-1-evi-trends">Admin 1 EVI Trends</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#admin-2-evi-trends">Admin 2 EVI Trends</a></li>
 </ul>
 </li>
 </ul>
@@ -448,8 +450,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="ethiopia-crop-productivity-analysis">
-<h1>Ethiopia Crop Productivity Analysis<a class="headerlink" href="#ethiopia-crop-productivity-analysis" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="ethiopia-crop-yield-analysis">
+<h1>Ethiopia Crop Yield Analysis<a class="headerlink" href="#ethiopia-crop-yield-analysis" title="Link to this heading">#</a></h1>
 <p>This notebook uses Enhanced Vegetation Index (EVI) from MODIS as a proxy for crop yield. EVI measures canopy greeness by analyzing spectral data through satellite imagery. EVI serves as a proxy for crop yield because it measures photosynthetic activity and green biomass, which strongly correlate with a crop’s potential productivity and final harvest output.</p>
 <section id="methodology-summary">
 <h2>Methodology Summary<a class="headerlink" href="#methodology-summary" title="Link to this heading">#</a></h2>
@@ -655,7 +657,7 @@ We then extract crop seasonality metrics using the seasonal amplitude method fro
                     --jp-layout-color3: var(--colab-primary-surface-color, white);
                 }
             </style>
-            </div><img alt="../../_images/d5576fc99c78df88c05332f24b32961ed5e0eec8f4eb5623c25e1c5520504521.png" src="../../_images/d5576fc99c78df88c05332f24b32961ed5e0eec8f4eb5623c25e1c5520504521.png" />
+            </div><img alt="../../_images/d67c072ecc102fc36969275bf97e9788643d1b13b01f00b3abfb94cb800b128a.png" src="../../_images/d67c072ecc102fc36969275bf97e9788643d1b13b01f00b3abfb94cb800b128a.png" />
 </div>
 </div>
 <p><strong>Based on the phenology process, we identified the seasonality to start in April/May and end in December with the peak being in September.</strong> This can vary with geographic region and crop type as well, however, that has not been taken into consideration in this version.</p>
@@ -674,7 +676,6 @@ We then extract crop seasonality metrics using the seasonal amplitude method fro
 </ul>
 <p>The higher the variation the greater the anomaly i.e., if the value is -1 then the EVI for that time period is far lesser than the normal and vice versa.</p>
 <p>The Z scores are calculated for 2023 and 2024 compared to a historic 10 year average. They are then displayed as a histogram, a map and an aggregated map.</p>
-<p><strong>2024 had fewer anomalies in agrcultural yield than 2023.</strong> The baseline used for this is from 2012-2022.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="output text_html">
@@ -774,6 +775,7 @@ File                                           Mean     Median        Std     -1
             </div><img alt="../../_images/de02f1ee0b2909d8977a3d23aa7fe61c1a8b0bc87dc34dc37223f52ee90e0bcd.png" src="../../_images/de02f1ee0b2909d8977a3d23aa7fe61c1a8b0bc87dc34dc37223f52ee90e0bcd.png" />
 </div>
 </div>
+<p><strong>2024 saw anomalies in the agriculture heavy areas of Ethiopia.</strong> 2022 was a drought year which explains the deviation from baseline.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="output text_html">
@@ -830,6 +832,7 @@ File                                           Mean     Median        Std     -1
 <img alt="../../_images/ce4e57d3b972af5c63919211f874f4846f5fd790e8db410dd4b4959a9c038df0.png" src="../../_images/ce4e57d3b972af5c63919211f874f4846f5fd790e8db410dd4b4959a9c038df0.png" />
 </div>
 </div>
+<p><strong>2023 was a very good year from agricultural output in Ethiopia</strong>. Although 2024 shows better values than 2022, there were a few areas with anomalies.</p>
 </section>
 <section id="trends-in-median-evi">
 <h3>Trends in Median EVI<a class="headerlink" href="#trends-in-median-evi" title="Link to this heading">#</a></h3>
@@ -861,6 +864,9 @@ File                                           Mean     Median        Std     -1
 </div>
 </div>
 <p><strong>There is an increasing trend in EVI in Ethiopia since 2012.</strong> However, the dip during the Tigray war and now during the Amhara war is evident.</p>
+</section>
+<section id="admin-1-evi-trends">
+<h3>Admin 1 EVI Trends<a class="headerlink" href="#admin-1-evi-trends" title="Link to this heading">#</a></h3>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="output text_html">
@@ -885,38 +891,7 @@ File                                           Mean     Median        Std     -1
                     --jp-layout-color3: var(--colab-primary-surface-color, white);
                 }
             </style>
-            </div><img alt="../../_images/bd0806e34261f597f027472e1b1897ff5703f1a599a56d4ac8c45d71bda86965.png" src="../../_images/bd0806e34261f597f027472e1b1897ff5703f1a599a56d4ac8c45d71bda86965.png" />
-</div>
-</div>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output text_html">
-            <style>
-                .geemap-dark {
-                    --jp-widgets-color: white;
-                    --jp-widgets-label-color: white;
-                    --jp-ui-font-color1: white;
-                    --jp-layout-color2: #454545;
-                    background-color: #383838;
-                }
-
-                .geemap-dark .jupyter-button {
-                    --jp-layout-color3: #383838;
-                }
-
-                .geemap-colab {
-                    background-color: var(--colab-primary-surface-color, white);
-                }
-
-                .geemap-colab .jupyter-button {
-                    --jp-layout-color3: var(--colab-primary-surface-color, white);
-                }
-            </style>
-            </div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\wb588851\AppData\Local\Temp\ipykernel_29712\962424553.py:24: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option(&#39;future.no_silent_downcasting&#39;, True)`
-  ).fillna(0)
-</pre></div>
-</div>
-<img alt="../../_images/1a45b76c1c79479aa8cfa199bed94761170bd07e87d665c3ff67e3c247a5f93c.png" src="../../_images/1a45b76c1c79479aa8cfa199bed94761170bd07e87d665c3ff67e3c247a5f93c.png" />
+            </div><img alt="../../_images/d1886d56eb37c9158b2e0e25d1ca2f73545a97ffc72123668c11c0b7d018ae7a.png" src="../../_images/d1886d56eb37c9158b2e0e25d1ca2f73545a97ffc72123668c11c0b7d018ae7a.png" />
 </div>
 </div>
 <div class="cell tag_remove-input docutils container">
@@ -943,7 +918,66 @@ File                                           Mean     Median        Std     -1
                     --jp-layout-color3: var(--colab-primary-surface-color, white);
                 }
             </style>
-            </div><img alt="../../_images/3734e38cddf123d2dee7e94322b372b94a852c85063c8826d468da4dcba99adf.png" src="../../_images/3734e38cddf123d2dee7e94322b372b94a852c85063c8826d468da4dcba99adf.png" />
+            </div><img alt="../../_images/41a2d013f1b9a7f9c050490d4a5c67ce9a97d97498da067e38cd55724643d6b2.png" src="../../_images/41a2d013f1b9a7f9c050490d4a5c67ce9a97d97498da067e38cd55724643d6b2.png" />
+</div>
+</div>
+</section>
+<section id="admin-2-evi-trends">
+<h3>Admin 2 EVI Trends<a class="headerlink" href="#admin-2-evi-trends" title="Link to this heading">#</a></h3>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div><img alt="../../_images/01209ad0c9deca005839a995584ca9e340f61d4ea8f636f0a340e12153fce281.png" src="../../_images/01209ad0c9deca005839a995584ca9e340f61d4ea8f636f0a340e12153fce281.png" />
+</div>
+</div>
+<p><strong>Which areas in Amhara had the greatest decline in EVI?</strong></p>
+<p><strong>Which areas saw the highest reduction in EVI amongst all the admin 2 regions?</strong></p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div><img alt="../../_images/1ca8e289f5c6e54c773508f684638e7c1f81c90179f3e6f740a390e2d0c48f6f.png" src="../../_images/1ca8e289f5c6e54c773508f684638e7c1f81c90179f3e6f740a390e2d0c48f6f.png" />
 </div>
 </div>
 <div class="cell tag_remove-input docutils container">
@@ -970,34 +1004,7 @@ File                                           Mean     Median        Std     -1
                     --jp-layout-color3: var(--colab-primary-surface-color, white);
                 }
             </style>
-            </div><img alt="../../_images/59d9882cd58fea15f193aa2dc8348ac71d6663856d80216b4388ab8388338f49.png" src="../../_images/59d9882cd58fea15f193aa2dc8348ac71d6663856d80216b4388ab8388338f49.png" />
-</div>
-</div>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output text_html">
-            <style>
-                .geemap-dark {
-                    --jp-widgets-color: white;
-                    --jp-widgets-label-color: white;
-                    --jp-ui-font-color1: white;
-                    --jp-layout-color2: #454545;
-                    background-color: #383838;
-                }
-
-                .geemap-dark .jupyter-button {
-                    --jp-layout-color3: #383838;
-                }
-
-                .geemap-colab {
-                    background-color: var(--colab-primary-surface-color, white);
-                }
-
-                .geemap-colab .jupyter-button {
-                    --jp-layout-color3: var(--colab-primary-surface-color, white);
-                }
-            </style>
-            </div><img alt="../../_images/5f27d27c9036c241cc6eff335e833ac91cf72f7ae0d717978f99635e93710d4b.png" src="../../_images/5f27d27c9036c241cc6eff335e833ac91cf72f7ae0d717978f99635e93710d4b.png" />
+            </div><img alt="../../_images/6decae9d65a7d85f0669b910f4216ee473f8b157864df57a519b0a95a0d02fca.png" src="../../_images/6decae9d65a7d85f0669b910f4216ee473f8b157864df57a519b0a95a0d02fca.png" />
 </div>
 </div>
 </section>
@@ -1074,6 +1081,8 @@ File                                           Mean     Median        Std     -1
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crop-seasonality">Crop Seasonality</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#anomalies-in-evi">Anomalies in EVI</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trends-in-median-evi">Trends in Median EVI</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#admin-1-evi-trends">Admin 1 EVI Trends</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#admin-2-evi-trends">Admin 2 EVI Trends</a></li>
 </ul>
 </li>
 </ul>
@@ -1102,7 +1111,7 @@ By Development Data Group
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jul 21, 2025.
+  Last updated on Jul 22, 2025.
   <br/>
 </p>
   </div>
