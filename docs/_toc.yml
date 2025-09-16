@@ -18,6 +18,7 @@ parts:
       - file: notebooks/nighttime-lights/README.md
         sections:
         - file: notebooks/nighttime-lights/nighttime-lights.ipynb
+        - file: notebooks/nighttime-lights/nighttime-lights-collection2.ipynb
       - file: notebooks/conflict/conflict.md
         sections:
         - file: notebooks/conflict/acled.ipynb
