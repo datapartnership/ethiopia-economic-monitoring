@@ -69,7 +69,7 @@
     <link rel="prev" title="Ethiopia Crop Yield Analysis" href="crop-productivity.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-    <meta name="docbuild:last-update" content="Oct 29, 2025"/>
+    <meta name="docbuild:last-update" content="Oct 30, 2025"/>
   </head>
   
   
@@ -433,7 +433,10 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#national-trends">National Trends</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identifying-control-and-treatment-groups">Identifying Control and Treatment Groups</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identifying-control-and-treatment-groups">Identifying Control and Treatment Groups</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#identification-strategy">Identification Strategy</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#difference-in-difference-regression">Difference-in-Difference Regression</a></li>
 </ul>
             </nav>
@@ -458,17 +461,55 @@ document.write(`
   %reload_ext autoreload
 </pre></div>
 </div>
-<img alt="../../_images/87ce11ac6cc711c83f33b411edbd95cdabfbebe32a813dfb1a211fd3fbdab782.png" src="../../_images/87ce11ac6cc711c83f33b411edbd95cdabfbebe32a813dfb1a211fd3fbdab782.png" />
+<img alt="../../_images/a13d438f9e33aab32547e2e9f8e73d7ac44dd4475c64cb33f41e0edb37b92c76.png" src="../../_images/a13d438f9e33aab32547e2e9f8e73d7ac44dd4475c64cb33f41e0edb37b92c76.png" />
 </div>
 </div>
 </section>
 <section id="identifying-control-and-treatment-groups">
 <h2>Identifying Control and Treatment Groups<a class="headerlink" href="#identifying-control-and-treatment-groups" title="Link to this heading">#</a></h2>
+<p>This analysis uses a difference-in-differences design to estimate the causal effect of conflict escalation on agricultural vegetation (EVI).</p>
+<p><strong>Step 1: Exclude Low Agricultural Regions</strong></p>
 <ul class="simple">
-<li><p>Admin 3 regions that had less than 50 conflicts from 2015-2025.</p></li>
-<li><p>Admin 3 regions that had less than 50 conflicts before 2019, but more than 50 after 2015.</p></li>
-<li><p>Admin 3 regions that consistently had conflict.</p></li>
+<li><p>Remove the bottom 50% of regions by crop area (median threshold)</p></li>
+<li><p>Result: ~541 regions excluded from analysis</p></li>
 </ul>
+<p><strong>Step 2: Classify Remaining Regions by Conflict Pattern</strong></p>
+<p>Time periods:</p>
+<ul class="simple">
+<li><p><strong>Pre-conflict period</strong>: 2015-2019 (≤2019)</p></li>
+<li><p><strong>Post-conflict period</strong>: 2020-2025 (&gt;2019)</p></li>
+</ul>
+<p>Classification criteria (using 10 events per period as threshold):</p>
+<ol class="arabic simple">
+<li><p><strong>Treatment Group - “New Conflict”</strong>:</p>
+<ul class="simple">
+<li><p>Pre-conflict: ≤10 events</p></li>
+<li><p>Post-conflict: &gt;10 events</p></li>
+<li><p>These regions experienced conflict escalation after 2019</p></li>
+</ul>
+</li>
+<li><p><strong>Control Group - “No/Low Conflict”</strong>:</p>
+<ul class="simple">
+<li><p>No conflict: 0 events in ACLED database</p></li>
+<li><p>Low conflict: ≤10 events in both periods</p></li>
+<li><p>These regions remained peaceful or had minimal conflict throughout</p></li>
+</ul>
+</li>
+<li><p><strong>Excluded from DiD Analysis</strong>:</p>
+<ul class="simple">
+<li><p><strong>Reduced conflict</strong>: pre&gt;10, post≤10 (conflict de-escalation)</p></li>
+<li><p><strong>Persistent conflict</strong>: &gt;10 events in both periods (always high conflict)</p></li>
+</ul>
+</li>
+</ol>
+<section id="identification-strategy">
+<h3>Identification Strategy<a class="headerlink" href="#identification-strategy" title="Link to this heading">#</a></h3>
+<p>The treatment effect (β₁) is identified by comparing:</p>
+<ul class="simple">
+<li><p>The change in EVI for <strong>new conflict regions</strong> (pre to post 2019)</p></li>
+<li><p>vs. the change in EVI for <strong>no/low conflict regions</strong> (pre to post 2019)</p></li>
+</ul>
+<p><strong>Key Assumption</strong>: Parallel trends - absent conflict escalation, new conflict and no/low conflict regions would have followed similar EVI trajectories.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <img alt="../../_images/53f61465e61383eb07f4d6dddb6346b81652ebc4995c24adb27dbc4b7b2d654d.png" src="../../_images/53f61465e61383eb07f4d6dddb6346b81652ebc4995c24adb27dbc4b7b2d654d.png" />
@@ -488,19 +529,22 @@ Persistent Conflict: 18 regions
 </div>
 </div>
 </section>
+</section>
 <section id="difference-in-difference-regression">
 <h2>Difference-in-Difference Regression<a class="headerlink" href="#difference-in-difference-regression" title="Link to this heading">#</a></h2>
-<p>EVI_it = β₀ + β₁(NewConflict_i × Post_t) + β₂(Rainfall_it) + β₃(Rainfall_it-1)
+<p>EVI_it = β₀ + β₁(NewConflict_i × Post_t) + β₂(Rainfall_it) + β₃(CropArea_it)
 + α_i + γ_t + ε_it</p>
 <ul class="simple">
 <li><p>EVI_it = Enhanced Vegetation Index for region i in month t</p></li>
-<li><p>NewConflict_i = 1 if region escalated to conflict (191 regions), 0 if no conflict (212 regions)</p></li>
+<li><p>NewConflict_i = 1 if region escalated to conflict, 0 if no/low conflict</p></li>
 <li><p>Post_t = 1 if month ≥ 2019, 0 otherwise</p></li>
-<li><p>Rainfall_it = Rainfall in current month</p></li>
-<li><p>Rainfall_it-1 = Rainfall in previous month</p></li>
-<li><p>α_i = Admin 3 fixed effects</p></li>
-<li><p>γ_t = Crop season fixed effect</p></li>
+<li><p>Rainfall_it = Rainfall in current month (mm)</p></li>
+<li><p>CropArea_it = Crop area in region i in year t (hectares)</p></li>
+<li><p>α_i = Admin 3 region fixed effects</p></li>
+<li><p>γ_t = Monthly time fixed effects</p></li>
 </ul>
+<p><strong>Note:</strong> CropSeason variable is omitted as it’s perfectly collinear with monthly time fixed effects (TimeEffects).</p>
+<p><strong>Assumptions: The treatment and control groups will grow in the same way, if not for conflict.</strong></p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total Admin 3 regions: 495
@@ -520,7 +564,7 @@ p-value: 0.019
 <p><strong>Does Conflict Impact EVI?</strong></p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/gs/_227cnyd0pq1fr817_0jbcyw0000gp/T/ipykernel_19951/2681300166.py:15: AbsorbingEffectWarning: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/gs/_227cnyd0pq1fr817_0jbcyw0000gp/T/ipykernel_19197/2681300166.py:15: AbsorbingEffectWarning: 
 Variables have been fully absorbed and have removed from the regression:
 
 CropSeason
@@ -540,10 +584,10 @@ CropSeason
   <th>No. Observations:</th>       <td>62854</td>      <th>  R-squared (Within):</th>     <td>0.2528</td>  
 </tr>
 <tr>
-  <th>Date:</th>             <td>Wed, Oct 29 2025</td> <th>  R-squared (Overall):</th>    <td>0.2234</td>  
+  <th>Date:</th>             <td>Thu, Oct 30 2025</td> <th>  R-squared (Overall):</th>    <td>0.2234</td>  
 </tr>
 <tr>
-  <th>Time:</th>                 <td>00:59:14</td>     <th>  Log-likelihood     </th>    <td>9.237e+04</td>
+  <th>Time:</th>                 <td>09:37:54</td>     <th>  Log-likelihood     </th>    <td>9.237e+04</td>
 </tr>
 <tr>
   <th>Cov. Estimator:</th>       <td>Clustered</td>    <th>                     </th>        <td></td>     
@@ -597,6 +641,111 @@ CropSeason
   <th>crop_area</th>    <td>-2.179e-07</td> <td>5.908e-08</td> <td>-3.6881</td> <td>0.0002</td>  <td>-3.337e-07</td> <td>-1.021e-07</td>
 </tr>
 </table><br/><br/>F-test for Poolability: 188.39<br/>P-value: 0.0000<br/>Distribution: F(620,62230)<br/><br/>Included effects: Entity, Time</div></div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../_images/b7f70bedebe04da9d1ae313778bc3871896da46b58d42c64b5fcfb150738005c.png" src="../../_images/b7f70bedebe04da9d1ae313778bc3871896da46b58d42c64b5fcfb150738005c.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== Match Status Summary ===
+Matched Treatment: 157 regions
+Matched Control: 110 regions
+Unmatched Treatment: 3 regions
+Unmatched Control: 225 regions
+Not in Sample: 587 regions
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Matched sample statistics:
+  Total regions: 267
+    - Treatment: 157
+    - Control: 110
+  Total observations: 33,898
+  Time period: 2015 - 2025
+
+======================================================================
+MATCHED DIFFERENCE-IN-DIFFERENCES RESULTS
+======================================================================
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/gs/_227cnyd0pq1fr817_0jbcyw0000gp/T/ipykernel_19951/3660358278.py:23: AbsorbingEffectWarning: 
+Variables have been fully absorbed and have removed from the regression:
+
+CropSeason
+
+  results_matched = model_matched.fit(cov_type=&#39;clustered&#39;, cluster_entity=True)
+</pre></div>
+</div>
+<div class="output text_html"><table class="simpletable">
+<caption>PanelOLS Estimation Summary</caption>
+<tr>
+  <th>Dep. Variable:</th>           <td>EVI</td>       <th>  R-squared:         </th>     <td>0.1435</td>  
+</tr>
+<tr>
+  <th>Estimator:</th>            <td>PanelOLS</td>     <th>  R-squared (Between):</th>    <td>0.2099</td>  
+</tr>
+<tr>
+  <th>No. Observations:</th>       <td>33898</td>      <th>  R-squared (Within):</th>     <td>0.2540</td>  
+</tr>
+<tr>
+  <th>Date:</th>             <td>Wed, Oct 29 2025</td> <th>  R-squared (Overall):</th>    <td>0.2151</td>  
+</tr>
+<tr>
+  <th>Time:</th>                 <td>00:59:15</td>     <th>  Log-likelihood     </th>    <td>5.214e+04</td>
+</tr>
+<tr>
+  <th>Cov. Estimator:</th>       <td>Clustered</td>    <th>                     </th>        <td></td>     
+</tr>
+<tr>
+  <th></th>                          <td></td>         <th>  F-statistic:       </th>     <td>1871.5</td>  
+</tr>
+<tr>
+  <th>Entities:</th>                <td>267</td>       <th>  P-value            </th>     <td>0.0000</td>  
+</tr>
+<tr>
+  <th>Avg Obs:</th>               <td>126.96</td>      <th>  Distribution:      </th>   <td>F(3,33502)</td>
+</tr>
+<tr>
+  <th>Min Obs:</th>               <td>116.00</td>      <th>                     </th>        <td></td>     
+</tr>
+<tr>
+  <th>Max Obs:</th>               <td>127.00</td>      <th>  F-statistic (robust):</th>   <td>158.43</td>  
+</tr>
+<tr>
+  <th></th>                          <td></td>         <th>  P-value            </th>     <td>0.0000</td>  
+</tr>
+<tr>
+  <th>Time periods:</th>            <td>127</td>       <th>  Distribution:      </th>   <td>F(3,33502)</td>
+</tr>
+<tr>
+  <th>Avg Obs:</th>               <td>266.91</td>      <th>                     </th>        <td></td>     
+</tr>
+<tr>
+  <th>Min Obs:</th>               <td>266.00</td>      <th>                     </th>        <td></td>     
+</tr>
+<tr>
+  <th>Max Obs:</th>               <td>267.00</td>      <th>                     </th>        <td></td>     
+</tr>
+<tr>
+  <th></th>                          <td></td>         <th>                     </th>        <td></td>     
+</tr>
+</table>
+<table class="simpletable">
+<caption>Parameter Estimates</caption>
+<tr>
+        <td></td>        <th>Parameter</th> <th>Std. Err.</th> <th>T-stat</th>  <th>P-value</th>  <th>Lower CI</th>   <th>Upper CI</th> 
+</tr>
+<tr>
+  <th>treated_post</th>   <td>-0.0033</td>   <td>0.0016</td>   <td>-2.0798</td> <td>0.0376</td>    <td>-0.0064</td>    <td>-0.0002</td> 
+</tr>
+<tr>
+  <th>rainfall_mm</th>    <td>0.0004</td>   <td>1.735e-05</td> <td>21.590</td>  <td>0.0000</td>    <td>0.0003</td>     <td>0.0004</td>  
+</tr>
+<tr>
+  <th>crop_area</th>    <td>-1.827e-07</td> <td>7.634e-08</td> <td>-2.3933</td> <td>0.0167</td>  <td>-3.323e-07</td> <td>-3.307e-08</td>
+</tr>
+</table><br/><br/>F-test for Poolability: 197.94<br/>P-value: 0.0000<br/>Distribution: F(392,33502)<br/><br/>Included effects: Entity, Time</div></div>
 </div>
 </section>
 </section>
@@ -666,7 +815,10 @@ CropSeason
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#national-trends">National Trends</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identifying-control-and-treatment-groups">Identifying Control and Treatment Groups</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identifying-control-and-treatment-groups">Identifying Control and Treatment Groups</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#identification-strategy">Identification Strategy</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#difference-in-difference-regression">Difference-in-Difference Regression</a></li>
 </ul>
   </nav></div>
@@ -694,7 +846,7 @@ By Development Data Group
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Oct 29, 2025.
+  Last updated on Oct 30, 2025.
   <br/>
 </p>
   </div>
