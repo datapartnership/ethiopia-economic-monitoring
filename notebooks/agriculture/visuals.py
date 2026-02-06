@@ -893,3 +893,1008 @@ def create_time_series_comparison(
         plt.savefig(save_path, dpi=dpi, bbox_inches='tight', facecolor='white')
     
     return fig, ax
+
+
+def plot_parallel_trends_annual(df, treatment_year=2019, title_suffix='', 
+                                 figsize=(8, 4), save_path=None, dpi=300, 
+                                 print_slopes=True):
+    """
+    Create annual trends plot for parallel trends assumption in DiD analysis.
+    
+    Parameters:
+    -----------
+    df : pd.DataFrame
+        DataFrame containing columns: 'year', 'NewConflict' (0=control, 1=treatment), 'EVI'
+    treatment_year : int, optional
+        Year when treatment starts (default: 2019)
+    title_suffix : str, optional
+        Additional text to add to plot title (default: '')
+    figsize : tuple, optional
+        Figure size (default: (8, 4))
+    save_path : str, optional
+        If provided, saves the figure to this path (default: None)
+    dpi : int, optional
+        Resolution for saved figure (default: 300)
+    print_slopes : bool, optional
+        If True, prints slope analysis for pre/post treatment periods (default: True)
+    
+    Returns:
+    --------
+    fig, ax : matplotlib figure and axes objects
+    slopes : dict
+        Dictionary containing slope information for both groups in both periods
+    slopes_df : pd.DataFrame
+        Formatted table with slope analysis results
+    
+    Example:
+    --------
+    >>> fig, ax, slopes, df = plot_parallel_trends_annual(merged, treatment_year=2019, 
+    ...                                                     title_suffix='(All Regions)')
+    >>> display(df)  # Show formatted table in notebook
+    """
+    import seaborn as sns
+    from scipy import stats
+    
+    # Calculate annual trends using NewConflict (0=control, 1=treatment)
+    annual_trends = df.groupby(['NewConflict', 'year'])['EVI'].median().reset_index()
+    
+    # Calculate slopes for pre and post treatment periods
+    slopes_dict = {}
+    
+    for new_conflict_val in [0, 1]:  # 0=control, 1=treatment
+        cat_data = annual_trends[annual_trends['NewConflict'] == new_conflict_val]
+        
+        # Pre-treatment period
+        pre_data = cat_data[cat_data['year'] < treatment_year]
+        if len(pre_data) > 1:
+            slope_pre, intercept_pre, r_value_pre, p_value_pre, std_err_pre = \
+                stats.linregress(pre_data['year'], pre_data['EVI'])
+        else:
+            slope_pre, r_value_pre = None, None
+        
+        # Post-treatment period
+        post_data = cat_data[cat_data['year'] >= treatment_year]
+        if len(post_data) > 1:
+            slope_post, intercept_post, r_value_post, p_value_post, std_err_post = \
+                stats.linregress(post_data['year'], post_data['EVI'])
+        else:
+            slope_post, r_value_post = None, None
+        
+        slopes_dict[new_conflict_val] = {
+            'pre_slope': slope_pre,
+            'pre_r2': r_value_pre**2 if r_value_pre else None,
+            'post_slope': slope_post,
+            'post_r2': r_value_post**2 if r_value_post else None
+        }
+    
+    # Create DataFrame for results
+    slope_rows = []
+    
+    for new_conflict_val in [0, 1]:  # 0=control, 1=treatment
+        group_type = 'Control' if new_conflict_val == 0 else 'Treatment'
+        
+        pre_slope = slopes_dict[new_conflict_val]['pre_slope']
+        pre_r2 = slopes_dict[new_conflict_val]['pre_r2']
+        post_slope = slopes_dict[new_conflict_val]['post_slope']
+        post_r2 = slopes_dict[new_conflict_val]['post_r2']
+        
+        # Calculate change in slope
+        if pre_slope is not None and post_slope is not None:
+            slope_change = post_slope - pre_slope
+        else:
+            slope_change = None
+        
+        slope_rows.append({
+            'Group': group_type,
+            f'Pre-{treatment_year}\nSlope (EVI/year)': f"{pre_slope:+.6f}" if pre_slope else "N/A",
+            f'Pre-{treatment_year}\nR²': f"{pre_r2:.4f}" if pre_r2 else "N/A",
+            f'Post-{treatment_year}\nSlope (EVI/year)': f"{post_slope:+.6f}" if post_slope else "N/A",
+            f'Post-{treatment_year}\nR²': f"{post_r2:.4f}" if post_r2 else "N/A",
+            'Change in Slope\n(EVI/year)': f"{slope_change:+.6f}" if slope_change else "N/A"
+        })
+    
+    slopes_df = pd.DataFrame(slope_rows)
+    
+    # Add parallel trends comparison
+    control_pre = slopes_dict.get(0, {}).get('pre_slope')
+    treatment_pre = slopes_dict.get(1, {}).get('pre_slope')
+    
+    if control_pre is not None and treatment_pre is not None:
+        slope_diff = abs(treatment_pre - control_pre)
+        
+        if slope_diff < 0.001:
+            assessment = "✓ Very similar - strong parallel trends"
+        elif slope_diff < 0.005:
+            assessment = "✓ Reasonably similar - parallel trends supported"
+        else:
+            assessment = "⚠ Slopes differ - parallel trends may be violated"
+        
+        # Add summary row
+        summary_row = pd.DataFrame([{
+            'Group': 'Pre-Treatment Difference',
+            f'Pre-{treatment_year}\nSlope (EVI/year)': f"{slope_diff:.6f}",
+            f'Pre-{treatment_year}\nR²': "",
+            f'Post-{treatment_year}\nSlope (EVI/year)': "",
+            f'Post-{treatment_year}\nR²': "",
+            'Change in Slope\n(EVI/year)': assessment
+        }])
+        slopes_df = pd.concat([slopes_df, summary_row], ignore_index=True)
+    
+    # Print slope analysis
+    if print_slopes:
+        print(f"\n{'='*70}")
+        print(f"SLOPE ANALYSIS: Rate of Change in EVI (Treatment Year: {treatment_year})")
+        print(f"{'='*70}\n")
+        print(slopes_df.to_string(index=False))
+        print(f"\n{'='*70}\n")
+    
+    # Create figure
+    fig, ax = plt.subplots(figsize=figsize)
+    
+    # Plot annual trends using NewConflict (0=control, 1=treatment)
+    for new_conflict_val, color, marker, label in [(0, '#2E86AB', 'o', 'Control'), 
+                                                     (1, '#A23B72', 's', 'Treatment')]:
+        data = annual_trends[annual_trends['NewConflict'] == new_conflict_val]
+        ax.plot(data['year'], data['EVI'], 
+                marker=marker, linewidth=1.5, markersize=5, 
+                label=label, color=color)
+    
+    # Add treatment start line
+    ax.axvline(x=treatment_year, color='red', linestyle='--', linewidth=1.5, 
+               label=f'Treatment Start ({treatment_year})', alpha=0.7)
+    
+    # Add slope annotations on the plot
+    y_min, y_max = ax.get_ylim()
+    text_y_pos = y_max - (y_max - y_min) * 0.05  # Start at 95% of plot height
+    
+    # Control slopes (top)
+    control_pre = slopes_dict.get(0, {}).get('pre_slope')
+    control_post = slopes_dict.get(0, {}).get('post_slope')
+    if control_pre is not None and control_post is not None:
+        control_text = f'Control: Pre={control_pre:+.4f}, Post={control_post:+.4f}'
+        ax.text(0.02, 0.98, control_text, transform=ax.transAxes,
+                fontsize=7, verticalalignment='top', 
+                bbox=dict(boxstyle='round', facecolor='#2E86AB', alpha=0.15, edgecolor='#2E86AB'))
+    
+    # Treatment slopes (below control)
+    treatment_pre = slopes_dict.get(1, {}).get('pre_slope')
+    treatment_post = slopes_dict.get(1, {}).get('post_slope')
+    if treatment_pre is not None and treatment_post is not None:
+        treatment_text = f'Treatment: Pre={treatment_pre:+.4f}, Post={treatment_post:+.4f}'
+        ax.text(0.02, 0.90, treatment_text, transform=ax.transAxes,
+                fontsize=7, verticalalignment='top',
+                bbox=dict(boxstyle='round', facecolor='#A23B72', alpha=0.15, edgecolor='#A23B72'))
+    
+    # Styling - smaller fonts
+    ax.set_xlabel('Year', fontsize=9, fontweight='bold')
+    ax.set_ylabel('Median EVI', fontsize=9, fontweight='bold')
+    
+    title = f'Parallel Trends: EVI Before and After {treatment_year}'
+    if title_suffix:
+        title += f' {title_suffix}'
+    ax.set_title(title, fontsize=10, fontweight='bold')
+    ax.legend(fontsize=8, loc='best', framealpha=0.9)
+    ax.grid(True, alpha=0.3)
+    ax.tick_params(labelsize=8)
+    
+    plt.tight_layout()
+    
+    # Save if path provided
+    if save_path:
+        plt.savefig(save_path, dpi=dpi, bbox_inches='tight')
+        print(f"✓ Saved: {save_path}")
+    
+    return fig, ax, slopes_dict, slopes_df
+
+
+def plot_parallel_trends_subplots(model_list, model_names, treatment_year=2019, 
+                                   figsize=(15, 4), save_path=None, dpi=300):
+    """
+    Create subplots with parallel trends plots for multiple models side by side.
+    
+    Parameters:
+    -----------
+    model_list : list of pd.DataFrame
+        List of DataFrames, each containing data for a model
+    model_names : list of str
+        List of names/titles for each model
+    treatment_year : int, optional
+        Year when treatment starts (default: 2019)
+    figsize : tuple, optional
+        Figure size as (width, height) (default: (15, 4))
+    save_path : str, optional
+        Path to save the figure (default: None)
+    dpi : int, optional
+        Resolution for saved figure (default: 300)
+    
+    Returns:
+    --------
+    fig : matplotlib.figure.Figure
+        The figure object
+    axes : array of matplotlib.axes.Axes
+        Array of subplot axes
+    all_slopes : list of dict
+        List of slope dictionaries for each model
+    all_slopes_df : list of pd.DataFrame
+        List of slopes DataFrames for each model
+    """
+    import matplotlib.pyplot as plt
+    import pandas as pd
+    import numpy as np
+    from scipy.stats import linregress
+    
+    n_models = len(model_list)
+    fig, axes = plt.subplots(1, n_models, figsize=figsize)
+    
+    # Ensure axes is always an array
+    if n_models == 1:
+        axes = [axes]
+    
+    all_slopes = []
+    all_slopes_df = []
+    
+    for idx, (model_df, model_name) in enumerate(zip(model_list, model_names)):
+        ax = axes[idx]
+        
+        # Prepare data
+        df = model_df.copy()
+        df['year'] = df['date'].dt.year
+        
+        # Annual aggregation
+        df_annual = df.groupby(['admin_category', 'year'])['EVI'].median().reset_index()
+        
+        # Calculate slopes
+        slopes_dict = {}
+        slopes_data = []
+        
+        for admin_cat in df_annual['admin_category'].unique():
+            cat_data = df_annual[df_annual['admin_category'] == admin_cat]
+            
+            # Pre-treatment slope
+            pre_data = cat_data[cat_data['year'] < treatment_year]
+            if len(pre_data) >= 2:
+                slope_pre, intercept_pre, r_pre, p_pre, se_pre = linregress(
+                    pre_data['year'], pre_data['EVI']
+                )
+                slopes_data.append({
+                    'admin_category': admin_cat,
+                    'period': 'Pre',
+                    'slope': slope_pre,
+                    'p_value': p_pre,
+                    'r_squared': r_pre**2
+                })
+            else:
+                slope_pre = None
+            
+            # Post-treatment slope
+            post_data = cat_data[cat_data['year'] >= treatment_year]
+            if len(post_data) >= 2:
+                slope_post, intercept_post, r_post, p_post, se_post = linregress(
+                    post_data['year'], post_data['EVI']
+                )
+                slopes_data.append({
+                    'admin_category': admin_cat,
+                    'period': 'Post',
+                    'slope': slope_post,
+                    'p_value': p_post,
+                    'r_squared': r_post**2
+                })
+            else:
+                slope_post = None
+            
+            # Store in dict
+            cat_code = 1 if admin_cat == 'New Conflict' else 0
+            slopes_dict[cat_code] = {
+                'pre_slope': slope_pre,
+                'post_slope': slope_post,
+                'admin_category': admin_cat
+            }
+        
+        slopes_df = pd.DataFrame(slopes_data)
+        all_slopes.append(slopes_dict)
+        all_slopes_df.append(slopes_df)
+        
+        # Plot lines
+        for admin_cat in df_annual['admin_category'].unique():
+            cat_data = df_annual[df_annual['admin_category'] == admin_cat]
+            
+            # Assign colors based on admin category
+            if 'No' in admin_cat or 'Low' in admin_cat or 'Control' in admin_cat:
+                color = '#2E86AB'  # Blue for control
+            else:
+                color = '#A23B72'  # Purple/red for treatment
+            label = admin_cat
+            
+            ax.plot(cat_data['year'], cat_data['EVI'], 
+                   marker='o', linewidth=2, label=label, color=color, markersize=4)
+        
+        # Add vertical line at treatment year
+        ax.axvline(x=treatment_year, color='red', linestyle='--', 
+                  linewidth=1.5, alpha=0.7, label=f'Treatment ({treatment_year})')
+        
+        # Add slope annotations
+        control_pre = slopes_dict.get(0, {}).get('pre_slope')
+        control_post = slopes_dict.get(0, {}).get('post_slope')
+        if control_pre is not None and control_post is not None:
+            control_text = f'Control: Pre={control_pre:+.4f}, Post={control_post:+.4f}'
+            ax.text(0.02, 0.98, control_text, transform=ax.transAxes,
+                   fontsize=7, verticalalignment='top',
+                   bbox=dict(boxstyle='round', facecolor='#2E86AB', alpha=0.15, edgecolor='#2E86AB'))
+        
+        treatment_pre = slopes_dict.get(1, {}).get('pre_slope')
+        treatment_post = slopes_dict.get(1, {}).get('post_slope')
+        if treatment_pre is not None and treatment_post is not None:
+            treatment_text = f'Treatment: Pre={treatment_pre:+.4f}, Post={treatment_post:+.4f}'
+            ax.text(0.02, 0.90, treatment_text, transform=ax.transAxes,
+                   fontsize=7, verticalalignment='top',
+                   bbox=dict(boxstyle='round', facecolor='#A23B72', alpha=0.15, edgecolor='#A23B72'))
+        
+        # Styling
+        ax.set_xlabel('Year', fontsize=9, fontweight='bold')
+        ax.set_ylabel('Median EVI', fontsize=9, fontweight='bold')
+        ax.set_title(model_name, fontsize=10, fontweight='bold')
+        ax.legend(fontsize=7, loc='best', framealpha=0.9)
+        ax.grid(True, alpha=0.3)
+        ax.tick_params(labelsize=8)
+    
+    plt.tight_layout()
+    
+    # Save if path provided
+    if save_path:
+        plt.savefig(save_path, dpi=dpi, bbox_inches='tight')
+        print(f"✓ Saved: {save_path}")
+    
+    return fig, axes, all_slopes, all_slopes_df
+
+
+def plot_evi_distribution_by_period(df, treatment_year=2019, title_suffix='',
+                                    figsize=(7, 4), save_path=None, dpi=300):
+    """
+    Create boxplot showing EVI distribution by period and treatment group.
+    
+    Parameters:
+    -----------
+    df : pd.DataFrame
+        DataFrame containing columns: 'EVI', 'NewConflict', 'Post_t'
+    treatment_year : int, optional
+        Year when treatment starts (default: 2019)
+    title_suffix : str, optional
+        Additional text to add to plot title (default: '')
+    figsize : tuple, optional
+        Figure size (default: (7, 4))
+    save_path : str, optional
+        If provided, saves the figure to this path (default: None)
+    dpi : int, optional
+        Resolution for saved figure (default: 300)
+    
+    Returns:
+    --------
+    fig, ax : matplotlib figure and axes objects
+    
+    Example:
+    --------
+    >>> fig, ax = plot_evi_distribution_by_period(model1, treatment_year=2019,
+    ...                                            title_suffix='(Matched Sample)')
+    """
+    import seaborn as sns
+    
+    # Prepare data
+    data_plot = df.copy()
+    data_plot['Period'] = data_plot['Post_t'].map({0: f'Pre-{treatment_year}', 
+                                                     1: f'Post-{treatment_year}'})
+    data_plot['Group'] = data_plot['NewConflict'].map({0: 'Control', 1: 'Treatment'})
+    
+    # Create figure
+    fig, ax = plt.subplots(figsize=figsize)
+    
+    # Create boxplot
+    sns.boxplot(data=data_plot, x='Period', y='EVI', hue='Group', 
+                ax=ax, palette=['#2E86AB', '#A23B72'])
+    
+    # Styling - smaller fonts
+    title = 'EVI Distribution by Period and Group'
+    if title_suffix:
+        title += f' {title_suffix}'
+    ax.set_title(title, fontsize=10, fontweight='bold')
+    ax.set_xlabel('Period', fontsize=9, fontweight='bold')
+    ax.set_ylabel('EVI', fontsize=9, fontweight='bold')
+    ax.legend(fontsize=8, loc='best', framealpha=0.9)
+    ax.grid(True, alpha=0.3, axis='y')
+    ax.tick_params(labelsize=8)
+    
+    plt.tight_layout()
+    
+    # Save if path provided
+    if save_path:
+        plt.savefig(save_path, dpi=dpi, bbox_inches='tight')
+        print(f"✓ Saved: {save_path}")
+    
+    return fig, ax
+
+
+def plot_crop_area_quartiles(crop_area_adm3_tot, eth_adm3, eth_adm1, 
+                              ax=None, figsize=(7, 6), save_path=None, dpi=300):
+    """
+    Create a map showing crop area distribution by ADM3 region in quartiles.
+    
+    Parameters:
+    -----------
+    crop_area_adm3_tot : pd.DataFrame
+        DataFrame with columns: 'ADM3_EN', 'crop_area' (aggregated crop area by region)
+    eth_adm3 : gpd.GeoDataFrame
+        GeoDataFrame with ADM3 boundaries containing 'ADM3_EN' and 'geometry'
+    eth_adm1 : gpd.GeoDataFrame
+        GeoDataFrame with ADM1 boundaries for reference lines
+    ax : matplotlib.axes.Axes, optional
+        If provided, plot on this axis (for subplots). Otherwise creates new figure.
+    figsize : tuple, optional
+        Figure size (default: (7, 6)). Only used if ax is None.
+    save_path : str, optional
+        If provided, saves the figure to this path (default: None)
+    dpi : int, optional
+        Resolution for saved figure (default: 300)
+    
+    Returns:
+    --------
+    fig, ax : matplotlib figure and axes objects
+    crop_area_map : gpd.GeoDataFrame
+        GeoDataFrame with quartile assignments for further analysis
+    
+    Example:
+    --------
+    >>> crop_area_adm3_tot = crop_area_adm3.groupby(['ADM3_EN'])['crop_area'].mean().reset_index()
+    >>> fig, ax, crop_map = plot_crop_area_quartiles(crop_area_adm3_tot, eth_adm3, eth_adm1)
+    """
+    # Create copy to avoid modifying original
+    crop_area_df = crop_area_adm3_tot.copy()
+    
+    # Assign quartiles to all regions
+    crop_area_df['quartile'] = pd.qcut(crop_area_df['crop_area'], 
+                                        q=4, 
+                                        labels=['Q1 (Bottom 25%)', 'Q2', 'Q3', 'Q4 (Top 25%)'])
+    
+    # Calculate area for each quartile
+    quartile_stats = []
+    for quartile in ['Q1 (Bottom 25%)', 'Q2', 'Q3', 'Q4 (Top 25%)']:
+        q_data = crop_area_df[crop_area_df['quartile'] == quartile]
+        mean_area = q_data['crop_area'].mean()
+        quartile_stats.append(f"{quartile}\n({mean_area:.0f} ha avg)")
+    
+    # Merge with geometry
+    crop_area_map = eth_adm3[['ADM3_EN', 'geometry']].merge(crop_area_df, on='ADM3_EN', how='left')
+    
+    # Create custom labels with area info
+    crop_area_map['quartile_label'] = crop_area_map['quartile'].map({
+        'Q1 (Bottom 25%)': quartile_stats[0],
+        'Q2': quartile_stats[1],
+        'Q3': quartile_stats[2],
+        'Q4 (Top 25%)': quartile_stats[3]
+    })
+    
+    # Create the map - conditionally create new figure or use provided axis
+    if ax is None:
+        fig, ax = plt.subplots(1, 1, figsize=figsize)
+    else:
+        fig = ax.get_figure()
+    
+    # Plot the quartiles
+    crop_area_map.plot(column='quartile_label', 
+                        ax=ax,
+                        legend=True,
+                        categorical=True,
+                        cmap='YlGn',
+                        edgecolor='black',
+                        linewidth=0.3,
+                        legend_kwds={'loc': 'lower left', 'fontsize': 7})
+    
+    # Add ADM1 boundaries for reference
+    eth_adm1.boundary.plot(ax=ax, color='black', linewidth=1.5, alpha=0.8)
+    
+    # Styling
+    ax.set_title('Crop Area Distribution by ADM3 Region\nQuartile Classification', 
+                 fontsize=10, fontweight='bold', pad=20)
+    ax.axis('off')
+    
+    # Only call tight_layout and show if we created the figure
+    if save_path or ax is None:
+        plt.tight_layout()
+    
+    # Save if path provided
+    if save_path:
+        plt.savefig(save_path, dpi=dpi, bbox_inches='tight')
+        print(f"✓ Saved: {save_path}")
+    
+    # Only show if we created a standalone figure
+    if ax is None:
+        plt.show()
+    
+    return fig, ax, crop_area_map
+
+
+def plot_conflict_categories_map(eth_adm3, eth_adm1, bottom_half_regions_set, 
+                                  no_conflict, low_conflict_list, new_conflict, 
+                                  reduced_conflict, persistent_conflict,
+                                  figsize=(7, 6), save_path=None, dpi=300):
+    """
+    Create a map showing conflict categories by ADM3 region.
+    
+    Parameters:
+    -----------
+    eth_adm3 : gpd.GeoDataFrame
+        GeoDataFrame with ADM3 boundaries containing 'ADM3_EN' and 'geometry'
+    eth_adm1 : gpd.GeoDataFrame
+        GeoDataFrame with ADM1 boundaries for reference lines
+    bottom_half_regions_set : set
+        Set of ADM3 region names in bottom quartile (excluded from analysis)
+    no_conflict : list
+        List of ADM3 region names with no conflict
+    low_conflict_list : list
+        List of ADM3 region names with low conflict (<=10 events per period)
+    new_conflict : list
+        List of ADM3 region names with new conflict (pre<=10, post>10)
+    reduced_conflict : list
+        List of ADM3 region names with reduced conflict (pre>10, post<=10)
+    persistent_conflict : list
+        List of ADM3 region names with persistent conflict (>10 both periods)
+    figsize : tuple, optional
+        Figure size (default: (7, 6))
+    save_path : str, optional
+        If provided, saves the figure to this path (default: None)
+    dpi : int, optional
+        Resolution for saved figure (default: 300)
+    
+    Returns:
+    --------
+    fig, ax : matplotlib figure and axes objects
+    conflict_map : gpd.GeoDataFrame
+        GeoDataFrame with conflict category assignments
+    
+    Example:
+    --------
+    >>> fig, ax, conflict_map = plot_conflict_categories_map(
+    ...     eth_adm3, eth_adm1, bottom_half_regions_set,
+    ...     no_conflict, low_conflict_list, new_conflict,
+    ...     reduced_conflict, persistent_conflict
+    ... )
+    """
+    from matplotlib.patches import Patch
+    
+    # Create a dataframe mapping regions to conflict categories
+    conflict_categories = []
+
+    for adm3 in eth_adm3['ADM3_EN'].unique():
+        if adm3 in bottom_half_regions_set:
+            category = 'Excluded (Low Crop Area)'
+        elif adm3 in no_conflict:
+            category = 'No Conflict'
+        elif adm3 in low_conflict_list:
+            category = 'Low Conflict'
+        elif adm3 in new_conflict:
+            category = 'New Conflict'
+        elif adm3 in reduced_conflict:
+            category = 'Reduced Conflict'
+        elif adm3 in persistent_conflict:
+            category = 'Persistent Conflict'
+        else:
+            category = 'Uncategorized'
+        
+        conflict_categories.append({'ADM3_EN': adm3, 'conflict_category': category})
+
+    conflict_cat_df = pd.DataFrame(conflict_categories)
+
+    # Merge with geometry
+    conflict_map = eth_adm3[['ADM3_EN', 'geometry']].merge(conflict_cat_df, on='ADM3_EN', how='left')
+
+    # Define custom colors using WB palette
+    category_colors = {
+        'Excluded (Low Crop Area)': '#CED4DE',  # WB grid color
+        'No Conflict': '#00AB51',  # WB green
+        'Low Conflict':'blue',  # WB cat1 blue
+        'New Conflict': '#EB1C2D',  # WB red
+        'Reduced Conflict': '#FF9800',  # WB cat2 orange
+        'Persistent Conflict': '#664AB6'  # WB cat3 purple
+    }
+
+    # Create the map
+    fig, ax = plt.subplots(1, 1, figsize=figsize)
+
+    # Plot using the column with categorical coloring
+    conflict_map['color'] = conflict_map['conflict_category'].map(category_colors)
+    conflict_map.plot(ax=ax, color=conflict_map['color'], edgecolor='black', linewidth=0.2)
+
+    # Add ADM1 boundaries
+    eth_adm1.boundary.plot(ax=ax, color='black', linewidth=1.5, alpha=0.8)
+
+    # Create legend manually
+    legend_elements = [Patch(facecolor=color, edgecolor='none', label=category) 
+                       for category, color in category_colors.items()]
+    ax.legend(handles=legend_elements, loc='lower right', fontsize=7, 
+              title='Conflict Category', title_fontsize=8, framealpha=0.9)
+
+    # Styling
+    ax.set_title('Conflict Categories by ADM3 Region\n(Excluding Bottom Quartile Crop Area)', 
+                 fontsize=10, fontweight='bold', pad=20)
+    ax.axis('off')
+
+    plt.tight_layout()
+    
+    # Save if path provided
+    if save_path:
+        plt.savefig(save_path, dpi=dpi, bbox_inches='tight')
+        print(f"✓ Saved: {save_path}")
+    
+    plt.show()
+
+    # Print summary
+    for category in category_colors.keys():
+        count = len(conflict_map[conflict_map['conflict_category'] == category])
+        print(f"{category}: {count} regions")
+
+    return fig, ax, conflict_map
+
+
+def plot_lst_by_year(region_lists, titles=None, start_year=2012, metric='lst_mean', figsize=None, lst_data=None):
+    """
+    Plot LST trends with each year as a separate line for multiple region groups.
+    
+    Parameters:
+    -----------
+    region_lists : list of lists
+        Each inner list contains ADM3 region names to filter and plot
+    titles : list of str, optional
+        Titles for each subplot. If None, will use "Group 1", "Group 2", etc.
+    start_year : int, default 2012
+        Starting year to include in the plot
+    metric : str, default 'lst_mean'
+        LST metric to plot ('lst_mean' or 'lst_max')
+    figsize : tuple, optional
+        Figure size (width, height). If None, auto-calculated based on number of plots
+    lst_data : pd.DataFrame, optional
+        LST dataframe with columns ['ADM3_EN', 'date', 'lst_mean', 'lst_max'].
+        If None, will look for 'lst' in global scope (for backward compatibility)
+    
+    Returns:
+    --------
+    fig, axes : matplotlib figure and axes objects
+    
+    Example:
+    --------
+    >>> plot_lst_by_year([no_conflict_tigray, new_conflict_tigray], 
+    ...                   titles=['No Conflict Regions', 'New Conflict Regions'],
+    ...                   start_year=2020)
+    """
+    # Handle lst data parameter
+    if lst_data is None:
+        import inspect
+        frame = inspect.currentframe().f_back
+        if 'lst' in frame.f_locals:
+            lst = frame.f_locals['lst']
+        elif 'lst' in frame.f_globals:
+            lst = frame.f_globals['lst']
+        else:
+            raise ValueError("lst_data parameter is required or 'lst' must be available in calling scope")
+    else:
+        lst = lst_data
+    
+    n_plots = len(region_lists)
+    
+    # Auto-generate titles if not provided
+    if titles is None:
+        titles = [f'Region Group {i+1}' for i in range(n_plots)]
+    
+    # Auto-calculate figure size if not provided
+    if figsize is None:
+        figsize = (6 * n_plots, 4) if n_plots <= 2 else (4 * n_plots, 6)
+    
+    # Create subplots
+    fig, axes = plt.subplots(1, n_plots, figsize=figsize, sharey=True)
+    
+    # Handle single subplot case (axes won't be array)
+    if n_plots == 1:
+        axes = [axes]
+    
+    # Plot each region group
+    for idx, (regions, title) in enumerate(zip(region_lists, titles)):
+        ax = axes[idx]
+        
+        # Filter data for this region group
+        lst_filtered = lst[lst['ADM3_EN'].isin(regions)].copy()
+        lst_filtered['month'] = lst_filtered['date'].dt.month
+        lst_filtered['year'] = lst_filtered['date'].dt.year
+        lst_filtered = lst_filtered[lst_filtered['year'] >= start_year]
+        
+        # Calculate monthly averages by year
+        lst_monthly = lst_filtered.groupby(['year', 'month'])[[metric, 'lst_max']].mean().reset_index()
+        
+        # Plot each year as a separate line
+        for year in sorted(lst_monthly['year'].unique()):
+            year_data = lst_monthly[lst_monthly['year'] == year]
+            ax.plot(year_data['month'], year_data[metric], label=str(year), linewidth=2)
+        
+        # Formatting
+        ax.set_xlabel('Month', fontsize=11, fontweight='bold')
+        ylabel = 'Mean LST (°C)' if metric == 'lst_mean' else 'Max LST (°C)'
+        ax.set_ylabel(ylabel, fontsize=11, fontweight='bold')
+        ax.set_title(title, fontsize=12, fontweight='bold', pad=10)
+        ax.set_xticks(range(1, 13))
+        ax.set_xticklabels(['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                            'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'], fontsize=9)
+        ax.legend(title='Year', bbox_to_anchor=(1.02, 1), loc='upper left', fontsize=9)
+        ax.grid(True, alpha=0.3)
+        
+        # Add region count to title
+        n_regions = len(regions)
+        ax.text(0.02, 0.98, f'n={n_regions} regions', transform=ax.transAxes,
+                fontsize=8, verticalalignment='top',
+                bbox=dict(boxstyle='round', facecolor='white', alpha=0.7))
+    
+    plt.tight_layout()
+    return fig, axes
+
+
+def plot_crop_season_patterns(eth_adm3, crop_season, eth_adm1=None, figsize=(12, 10), 
+                               ax=None, return_map=False):
+    """
+    Plot crop season patterns by ADM3 region.
+    
+    Creates a choropleth map showing different crop season patterns based on 
+    start of season (SOS) and end of season (EOS) data. Regions with similar 
+    patterns are grouped together with distinct colors.
+    
+    Parameters
+    ----------
+    eth_adm3 : GeoDataFrame
+        Administrative level 3 boundaries with 'ADM3_EN' and 'geometry' columns
+    crop_season : DataFrame
+        Crop season data with columns: 'Name', 'sos' (start of season), 
+        'eos' (end of season). Optional: 'mos' (middle of season)
+    eth_adm1 : GeoDataFrame, optional
+        Administrative level 1 boundaries to overlay on the map
+    figsize : tuple, default (12, 10)
+        Figure size (width, height) in inches
+    ax : matplotlib.axes.Axes, optional
+        Existing axes to plot on. If None, creates new figure and axes
+    return_map : bool, default False
+        Whether to return the merged crop season map GeoDataFrame
+        
+    Returns
+    -------
+    fig : matplotlib.figure.Figure or None
+        Figure object (None if ax was provided)
+    ax : matplotlib.axes.Axes
+        Axes object with the plot
+    crop_season_map : GeoDataFrame, optional
+        Merged geodataframe with season patterns (only if return_map=True)
+        
+    Examples
+    --------
+    >>> fig, ax = plot_crop_season_patterns(eth_adm3, crop_season, eth_adm1)
+    >>> plt.show()
+    
+    >>> # Use existing axes
+    >>> fig, ax = plt.subplots(1, 1, figsize=(12, 10))
+    >>> _, ax, crop_map = plot_crop_season_patterns(
+    ...     eth_adm3, crop_season, ax=ax, return_map=True
+    ... )
+    """
+    import matplotlib.cm as cm
+    from matplotlib.patches import Patch
+    
+    # Create figure if ax not provided
+    if ax is None:
+        fig, ax = plt.subplots(1, 1, figsize=figsize)
+    else:
+        fig = None
+    
+    # Merge crop season data with eth_adm3 geodataframe
+    crop_season_map = eth_adm3[['ADM3_EN', 'geometry']].merge(
+        crop_season, 
+        left_on='ADM3_EN', 
+        right_on='Name', 
+        how='left'
+    )
+    
+    # Create a unique identifier for each crop season pattern
+    # Combine sos (start of season) and eos (end of season)
+    crop_season_map['season_pattern'] = crop_season_map.apply(
+        lambda row: f"SOS:{int(row['sos'])} EOS:{int(row['eos'])}" 
+        if pd.notna(row['sos']) and pd.notna(row['eos']) 
+        else 'No Data', 
+        axis=1
+    )
+    
+    # Get unique season patterns
+    unique_patterns = crop_season_map[crop_season_map['season_pattern'] != 'No Data']['season_pattern'].unique()
+    
+    # Print statistics
+    print(f"Number of unique crop season patterns: {len(unique_patterns)}")
+    pattern_counts = crop_season_map['season_pattern'].value_counts()
+    regions_with_data = pattern_counts.sum() - pattern_counts.get('No Data', 0)
+    regions_without_data = pattern_counts.get('No Data', 0)
+    print(f"Regions with crop season data: {regions_with_data}")
+    print(f"Regions without data: {regions_without_data}")
+    
+    # Create categorical color mapping
+    n_patterns = len(unique_patterns)
+    
+    if n_patterns > 0:
+        # Generate distinct colors for each pattern
+        colors = cm.tab20(np.linspace(0, 1, min(n_patterns, 20)))
+        pattern_colors = {pattern: colors[i % 20] for i, pattern in enumerate(unique_patterns)}
+        pattern_colors['No Data'] = '#CCCCCC'  # Gray for missing data
+        
+        crop_season_map['color'] = crop_season_map['season_pattern'].map(pattern_colors)
+        
+        # Plot the map
+        crop_season_map.plot(ax=ax, color=crop_season_map['color'], 
+                            edgecolor='black', linewidth=0.3)
+        
+        # Add ADM1 boundaries if provided
+        if eth_adm1 is not None:
+            eth_adm1.boundary.plot(ax=ax, color='black', linewidth=1.5, alpha=0.8)
+        
+        # Create legend (showing top patterns if too many)
+        # Show top 10 patterns plus "No Data"
+        top_patterns = pattern_counts[pattern_counts.index != 'No Data'].head(10).index.tolist()
+        if 'No Data' in pattern_counts:
+            top_patterns.append('No Data')
+        
+        legend_elements = [
+            Patch(facecolor=pattern_colors[pattern], edgecolor='black', 
+                  label=f"{pattern} (n={pattern_counts[pattern]})")
+            for pattern in top_patterns
+        ]
+        
+        ax.legend(handles=legend_elements, loc='center left', bbox_to_anchor=(1, 0.5), 
+                  fontsize=8, title='Crop Season Patterns\n(SOS=Start, EOS=End of Season)', 
+                  title_fontsize=9, framealpha=0.95)
+        
+        ax.set_title('Crop Season Distribution by ADM3 Region', 
+                     fontsize=14, fontweight='bold', pad=20)
+        ax.axis('off')
+        
+        # Print pattern statistics
+        print("\n=== Top 10 Crop Season Patterns ===")
+        for i, (pattern, count) in enumerate(pattern_counts.head(10).items(), 1):
+            print(f"{i}. {pattern}: {count} regions")
+    else:
+        print("No valid crop season data found!")
+        ax.text(0.5, 0.5, 'No valid crop season data found', 
+                ha='center', va='center', transform=ax.transAxes,
+                fontsize=14, fontweight='bold')
+        ax.axis('off')
+    
+    if return_map:
+        return fig, ax, crop_season_map
+    else:
+        return fig, ax
+
+
+def plot_cluster_assignments_map(cluster_assignments, adm3_geo, adm1_geo=None, 
+                                 title='Climate-Based Clusters', figsize=None):
+    """
+    Visualize cluster assignments on map with separate subplot for each cluster.
+    
+    Creates a multi-panel map showing cluster assignments with treatment/control
+    status overlays. Each cluster gets its own subplot with highlighted regions
+    and colored borders indicating conflict status.
+    
+    Parameters
+    ----------
+    cluster_assignments : DataFrame
+        DataFrame with columns: 'ADM3_EN', 'cluster', 'conflict_status'
+        where conflict_status should be 'Treatment' or 'Control'
+    adm3_geo : GeoDataFrame
+        Administrative level 3 boundaries with 'ADM3_EN' and 'geometry' columns
+    adm1_geo : GeoDataFrame, optional
+        Administrative level 1 boundaries to overlay on the map
+    title : str, default 'Climate-Based Clusters'
+        Main title for the figure
+    figsize : tuple, optional
+        Figure size (width, height). If None, automatically calculated based on number of clusters
+        
+    Returns
+    -------
+    fig : matplotlib.figure.Figure
+        Figure object with the cluster maps
+    axes : array of matplotlib.axes.Axes
+        Array of axes objects for each subplot
+    map_data : GeoDataFrame
+        Merged geodataframe with cluster assignments
+        
+    Examples
+    --------
+    >>> fig, axes, map_data = plot_cluster_assignments_map(
+    ...     cluster_assignments=cluster_df,
+    ...     adm3_geo=eth_adm3,
+    ...     adm1_geo=eth_adm1,
+    ...     title='Climate Clusters: Tigray War Regions'
+    ... )
+    >>> plt.show()
+    """
+    import matplotlib.pyplot as plt
+    
+    # Merge cluster assignments with geographic data
+    map_data_clusters = adm3_geo.merge(
+        cluster_assignments[['ADM3_EN', 'cluster', 'conflict_status']], 
+        on='ADM3_EN', 
+        how='left'
+    )
+    
+    # Get unique clusters (excluding NaN/missing)
+    unique_clusters = sorted([c for c in map_data_clusters['cluster'].unique() if pd.notna(c)])
+    n_clusters = len(unique_clusters)
+    
+    # Calculate figure size if not provided
+    if figsize is None:
+        figsize = (7 * n_clusters, 8)
+    
+    # Create subplots - one for each cluster
+    fig, axes = plt.subplots(1, n_clusters, figsize=figsize)
+    
+    # Handle case of single cluster
+    if n_clusters == 1:
+        axes = [axes]
+    
+    # Plot each cluster in its own subplot
+    for idx, cluster_id in enumerate(unique_clusters):
+        ax = axes[idx]
+        
+        # Create a binary column: 1 if in this cluster, 0 otherwise
+        map_data_clusters['in_cluster'] = (map_data_clusters['cluster'] == cluster_id).astype(int)
+        
+        # Plot base map (all regions in light gray)
+        adm3_geo.plot(ax=ax, color='lightgray', edgecolor='black', linewidth=0.3, alpha=0.3)
+        
+        # Highlight regions in this cluster
+        cluster_regions = map_data_clusters[map_data_clusters['cluster'] == cluster_id]
+        if len(cluster_regions) > 0:
+            cluster_regions.plot(ax=ax, color='steelblue', edgecolor='black', linewidth=0.5, alpha=0.6)
+        
+        # Add conflict status overlays with colored borders
+        for status, linewidth, color in [
+            ('Treatment', 3.0, 'red'),
+            ('Control', 3.0, 'blue')
+        ]:
+            status_regions = cluster_regions[cluster_regions['conflict_status'] == status]
+            if len(status_regions) > 0:
+                status_regions.boundary.plot(ax=ax, linewidth=linewidth, color=color, label=status, alpha=0.8)
+        
+        # Add ADM1 boundaries if provided
+        if adm1_geo is not None:
+            adm1_geo.boundary.plot(ax=ax, color='black', linewidth=1.5, alpha=0.5)
+        
+        # Calculate statistics for this cluster
+        n_total = len(cluster_regions)
+        n_treatment = len(cluster_regions[cluster_regions['conflict_status'] == 'Treatment'])
+        n_control = len(cluster_regions[cluster_regions['conflict_status'] == 'Control'])
+        
+        # Add title with statistics
+        ax.set_title(f'Cluster {cluster_id}\n{n_total} regions | Treatment: {n_treatment} | Control: {n_control}', 
+                     fontsize=12, fontweight='bold', pad=10)
+        ax.axis('off')
+        
+        # Add legend only to first subplot
+        if idx == 0:
+            ax.legend(loc='lower left', fontsize=9, framealpha=0.9)
+    
+    # Add overall title
+    fig.suptitle(title, fontsize=14, fontweight='bold', y=0.98)
+    
+    plt.tight_layout()
+    
+    # Print cluster summary
+    print("\nCluster Map Summary:")
+    print("="*80)
+    for cluster_id in unique_clusters:
+        cluster_data = map_data_clusters[map_data_clusters['cluster'] == cluster_id]
+        n_total = len(cluster_data)
+        n_treatment = len(cluster_data[cluster_data['conflict_status'] == 'Treatment'])
+        n_control = len(cluster_data[cluster_data['conflict_status'] == 'Control'])
+        print(f"Cluster {cluster_id}: {n_total} regions ({n_treatment} treatment, {n_control} control)")
+    print("\nLegend:")
+    print("  - Blue filled = Regions in cluster")
+    print("  - Red borders = Treatment regions (new conflict)")
+    print("  - Blue borders = Control regions (no/low conflict)")
+    
+    return fig, axes, map_data_clusters
