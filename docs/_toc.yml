@@ -13,11 +13,10 @@ parts:
         - file: notebooks/air-pollution/air_pollution_ethiopia.ipynb
         - file: notebooks/air-pollution/air_pollution.ipynb
         - file: notebooks/air-pollution/air_pollution_roads.ipynb
-      - file: notebooks/surveys/premise.ipynb
+      - file: notebooks/premise/survey.ipynb
       - file: notebooks/google-trends/ethiopia_eda.ipynb
       - file: notebooks/nighttime-lights/README.md
         sections:
-        - file: notebooks/nighttime-lights/nighttime-lights.ipynb
         - file: notebooks/nighttime-lights/nighttime-lights-collection2.ipynb
       - file: notebooks/conflict/conflict.md
         sections:
