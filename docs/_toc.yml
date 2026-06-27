@@ -23,13 +23,11 @@ parts:
         - file: notebooks/conflict/acled.ipynb
       - file: notebooks/agriculture/README.md
         sections:
-        - file: notebooks/agriculture/crop-productivity.ipynb
-        - file: notebooks/agriculture/diff-in-diff.ipynb
         - file: notebooks/agriculture/crop-productivity-update-2025.ipynb
-      - file: notebooks/combined_stats/city_comparison.ipynb
+        - file: notebooks/agriculture/difference-in-difference-results.ipynb
       - file: notebooks/combined_stats/conflict_impact.md
-        sections:
-        - file: notebooks/combined_stats/summary_stats.ipynb
+        # sections:
+        # - file: notebooks/combined_stats/summary_stats.ipynb
 
   - caption: Additional Resources
     chapters:
